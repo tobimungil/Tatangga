@@ -35,6 +35,7 @@
 		5E5F52A023117DC4002DC5F8 /* BeritaCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F529E23117DC4002DC5F8 /* BeritaCollectionViewCell.xib */; };
 		5E5F52A323118404002DC5F8 /* BeritaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F52A223118404002DC5F8 /* BeritaModel.swift */; };
 		5E5F52AA2312549A002DC5F8 /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F52A92312549A002DC5F8 /* RulesViewController.swift */; };
+		5E5F52AC231264CE002DC5F8 /* DalemKategoriViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F52AB231264CE002DC5F8 /* DalemKategoriViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		5E5F529E23117DC4002DC5F8 /* BeritaCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeritaCollectionViewCell.xib; sourceTree = "<group>"; };
 		5E5F52A223118404002DC5F8 /* BeritaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeritaModel.swift; sourceTree = "<group>"; };
 		5E5F52A92312549A002DC5F8 /* RulesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
+		5E5F52AB231264CE002DC5F8 /* DalemKategoriViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DalemKategoriViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			children = (
 				5E5F526E230FA070002DC5F8 /* ForumViewController.swift */,
 				5E5F52A92312549A002DC5F8 /* RulesViewController.swift */,
+				5E5F52AB231264CE002DC5F8 /* DalemKategoriViewController.swift */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				5E5F52A323118404002DC5F8 /* BeritaModel.swift in Sources */,
 				5E5F51ED230D24E2002DC5F8 /* AppDelegate.swift in Sources */,
 				5E5F5263230D5D60002DC5F8 /* BeritaViewController.swift in Sources */,
+				5E5F52AC231264CE002DC5F8 /* DalemKategoriViewController.swift in Sources */,
 				5E5F5271230FA07E002DC5F8 /* AkunViewController.swift in Sources */,
 				5E5F529F23117DC4002DC5F8 /* BeritaCollectionViewCell.swift in Sources */,
 			);
