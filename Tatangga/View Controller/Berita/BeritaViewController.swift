@@ -22,6 +22,7 @@ class BeritaViewController: UIViewController {
         let nibCell = UINib(nibName: beritaCollectionViewCell, bundle: nil)
         beritaCollection.register(nibCell, forCellWithReuseIdentifier: beritaCollectionViewCell)
         
+        
         beritaNavbar()
     }
     
@@ -46,7 +47,8 @@ extension UIViewController: UICollectionViewDelegate, UICollectionViewDataSource
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: beritaCollectionViewCell, for: indexPath) as! BeritaCollectionViewCell
-        
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 0.5
         return cell
     }
     

@@ -37,7 +37,7 @@
                     <view key="view" contentMode="scaleToFill" id="aQ4-JL-BSh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93547368050000002" green="0.34116882729999998" blue="0.299124467" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.97245341539999997" green="0.97261589770000001" blue="0.9724320769" alpha="1" colorSpace="deviceRGB"/>
                         <viewLayoutGuide key="safeArea" id="veb-08-wUa"/>
                     </view>
                     <navigationItem key="navigationItem" id="FVu-Pk-XTH"/>

@@ -8,23 +8,29 @@
 
 import UIKit
 
-class DalemKategoriViewController: UIViewController {
 
+    let forumCollectionViewCell = "ForumCollectionViewCell"
+
+class DalemKategoriViewController: UIViewController{
+
+    @IBOutlet weak var forumCollection: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //Register Custom Berita Cell
+        let nibCell = UINib(nibName: forumCollectionViewCell, bundle: nil)
+        forumCollection.register(nibCell, forCellWithReuseIdentifier: forumCollectionViewCell)
+        
+    }
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: forumCollectionViewCell, for: indexPath) as! ForumCollectionViewCell
+        cell.layer.borderColor = UIColor.darkGray.cgColor
+        cell.layer.borderWidth = 0.5
+        return cell
     }
-    */
-
 }
