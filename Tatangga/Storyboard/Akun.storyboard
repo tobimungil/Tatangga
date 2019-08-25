@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Os8-GO-rmH">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="1yt-KP-iLq">
+            <objects>
+                <navigationController id="Os8-GO-rmH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="akun-disabled" selectedImage="akun-enabled" id="YJB-TD-Bj8">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="L6h-nd-T78">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="fce-E4-llu" kind="relationship" relationship="rootViewController" id="bUc-8y-pzO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bir-yj-12H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-591" y="-7"/>
+        </scene>
+        <!--Akun View Controller-->
+        <scene sceneID="Hmo-rw-F38">
+            <objects>
+                <viewController id="fce-E4-llu" customClass="AkunViewController" customModule="Tatangga" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hkA-hE-9Mm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="YDl-ux-BcU"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CdF-qO-G3H"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tix-Z5-qmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="447" y="-10"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="akun-disabled" width="48" height="48"/>
+        <image name="akun-enabled" width="48" height="48"/>
+    </resources>
+</document>

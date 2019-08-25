@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vtJ-KR-qvS">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="IqT-Px-gKX">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5k-US-lpF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="vtJ-KR-qvS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="add-button" selectedImage="add-button" id="1Ad-WF-EGh">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aak-5A-pRg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Ay8-yI-gfi" kind="relationship" relationship="rootViewController" id="wKo-zJ-2gh"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1194" y="-164"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vEe-yW-v1h">
+            <objects>
+                <viewController id="Ay8-yI-gfi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G1g-n7-RVE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4M7-6I-ege"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tjJ-yx-8tP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vc2-cf-hVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-141" y="-164"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="add-button" width="48" height="48"/>
+    </resources>
+</document>

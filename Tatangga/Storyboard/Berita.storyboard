@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Hf-hf-5mX">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="vrF-WH-PCC">
+            <objects>
+                <navigationController id="3Hf-hf-5mX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="berita-disabled" selectedImage="berita-enabled" id="KIu-oT-bGu">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kFn-Pr-Kdp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Yjk-6j-6rS" kind="relationship" relationship="rootViewController" id="2dM-Ed-l8F"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kp2-ne-5Wj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1080" y="72"/>
+        </scene>
+        <!--Berita View Controller-->
+        <scene sceneID="bRQ-gV-rs5">
+            <objects>
+                <viewController id="Yjk-6j-6rS" customClass="BeritaViewController" customModule="Tatangga" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0lg-eF-lf1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vxl-XD-NXT">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cii-Fd-aVX">
+                                    <size key="itemSize" width="400" height="527"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4co-qk-664">
+                                        <rect key="frame" x="7" y="0.0" width="400" height="527"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="527"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Yjk-6j-6rS" id="HbZ-X3-eM4"/>
+                                    <outlet property="delegate" destination="Yjk-6j-6rS" id="T8K-RC-eOT"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vxl-XD-NXT" firstAttribute="bottom" secondItem="2vX-Q3-wKg" secondAttribute="bottom" id="0vE-ST-MJA"/>
+                            <constraint firstItem="vxl-XD-NXT" firstAttribute="trailing" secondItem="2vX-Q3-wKg" secondAttribute="trailing" id="OAj-Pl-jab"/>
+                            <constraint firstItem="vxl-XD-NXT" firstAttribute="leading" secondItem="2vX-Q3-wKg" secondAttribute="leading" id="QrS-q8-xqw"/>
+                            <constraint firstItem="vxl-XD-NXT" firstAttribute="top" secondItem="2vX-Q3-wKg" secondAttribute="top" id="glC-q9-BDP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2vX-Q3-wKg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="wa3-cZ-R3v">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" id="4KV-Yr-bob"/>
+                            <barButtonItem title="Item" image="without notif" id="g8q-UN-qjd">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="beritaCollection" destination="vxl-XD-NXT" id="CUF-ks-g8B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hXP-65-GZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-226.08695652173915" y="73.660714285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="berita-disabled" width="48" height="48"/>
+        <image name="berita-enabled" width="48" height="48"/>
+        <image name="without notif" width="30" height="30"/>
+    </resources>
+</document>
