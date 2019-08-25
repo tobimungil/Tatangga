@@ -23,6 +23,17 @@ class DalemKategoriViewController: UIViewController{
         forumCollection.register(nibCell, forCellWithReuseIdentifier: forumCollectionViewCell)
         
     }
+    
+    func forumNavbar(){
+        let forumLabel = UILabel()
+        forumLabel.text = "Forum"
+        forumLabel.font = UIFont(name: "SF-Pro-Rounded-Bold", size: 23)
+        forumLabel.sizeToFit()
+        let leftItem = UIBarButtonItem(customView: forumLabel)
+        self.navigationItem.leftBarButtonItem = leftItem
+        
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
