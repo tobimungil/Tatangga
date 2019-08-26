@@ -69,42 +69,42 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="mya-Dc-rsZ">
-                                <rect key="frame" x="29" y="432" width="356" height="233"/>
+                                <rect key="frame" x="29" y="432" width="74" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="tzE-EE-GIZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="356" height="110"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="74" height="22"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkM-Tk-dq8">
-                                                <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="16" height="22"/>
                                                 <state key="normal" image="keamanan"/>
                                                 <connections>
                                                     <segue destination="7hv-gJ-zPH" kind="show" id="eeG-Qm-Jzg"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esb-xf-pOn">
-                                                <rect key="frame" x="123" y="0.0" width="110" height="110"/>
+                                                <rect key="frame" x="29" y="0.0" width="16" height="22"/>
                                                 <state key="normal" image="sampah"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSg-eo-B8N">
-                                                <rect key="frame" x="246" y="0.0" width="110" height="110"/>
+                                                <rect key="frame" x="58" y="0.0" width="16" height="22"/>
                                                 <state key="normal" image="ketertiban"/>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Flf-qC-wdt">
-                                        <rect key="frame" x="0.0" y="123" width="356" height="110"/>
+                                        <rect key="frame" x="0.0" y="35" width="74" height="22"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ow-sC-fg1">
-                                                <rect key="frame" x="0.0" y="0.0" width="112" height="110"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="18" height="22"/>
                                                 <state key="normal" image="infrastruktur"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PQb-G8-ync">
-                                                <rect key="frame" x="124" y="0.0" width="110" height="110"/>
+                                                <rect key="frame" x="30" y="0.0" width="16" height="22"/>
                                                 <state key="normal" image="personal"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBu-TG-JIu">
-                                                <rect key="frame" x="246" y="0.0" width="110" height="110"/>
+                                                <rect key="frame" x="58" y="0.0" width="16" height="22"/>
                                                 <state key="normal" image="lain-lain"/>
                                             </button>
                                         </subviews>

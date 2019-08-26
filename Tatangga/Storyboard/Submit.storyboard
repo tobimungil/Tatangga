@@ -41,7 +41,7 @@
         <!--Laporan-->
         <scene sceneID="vEe-yW-v1h">
             <objects>
-                <viewController title="Laporan" id="Ay8-yI-gfi" sceneMemberID="viewController">
+                <viewController title="Laporan" id="Ay8-yI-gfi" customClass="SubmitViewController" customModule="Tatangga" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G1g-n7-RVE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,6 +57,9 @@
                                 <rect key="frame" x="141" y="128" width="132" height="132"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="camera"/>
+                                <connections>
+                                    <action selector="fotoBtn:" destination="Ay8-yI-gfi" eventType="touchUpInside" id="YTK-Mr-vZ8"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Foto akan membuat laporanmu menjadi lebih jelas (opsional)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJh-2a-Te6">
                                 <rect key="frame" x="81" y="319" width="252" height="51"/>
@@ -77,14 +80,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxL-TG-D5m">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lokasi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxL-TG-D5m">
                                 <rect key="frame" x="42" y="483" width="331" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTh-Wt-azM">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Judul Laporan" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTh-Wt-azM">
                                 <rect key="frame" x="42" y="533" width="331" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -104,6 +107,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ay8-yI-gfi" id="Q6t-qj-3fz"/>
+                                </connections>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yI-Dv-ERM">
                                 <rect key="frame" x="42" y="724" width="331" height="38"/>
@@ -119,6 +125,12 @@
                         <viewLayoutGuide key="safeArea" id="4M7-6I-ege"/>
                     </view>
                     <navigationItem key="navigationItem" title="Laporan" id="tjJ-yx-8tP"/>
+                    <connections>
+                        <outlet property="descTxt" destination="T3Z-p7-5xT" id="aXU-JU-8Wh"/>
+                        <outlet property="judulTxt" destination="fTh-Wt-azM" id="CPs-Wk-Hfj"/>
+                        <outlet property="kategoriPicker" destination="Z9J-RP-Izl" id="xs6-cB-7kI"/>
+                        <outlet property="lokasiTxt" destination="CxL-TG-D5m" id="5Bh-1P-f2A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vc2-cf-hVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

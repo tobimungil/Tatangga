@@ -8,23 +8,47 @@
 
 import UIKit
 
-class SubmitViewController: UIViewController {
+class SubmitViewController: UIViewController, UITextViewDelegate {
 
+    @IBOutlet weak var kategoriPicker: UITextField!
+    @IBOutlet weak var lokasiTxt: UITextField!
+    @IBOutlet weak var judulTxt: UITextField!
+    @IBOutlet weak var descTxt: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        descTxt.text = "Deskripsi"
+        descTxt.textColor = UIColor.lightGray
+        
+        setupTxtField()
+        textViewDidBeginEditing(descTxt)
+        textViewDidEndEditing(descTxt)
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //Setup Text View Attributes
+    func setupTxtField(){
+        self.descTxt.layer.borderColor = UIColor.lightGray.cgColor
+        self.descTxt.layer.borderWidth = 0.5
+        self.descTxt.layer.cornerRadius = 5
     }
-    */
-
+    @IBAction func fotoBtn(_ sender: UIButton) {
+        
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Deskripsi"
+            textView.textColor = UIColor.lightGray
+        }
+    }
 }
