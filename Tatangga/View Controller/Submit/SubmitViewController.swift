@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SubmitViewController: UIViewController, UITextViewDelegate {
+class SubmitViewController: UIViewController, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    
+    var selectedKategori: String?
+    var kategoriTypes = ["Sampah", "Keamanan", "Ketertiban", "Infrastruktur", "Personal", "Lain-lain"]
 
     @IBOutlet weak var kategoriPicker: UITextField!
     @IBOutlet weak var lokasiTxt: UITextField!
@@ -23,9 +27,51 @@ class SubmitViewController: UIViewController, UITextViewDelegate {
         textViewDidBeginEditing(descTxt)
         textViewDidEndEditing(descTxt)
         
+        createPickerView()
+        dismissPickerView()
+        
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return kategoriTypes.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return kategoriTypes[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedKategori = kategoriTypes[row]
+        kategoriPicker.text = selectedKategori
+    }
+    
+    func createPickerView(){
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        
+        kategoriPicker.inputView = pickerView
+    }
+    
+    func dismissPickerView(){
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(self.dismissKeyboard))
+        toolBar.setItems([doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        kategoriPicker.inputAccessoryView = toolBar
+    }
+    
+    @objc func dismissKeyboard(){
+        view.endEditing(true)
     }
     
     //Setup Text View Attributes
