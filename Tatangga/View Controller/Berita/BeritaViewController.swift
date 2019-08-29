@@ -8,7 +8,7 @@
 
 import UIKit
 
-    let beritaCollectionViewCell = "BeritaCollectionViewCell"
+let beritaCollectionViewCell = "BeritaCollectionViewCell"
 
 class BeritaViewController: UIViewController {
 
