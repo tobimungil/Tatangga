@@ -91,11 +91,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Button" image="thumbs-up"/>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHm-3I-wQ0">
-                        <rect key="frame" x="335" y="496" width="35" height="35"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Button" image="thumbs-down"/>
-                    </button>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,7 +102,6 @@
     <resources>
         <image name="dummy-avatar" width="50" height="50"/>
         <image name="dummy-berita" width="415" height="250"/>
-        <image name="thumbs-down" width="32" height="32"/>
         <image name="thumbs-up" width="32" height="32"/>
     </resources>
 </document>
