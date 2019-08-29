@@ -16,7 +16,7 @@ enum RemoteRecords {
 enum RemotePost {
     static let titlePost = "titlePost"
     static let descriptionPost = "descriptionPost"
-    static let photoPost = "photoPost"
+    static let photoPost = "Photo"
     static let thumbsUp = "thumbsUp"
     static let thumbsDown = "thumbsDown"
 }

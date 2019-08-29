@@ -11,7 +11,7 @@ import UIKit
 
     let forumCollectionViewCell = "ForumCollectionViewCell"
 
-class DalemKategoriViewController: UIViewController{
+class DalemKategoriViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var forumCollection: UICollectionView!
     
@@ -34,11 +34,11 @@ class DalemKategoriViewController: UIViewController{
         
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: forumCollectionViewCell, for: indexPath) as! ForumCollectionViewCell
         cell.layer.borderColor = UIColor.darkGray.cgColor
         cell.layer.borderWidth = 0.5

@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CloudKit
 
 class AkunViewController: UIViewController {
 
+     var userRecord = [CKRecord]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,14 +20,33 @@ class AkunViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func authentication() {
+        for index in 1...userRecord.count {
+            let user = userRecord[index - 1]
+            let email = user[RemoteUser.email] as! String
+            let password = user[RemoteUser.password] as! String
+            OperationQueue.main.addOperation {
+                //                if (email == self.edtEmail.text && password == self.edtPassword.text) {
+                // When Data Email & Password Input == Database data
+                // Success
+                //                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                //                    let viewCon = storyBoard.instantiateViewController(withIdentifier: "mainTabBar")
+                //                    self.present(viewCon, animated: true, completion: nil)
+                //                    UserDefaults.standard.set(true, forKey: "isLogin")
+                //                    UserDefaults.standard.set(String(user.recordID.recordName), forKey: "recordNameUser")
+                //                    let archivedData = NSMutableData()
+                //                    do {
+                //                        let archiver = try NSKeyedArchiver.archivedData(withRootObject: user, requiringSecureCoding: true)
+                //                        let userDefaults = UserDefaults.standard
+                //                        userDefaults.set(archiver, forKey: "use rRecord")
+                //                        userDefaults.synchronize()
+                //                    } catch {
+                //                        print(error)
+                //                    }
+                //                } else {
+                // Error Login
+                //                }
+            }
+        }
     }
-    */
-
 }

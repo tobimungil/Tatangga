@@ -7,23 +7,85 @@
 //
 
 import UIKit
+import CloudKit
 
 let beritaCollectionViewCell = "BeritaCollectionViewCell"
 
 class BeritaViewController: UIViewController {
 
     @IBOutlet weak var beritaCollection: UICollectionView!
+    var userData: CKRecord!
+    var postRecordData = [CKRecord]()
+    let recordName = UserDefaults.standard.string(forKey: "recordNameUser")
     
+    //  Casue Account Authentication not ready yet => isLogin Manually
+    
+//    let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
+    let islogin = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Register Custom Berita Cell
+        setView()
+        getData()
+    }
+    
+    func setView() {
         let nibCell = UINib(nibName: beritaCollectionViewCell, bundle: nil)
         beritaCollection.register(nibCell, forCellWithReuseIdentifier: beritaCollectionViewCell)
-        
-        
+        beritaCollection.dataSource = self
         beritaNavbar()
+    }
+    
+    func getData() {
+        
+        // GET POST DATA
+        let predicate = NSPredicate(value: true)
+        let queryPost = CKQuery(recordType: RemoteRecords.post, predicate: predicate)
+        if islogin {
+            CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryPost, inZoneWith: nil) {
+                records, error in
+                if error != nil {
+                    print(error!.localizedDescription)
+                } else {
+                    guard let records = records else { return }
+                    for record in records {
+                        self.postRecordData.append(record)
+                    }
+                    OperationQueue.main.addOperation {
+                        self.beritaCollection.reloadData()
+                    }
+                }
+            }
+        }
+        
+        // CHECK GROUP USER
+        
+        guard recordName != nil else { return }
+        let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName!))
+        let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: predicateLogin)
+        print(islogin)
+        if islogin {
+            if (recordName != nil) {
+                CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
+                    record, error in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    } else {
+                        guard let record = record else { return }
+                        let data = record[0]
+                        self.userData = record[0]
+                        let dataGroup = data["Group"]
+                        if dataGroup != nil {
+                            print(data["Group"])
+                        } else {
+                            print("Not OK")
+                        }
+                    }
+                }
+            }
+        }
     }
     
     // Setup Custom Berita Navigation Bar Title
@@ -40,15 +102,32 @@ class BeritaViewController: UIViewController {
 }
 
 //Code buat Collection View
-extension UIViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        var itemCount: Int?
+        if islogin {
+            itemCount = self.postRecordData.count
+        } else {
+            itemCount = 3
+        }
+        return itemCount!
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: beritaCollectionViewCell, for: indexPath) as! BeritaCollectionViewCell
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 0.5
+        if islogin {
+            let dataPost = postRecordData[indexPath.row]
+            print(dataPost)
+            cell.lblPostTitle.text = dataPost[RemotePost.titlePost]
+            cell.lblPostDescription.text = dataPost[RemotePost.descriptionPost]
+            if let asset = dataPost[RemotePost.photoPost] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!) {
+                cell.imgPost.image = UIImage(data: data)
+            }
+        } else {
+            cell.layer.borderColor = UIColor.black.cgColor
+            cell.layer.borderWidth = 0.5
+        }
         return cell
     }
     

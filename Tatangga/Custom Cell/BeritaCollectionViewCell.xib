@@ -126,6 +126,17 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="144" height="265"/>
+            <connections>
+                <outlet property="imgPost" destination="uRw-GP-6tI" id="pNM-Zw-imm"/>
+                <outlet property="imgPostProfile" destination="ocd-ry-FNr" id="OR6-bs-brH"/>
+                <outlet property="lblDatePost" destination="ftr-KM-fnV" id="lB7-hD-Yit"/>
+                <outlet property="lblPostDescription" destination="4Qh-tE-Dca" id="T1P-J4-cwl"/>
+                <outlet property="lblPostStatusReport" destination="d4N-00-J3K" id="Vt3-eN-qy7"/>
+                <outlet property="lblPostStatusUser" destination="8sy-EB-5E7" id="oDE-Al-VWg"/>
+                <outlet property="lblPostTitle" destination="mva-zL-aBT" id="rwR-jL-wad"/>
+                <outlet property="lblPostTitleUser" destination="k5D-7c-xyx" id="v2Y-Jy-cfM"/>
+                <outlet property="lblThumbsUpCount" destination="Nc9-dc-j28" id="Lfv-9j-ue7"/>
+            </connections>
             <point key="canvasLocation" x="104.34782608695653" y="120.20089285714285"/>
         </collectionViewCell>
     </objects>
