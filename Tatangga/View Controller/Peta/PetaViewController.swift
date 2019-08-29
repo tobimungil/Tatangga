@@ -167,7 +167,8 @@ extension PetaViewController: MKMapViewDelegate {
         } else {
             let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
             annotationView.canShowCallout = true
-            if let annotationCategory = annotation.subtitle{
+            if var annotationCategory = annotation.subtitle {
+                annotationCategory?.append(contentsOf: "Buble")
                 annotationView.image = UIImage(named: annotationCategory ?? "")
             }
             return annotationView
