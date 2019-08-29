@@ -33,7 +33,7 @@
         <!--Berita View Controller-->
         <scene sceneID="bRQ-gV-rs5">
             <objects>
-                <viewController id="Yjk-6j-6rS" customClass="BeritaViewController" customModule="Tatangga" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainBerita" id="Yjk-6j-6rS" customClass="BeritaViewController" customModule="Tatangga" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0lg-eF-lf1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

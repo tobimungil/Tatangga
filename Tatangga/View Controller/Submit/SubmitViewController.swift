@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CloudKit
 
-class SubmitViewController: UIViewController, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     
     var selectedKategori: String?
@@ -18,6 +19,14 @@ class SubmitViewController: UIViewController, UITextViewDelegate, UIPickerViewDa
     @IBOutlet weak var lokasiTxt: UITextField!
     @IBOutlet weak var judulTxt: UITextField!
     @IBOutlet weak var descTxt: UITextView!
+    @IBOutlet weak var btnPict: UIButton!
+    
+    var photoPreview: UIImage?
+    var imageEncoded64: String?
+    let documentsDirectoryPath:NSString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+    var imageURL: URL!
+    let tempImageName = "Image2.jpg"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         descTxt.text = "Deskripsi"
@@ -30,9 +39,19 @@ class SubmitViewController: UIViewController, UITextViewDelegate, UIPickerViewDa
         createPickerView()
         dismissPickerView()
         
-        
+        setImage()
         
         // Do any additional setup after loading the view.
+    }
+    
+    func setImage() {
+        if let imageEncoded64 = self.imageEncoded64 {
+            let dataDecoded: NSData = NSData(base64Encoded: imageEncoded64, options: .ignoreUnknownCharacters)!
+            let decodedImage = UIImage(data: dataDecoded as Data)
+            let originalImage = decodedImage!.withRenderingMode(.alwaysOriginal)
+            btnPict.setImage(originalImage, for: .normal)
+            photoPreview = originalImage
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -79,9 +98,36 @@ class SubmitViewController: UIViewController, UITextViewDelegate, UIPickerViewDa
         self.descTxt.layer.borderColor = UIColor.lightGray.cgColor
         self.descTxt.layer.borderWidth = 0.5
         self.descTxt.layer.cornerRadius = 5
+        self.descTxt.delegate = self
+        self.lokasiTxt.delegate = self
     }
-    @IBAction func fotoBtn(_ sender: UIButton) {
+    
+    
+    @IBAction func btnAddPost(_ sender: UIButton) {
+        let record = CKRecord(recordType: RemoteRecords.post)
         
+        let imageData: Data = ((photoPreview?.jpegData(compressionQuality: 1.0)!)!)
+        let path: String = self.documentsDirectoryPath.appendingPathComponent(self.tempImageName)
+        try? imageData.write(to: URL(fileURLWithPath: path), options: [.atomic])
+        self.imageURL = URL(fileURLWithPath: path)
+        let file :CKAsset? = CKAsset(fileURL: URL(fileURLWithPath: path))
+        
+        record[RemotePost.titlePost] = judulTxt.text! as NSString
+        record[RemotePost.descriptionPost] = descTxt.text! as NSString
+        record["Photo"] = file
+        
+        CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.save(record) {
+            record, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewCon = storyBoard.instantiateViewController(withIdentifier: "main") 
+                DispatchQueue.main.async {
+                    self.present(viewCon, animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -96,5 +142,19 @@ class SubmitViewController: UIViewController, UITextViewDelegate, UIPickerViewDa
             textView.text = "Deskripsi"
             textView.textColor = UIColor.lightGray
         }
+    }
+}
+
+extension UIViewController: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+extension UIViewController: UITextViewDelegate {
+    public func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
     }
 }

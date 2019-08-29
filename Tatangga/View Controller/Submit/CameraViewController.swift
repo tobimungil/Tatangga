@@ -18,10 +18,14 @@ class CameraViewController: UIViewController
     var photoOutput: AVCapturePhotoOutput?
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
     var image: UIImage?
+    var urlEncodedImg: String?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // NOTED
+        navigationController?.navigationBar.isHidden = false
         
         setupCaptureSession()
         setupDevice()
@@ -43,6 +47,7 @@ class CameraViewController: UIViewController
         {
             let previewVC = segue.destination as! PreviewController
             previewVC.image = self.image
+            previewVC.encoded64Photo = urlEncodedImg
         }
     }
     
@@ -114,6 +119,8 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate
         if let imageData = photo.fileDataRepresentation()
         {
             image = UIImage(data: imageData)
+            urlEncodedImg = imageData.base64EncodedString()
+            image?.jpegData(compressionQuality: 0.5)
             performSegue(withIdentifier: "showPhotoSegue", sender: nil)
         }
     }

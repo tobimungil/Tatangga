@@ -58,7 +58,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="camera"/>
                                 <connections>
-                                    <action selector="fotoBtn:" destination="Ay8-yI-gfi" eventType="touchUpInside" id="YTK-Mr-vZ8"/>
                                     <segue destination="CKn-b9-wpt" kind="show" id="r4i-Mg-5Se"/>
                                 </connections>
                             </button>
@@ -120,6 +119,9 @@
                                 <state key="normal" title="Post">
                                     <color key="titleColor" red="0.97245341539999997" green="0.97261589770000001" blue="0.9724320769" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnAddPost:" destination="Ay8-yI-gfi" eventType="touchUpInside" id="HJw-Av-skN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -127,6 +129,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Laporan" id="tjJ-yx-8tP"/>
                     <connections>
+                        <outlet property="btnPict" destination="6FZ-76-vyF" id="gCj-8v-bgE"/>
                         <outlet property="descTxt" destination="T3Z-p7-5xT" id="aXU-JU-8Wh"/>
                         <outlet property="judulTxt" destination="fTh-Wt-azM" id="CPs-Wk-Hfj"/>
                         <outlet property="kategoriPicker" destination="Z9J-RP-Izl" id="xs6-cB-7kI"/>
@@ -216,7 +219,7 @@
                                 <state key="normal" title="Simpan"/>
                                 <connections>
                                     <action selector="saveButton:" destination="pJP-sS-cKR" eventType="touchUpInside" id="q54-1y-tVt"/>
-                                    <segue destination="vtJ-KR-qvS" kind="show" id="Y0m-pK-lH2"/>
+                                    <segue destination="vtJ-KR-qvS" kind="show" identifier="setPhoto" id="Y0m-pK-lH2"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pzj-1B-uXP">

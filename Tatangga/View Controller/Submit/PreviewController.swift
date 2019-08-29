@@ -12,8 +12,9 @@ class PreviewController: UIViewController
 {
 
     @IBOutlet weak var uiImageOurlet: UIImageView!
-    
     var image: UIImage!
+    var finalImageURL: URL? = nil
+    var encoded64Photo: String?
     
     override func viewDidLoad()
     {
@@ -30,7 +31,17 @@ class PreviewController: UIViewController
     
     @IBAction func saveButton(_ sender: Any)
     {
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-        //dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "setPhoto", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if image != nil {
+            if segue.identifier == "setPhoto" {
+                let nav = segue.destination as! UINavigationController
+                let formView = nav.topViewController as! SubmitViewController
+                formView.photoPreview = self.image
+                formView.imageEncoded64 = encoded64Photo
+            }
+        }
     }
 }

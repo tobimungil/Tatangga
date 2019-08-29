@@ -41,6 +41,8 @@
 		5E5F52B423129D82002DC5F8 /* RulesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F52B323129D82002DC5F8 /* RulesTableViewController.swift */; };
 		5F185B9423151BBD00E73125 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F185B9323151BBD00E73125 /* CameraViewController.swift */; };
 		5F185B9623151E8400E73125 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F185B9523151E8400E73125 /* PreviewController.swift */; };
+		88F780762317CFF70059F12A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F780752317CFF70059F12A /* Constants.swift */; };
+		88F7807A2317D2030059F12A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F780792317D2030059F12A /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,9 @@
 		5E5F52B323129D82002DC5F8 /* RulesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTableViewController.swift; sourceTree = "<group>"; };
 		5F185B9323151BBD00E73125 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		5F185B9523151E8400E73125 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
+		88F780752317CFF70059F12A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		88F780772317D19C0059F12A /* Tatangga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tatangga.entitlements; sourceTree = "<group>"; };
+		88F780792317D2030059F12A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88F7807A2317D2030059F12A /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +104,7 @@
 			children = (
 				5E5F51EB230D24E2002DC5F8 /* Tatangga */,
 				5E5F51EA230D24E2002DC5F8 /* Products */,
+				88F780782317D2030059F12A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +119,8 @@
 		5E5F51EB230D24E2002DC5F8 /* Tatangga */ = {
 			isa = PBXGroup;
 			children = (
+				88F780772317D19C0059F12A /* Tatangga.entitlements */,
+				88F780742317CFE50059F12A /* Helper */,
 				5E5F52A1231183F7002DC5F8 /* Model */,
 				5E5F529C23117D8A002DC5F8 /* Custom Cell */,
 				5E5F5202230D3A32002DC5F8 /* Storyboard */,
@@ -231,6 +240,22 @@
 			path = Submit;
 			sourceTree = "<group>";
 		};
+		88F780742317CFE50059F12A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				88F780752317CFF70059F12A /* Constants.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		88F780782317D2030059F12A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88F780792317D2030059F12A /* CloudKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -263,6 +288,14 @@
 				TargetAttributes = {
 					5E5F51E8230D24E2002DC5F8 = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -325,6 +358,7 @@
 				5E5F526F230FA070002DC5F8 /* ForumViewController.swift in Sources */,
 				5E5F52B2231276B3002DC5F8 /* ForumModel.swift in Sources */,
 				5E5F52A323118404002DC5F8 /* BeritaModel.swift in Sources */,
+				88F780762317CFF70059F12A /* Constants.swift in Sources */,
 				5E5F51ED230D24E2002DC5F8 /* AppDelegate.swift in Sources */,
 				5E5F5263230D5D60002DC5F8 /* BeritaViewController.swift in Sources */,
 				5E5F52AF23126B10002DC5F8 /* ForumCollectionViewCell.swift in Sources */,
@@ -478,8 +512,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tatangga/Tatangga.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9VA3VNPW9K;
+				DEVELOPMENT_TEAM = 9RKKB6DTX4;
 				INFOPLIST_FILE = Tatangga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -496,8 +531,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tatangga/Tatangga.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9VA3VNPW9K;
+				DEVELOPMENT_TEAM = 9RKKB6DTX4;
 				INFOPLIST_FILE = Tatangga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
