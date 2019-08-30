@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ForumViewController: UIViewController {
+class NotificationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

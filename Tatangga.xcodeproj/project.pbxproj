@@ -28,7 +28,7 @@
 		5E5F5269230E7176002DC5F8 /* Akun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F5268230E7176002DC5F8 /* Akun.storyboard */; };
 		5E5F526B230E87D0002DC5F8 /* Submit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F526A230E87D0002DC5F8 /* Submit.storyboard */; };
 		5E5F526D230FA065002DC5F8 /* PetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F526C230FA065002DC5F8 /* PetaViewController.swift */; };
-		5E5F526F230FA070002DC5F8 /* ForumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F526E230FA070002DC5F8 /* ForumViewController.swift */; };
+		5E5F526F230FA070002DC5F8 /* NotifactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F526E230FA070002DC5F8 /* NotifactionViewController.swift */; };
 		5E5F5271230FA07E002DC5F8 /* AkunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F5270230FA07E002DC5F8 /* AkunViewController.swift */; };
 		5E5F5273230FA08C002DC5F8 /* SubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F5272230FA08C002DC5F8 /* SubmitViewController.swift */; };
 		5E5F529F23117DC4002DC5F8 /* BeritaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F529D23117DC4002DC5F8 /* BeritaCollectionViewCell.swift */; };
@@ -70,7 +70,7 @@
 		5E5F5268230E7176002DC5F8 /* Akun.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Akun.storyboard; sourceTree = "<group>"; };
 		5E5F526A230E87D0002DC5F8 /* Submit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Submit.storyboard; sourceTree = "<group>"; };
 		5E5F526C230FA065002DC5F8 /* PetaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetaViewController.swift; sourceTree = "<group>"; };
-		5E5F526E230FA070002DC5F8 /* ForumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumViewController.swift; sourceTree = "<group>"; };
+		5E5F526E230FA070002DC5F8 /* NotifactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifactionViewController.swift; sourceTree = "<group>"; };
 		5E5F5270230FA07E002DC5F8 /* AkunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AkunViewController.swift; sourceTree = "<group>"; };
 		5E5F5272230FA08C002DC5F8 /* SubmitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitViewController.swift; sourceTree = "<group>"; };
 		5E5F529D23117DC4002DC5F8 /* BeritaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeritaCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 		5E5F52A623125364002DC5F8 /* Forum */ = {
 			isa = PBXGroup;
 			children = (
-				5E5F526E230FA070002DC5F8 /* ForumViewController.swift */,
+				5E5F526E230FA070002DC5F8 /* NotifactionViewController.swift */,
 				5E5F52B323129D82002DC5F8 /* RulesTableViewController.swift */,
 				5E5F52AB231264CE002DC5F8 /* DalemKategoriViewController.swift */,
 			);
@@ -358,7 +358,7 @@
 				5E5F526D230FA065002DC5F8 /* PetaViewController.swift in Sources */,
 				5E5F51F5230D24E2002DC5F8 /* Tatangga.xcdatamodeld in Sources */,
 				5F185B9623151E8400E73125 /* PreviewController.swift in Sources */,
-				5E5F526F230FA070002DC5F8 /* ForumViewController.swift in Sources */,
+				5E5F526F230FA070002DC5F8 /* NotifactionViewController.swift in Sources */,
 				5E5F52B2231276B3002DC5F8 /* ForumModel.swift in Sources */,
 				5E5F52A323118404002DC5F8 /* BeritaModel.swift in Sources */,
 				88F780762317CFF70059F12A /* Constants.swift in Sources */,
