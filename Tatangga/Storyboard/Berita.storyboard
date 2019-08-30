@@ -62,6 +62,9 @@
                                     <outlet property="delegate" destination="Yjk-6j-6rS" id="T8K-RC-eOT"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8RF-vt-Ts9">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -69,6 +72,8 @@
                             <constraint firstItem="vxl-XD-NXT" firstAttribute="trailing" secondItem="2vX-Q3-wKg" secondAttribute="trailing" id="OAj-Pl-jab"/>
                             <constraint firstItem="vxl-XD-NXT" firstAttribute="leading" secondItem="2vX-Q3-wKg" secondAttribute="leading" id="QrS-q8-xqw"/>
                             <constraint firstItem="vxl-XD-NXT" firstAttribute="top" secondItem="2vX-Q3-wKg" secondAttribute="top" id="glC-q9-BDP"/>
+                            <constraint firstItem="8RF-vt-Ts9" firstAttribute="centerY" secondItem="0lg-eF-lf1" secondAttribute="centerY" id="gzK-1D-E5T"/>
+                            <constraint firstItem="8RF-vt-Ts9" firstAttribute="centerX" secondItem="0lg-eF-lf1" secondAttribute="centerX" id="zN2-C2-Gip"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2vX-Q3-wKg"/>
                     </view>
@@ -82,6 +87,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="beritaCollection" destination="vxl-XD-NXT" id="CUF-ks-g8B"/>
+                        <outlet property="indicatorLoading" destination="8RF-vt-Ts9" id="VvY-Yh-eaC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXP-65-GZL" userLabel="First Responder" sceneMemberID="firstResponder"/>

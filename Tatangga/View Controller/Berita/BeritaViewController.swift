@@ -14,6 +14,8 @@ let beritaCollectionViewCell = "BeritaCollectionViewCell"
 class BeritaViewController: UIViewController {
 
     @IBOutlet weak var beritaCollection: UICollectionView!
+    @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!
+    
     var userData: CKRecord!
     var userPostData = [CKRecord]()
     var postRecordData = [CKRecord]()
@@ -42,6 +44,8 @@ class BeritaViewController: UIViewController {
     
     func getData() {
         
+        indicatorLoading.isHidden = false
+        indicatorLoading.startAnimating()
         // GET POST DATA
         let predicate = NSPredicate(value: true)
         let queryPost = CKQuery(recordType: RemoteRecords.post, predicate: predicate)
@@ -143,6 +147,7 @@ extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        self.indicatorLoading.isHidden = true
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: beritaCollectionViewCell, for: indexPath) as! BeritaCollectionViewCell
         if islogin {
             let dataPost = postRecordData[indexPath.row]
