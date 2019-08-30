@@ -15,8 +15,10 @@ class BeritaViewController: UIViewController {
 
     @IBOutlet weak var beritaCollection: UICollectionView!
     var userData: CKRecord!
+    var userPostData = [CKRecord]()
     var postRecordData = [CKRecord]()
     let recordName = UserDefaults.standard.string(forKey: "recordNameUser")
+    var key: String?
     
     //  Casue Account Authentication not ready yet => isLogin Manually
     
@@ -52,13 +54,17 @@ class BeritaViewController: UIViewController {
                     guard let records = records else { return }
                     for record in records {
                         self.postRecordData.append(record)
-                    }
-                    OperationQueue.main.addOperation {
-                        self.beritaCollection.reloadData()
+                        let user = record.object(forKey: "User") as! CKRecord.Reference
+                        self.key = user.recordID.recordName
+                        OperationQueue.main.addOperation {
+                            self.getDataUser(self.key!)
+                            print(self.key)
+                        }
                     }
                 }
             }
         }
+        
         
         // CHECK GROUP USER
         
@@ -78,13 +84,36 @@ class BeritaViewController: UIViewController {
                         self.userData = record[0]
                         let dataGroup = data["Group"]
                         if dataGroup != nil {
-                            print(data["Group"])
+//                            print(data["Group"])
                         } else {
                             print("Not OK")
                         }
                     }
                 }
             }
+        }
+    }
+    
+    func getDataUser(_ recordName: String) {
+        let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName))
+        let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: predicateLogin)
+        print(islogin)
+        if islogin {
+//            if (recordName != nil) {
+                CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
+                    record, error in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    } else {
+                        guard let record = record else { return }
+                        self.userPostData.append(record.first!)
+                        DispatchQueue.main.async {
+                            self.beritaCollection.reloadData()
+                        }
+                        print(record)
+                    }
+                }
+//            }
         }
     }
     
@@ -114,20 +143,28 @@ extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: beritaCollectionViewCell, for: indexPath) as! BeritaCollectionViewCell
         if islogin {
             let dataPost = postRecordData[indexPath.row]
-            print(dataPost)
+            if userPostData.count > 0 && indexPath.row < userPostData.count {
+                let dataUserPost = userPostData[indexPath.row]
+                cell.lblPostTitleUser.text = dataUserPost[RemoteUser.fullName]
+                cell.lblPostStatusUser.text = dataUserPost[RemoteUser.status]
+            }
+            cell.lblPostStatusUser.text = dataPost[RemotePost.statusReport]
             cell.lblPostTitle.text = dataPost[RemotePost.titlePost]
             cell.lblPostDescription.text = dataPost[RemotePost.descriptionPost]
+            
+            
             if let asset = dataPost[RemotePost.photoPost] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!) {
                 cell.imgPost.image = UIImage(data: data)
             }
+            cell.lblDatePost.text = dateFormatter(date: dataPost.modificationDate!)
         } else {
             cell.layer.borderColor = UIColor.black.cgColor
             cell.layer.borderWidth = 0.5
         }
+        
         return cell
     }
     

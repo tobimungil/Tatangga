@@ -120,7 +120,7 @@ extension CameraViewController: AVCapturePhotoCaptureDelegate
         {
             image = UIImage(data: imageData)
             urlEncodedImg = imageData.base64EncodedString()
-            image?.jpegData(compressionQuality: 0.5)
+            image?.jpegData(compressionQuality: 0.25)
             performSegue(withIdentifier: "showPhotoSegue", sender: nil)
         }
     }

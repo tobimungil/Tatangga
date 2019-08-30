@@ -26,6 +26,11 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     let documentsDirectoryPath:NSString = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
     var imageURL: URL!
     let tempImageName = "Image2.jpg"
+    var userData: CKRecord!
+    
+    // It must be recordname from local data.
+    let recordName = "B8A45061-7CAB-47AD-9491-17EC0B1B2CD3"
+    let islogin = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,33 +106,63 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         self.descTxt.delegate = self
         self.lokasiTxt.delegate = self
     }
-    
-    
+
     @IBAction func btnAddPost(_ sender: UIButton) {
-        let record = CKRecord(recordType: RemoteRecords.post)
+//        getUserData()
+        let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName))
+        let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: predicateLogin)
+//        if islogin {
+//            if (recordName != nil) {
+                CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
+                    record, error in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    } else {
+                        guard let record = record else { return }
+                        self.userData = record[0]
+                    }
+                }
         
-        let imageData: Data = ((photoPreview?.jpegData(compressionQuality: 1.0)!)!)
-        let path: String = self.documentsDirectoryPath.appendingPathComponent(self.tempImageName)
-        try? imageData.write(to: URL(fileURLWithPath: path), options: [.atomic])
-        self.imageURL = URL(fileURLWithPath: path)
-        let file :CKAsset? = CKAsset(fileURL: URL(fileURLWithPath: path))
+//            }
+//        }
         
-        record[RemotePost.titlePost] = judulTxt.text! as NSString
-        record[RemotePost.descriptionPost] = descTxt.text! as NSString
-        record["Photo"] = file
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewCon = storyBoard.instantiateViewController(withIdentifier: "main")
         
-        CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.save(record) {
-            record, error in
-            if error != nil {
-                print(error!.localizedDescription)
-            } else {
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewCon = storyBoard.instantiateViewController(withIdentifier: "main") 
-                DispatchQueue.main.async {
-                    self.present(viewCon, animated: true, completion: nil)
+//        DispatchQueue.global(qos: .background).async {
+            Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+                let reference = CKRecord.Reference(record: self.userData, action: .none)
+                let record = CKRecord(recordType: RemoteRecords.post)
+                let imageData: Data = ((self.photoPreview?.jpegData(compressionQuality: 1.0)!)!)
+                let path: String = self.documentsDirectoryPath.appendingPathComponent(self.tempImageName)
+                try? imageData.write(to: URL(fileURLWithPath: path), options: [.atomic])
+                self.imageURL = URL(fileURLWithPath: path)
+                let file :CKAsset? = CKAsset(fileURL: URL(fileURLWithPath: path))
+                
+                record[RemotePost.titlePost] = self.judulTxt.text! as NSString
+                record[RemotePost.descriptionPost] = self.descTxt.text! as NSString
+                record[RemotePost.photoPost] = file
+                record[RemotePost.User] = reference
+                record[RemotePost.category] = self.kategoriPicker.text! as NSString
+                record[RemotePost.statusReport] = "Open" // Default
+                
+                CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.save(record) {
+                    record, error in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    } else {
+                        print("success")
+                        DispatchQueue.main.async {
+                            self.present(viewCon, animated: true, completion: nil)
+                        }
+                    }
                 }
             }
-        }
+//        }
+    }
+    
+    func getUserData() {
+        
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
