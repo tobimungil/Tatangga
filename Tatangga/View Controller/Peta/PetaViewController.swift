@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import CloudKit
 
 class PetaViewController: UIViewController {
 
@@ -16,6 +17,14 @@ class PetaViewController: UIViewController {
     
     var locationManager: CLLocationManager!
     var mapView: MKMapView!
+    //    let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
+    let islogin = true
+    
+    var userData: CKRecord!
+    var userPostData = [CKRecord]()
+    var postRecordData = [CKRecord]()
+    let recordName = UserDefaults.standard.string(forKey: "recordNameUser")
+    var key: String?
     
     let centerMapButton: UIButton = {
         let button = UIButton(type: .system)
@@ -51,10 +60,91 @@ class PetaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
         configureLocationManager()
         configureMapView()
         enableLocationServices()
         createInitAnnotation(locations: initLocations)
+    }
+    
+    func getData() {
+        if islogin {
+            // GET POST DATA
+            let predicate = NSPredicate(value: true)
+            let queryPost = CKQuery(recordType: RemoteRecords.post, predicate: predicate)
+            if islogin {
+                CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryPost, inZoneWith: nil) {
+                    records, error in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    } else {
+                        guard let records = records else { return }
+                        for record in records {
+                            self.postRecordData.append(record)
+                            let user = record.object(forKey: "User") as! CKRecord.Reference
+                            self.key = user.recordID.recordName
+                            OperationQueue.main.addOperation {
+                                self.getDataUser(self.key!)
+                                print(self.key)
+                            }
+                        }
+                    }
+                }
+            }
+            
+            
+            // CHECK GROUP USER
+            
+            guard recordName != nil else { return }
+            let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName!))
+            let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: predicateLogin)
+            print(islogin)
+            if islogin {
+                if (recordName != nil) {
+                    CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
+                        record, error in
+                        if error != nil {
+                            print(error!.localizedDescription)
+                        } else {
+                            guard let record = record else { return }
+                            let data = record[0]
+                            self.userData = record[0]
+                            let dataGroup = data["Group"]
+                            if dataGroup != nil {
+                                //                            print(data["Group"])
+                            } else {
+                                print("Not OK")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func getDataUser(_ recordName: String) {
+        let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName))
+        let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: predicateLogin)
+        print(islogin)
+        if islogin {
+            //            if (recordName != nil) {
+            CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
+                record, error in
+                if error != nil {
+                    print(error!.localizedDescription)
+                } else {
+                    guard let record = record else { return }
+                    self.userPostData.append(record.first!)
+                    DispatchQueue.main.async {
+                        // SET TO MAP
+                        // For Post use self.postRecordData["key"] = object to String
+                        // For UserPost use self.userRecordData
+                    }
+                    print(record)
+                }
+            }
+            //            }
+        }
     }
     
     func createAnnotation() {

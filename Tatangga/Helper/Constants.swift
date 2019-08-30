@@ -21,6 +21,8 @@ enum RemotePost {
     static let User = "User"
     static let category = "category"
     static let statusReport = "statusReport"
+    static let latitude = "latitude"
+    static let longitude = "longitude"
 }
 
 enum RemoteUser {

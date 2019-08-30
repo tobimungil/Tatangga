@@ -8,13 +8,17 @@
 
 import UIKit
 import CloudKit
+import MapKit
 
 class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     
     var selectedKategori: String?
     var kategoriTypes = ["Sampah", "Keamanan", "Ketertiban", "Infrastruktur", "Personal", "Lain-lain"]
-
+    var latitude: Double = 0
+    var longitude: Double = 0
+    var locationManager = CLLocationManager()
+    
     @IBOutlet weak var kategoriPicker: UITextField!
     @IBOutlet weak var lokasiTxt: UITextField!
     @IBOutlet weak var judulTxt: UITextField!
@@ -45,9 +49,22 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         dismissPickerView()
         
         setImage()
+        setLocation()
         
         // Do any additional setup after loading the view.
     }
+    
+    func setLocation() {
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    
     
     func setImage() {
         if let imageEncoded64 = self.imageEncoded64 {
@@ -145,6 +162,8 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 record[RemotePost.User] = reference
                 record[RemotePost.category] = self.kategoriPicker.text! as NSString
                 record[RemotePost.statusReport] = "Open" // Default
+                record[RemotePost.latitude] = self.latitude
+                record[RemotePost.longitude] = self.longitude
                 
                 CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.save(record) {
                     record, error in
@@ -158,7 +177,6 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                     }
                 }
             }
-//        }
     }
     
     func getUserData() {
@@ -191,5 +209,14 @@ extension UIViewController: UITextViewDelegate {
     public func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         textView.resignFirstResponder()
         return true
+    }
+}
+
+extension SubmitViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        var locValue: CLLocationCoordinate2D = manager.location!.coordinate
+        print("lat = \(locValue.latitude) , long = \(locValue.longitude) ")
+        latitude = locValue.latitude
+        longitude = locValue.longitude
     }
 }
