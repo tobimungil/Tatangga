@@ -165,6 +165,9 @@ extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.layer.borderWidth = 0.5
         }
         
+        cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.layer.borderWidth = 1
+        
         return cell
     }
     
