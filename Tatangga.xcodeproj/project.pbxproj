@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AAAB2E5231C14FC009C3FCF /* LoginAndSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AAAB2E4231C14FC009C3FCF /* LoginAndSignUp.storyboard */; };
+		3AAAB2E7231C1D67009C3FCF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAB2E6231C1D67009C3FCF /* LoginVC.swift */; };
+		3AAAB2E9231C1D81009C3FCF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAB2E8231C1D81009C3FCF /* SignUpVC.swift */; };
+		3AAAB2EB231C1D97009C3FCF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAB2EA231C1D97009C3FCF /* Extensions.swift */; };
 		5E5F51ED230D24E2002DC5F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F51EC230D24E2002DC5F8 /* AppDelegate.swift */; };
 		5E5F51F2230D24E2002DC5F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F51F0230D24E2002DC5F8 /* Main.storyboard */; };
 		5E5F51F5230D24E2002DC5F8 /* Tatangga.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F51F3230D24E2002DC5F8 /* Tatangga.xcdatamodeld */; };
@@ -47,6 +51,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3AAAB2E4231C14FC009C3FCF /* LoginAndSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginAndSignUp.storyboard; sourceTree = "<group>"; };
+		3AAAB2E6231C1D67009C3FCF /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		3AAAB2E8231C1D81009C3FCF /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		3AAAB2EA231C1D97009C3FCF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5E5F51E9230D24E2002DC5F8 /* Tatangga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tatangga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5F51EC230D24E2002DC5F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E5F51F1230D24E2002DC5F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -158,6 +166,7 @@
 				5E5F5268230E7176002DC5F8 /* Akun.storyboard */,
 				5E5F51F8230D24E4002DC5F8 /* LaunchScreen.storyboard */,
 				5E5F526A230E87D0002DC5F8 /* Submit.storyboard */,
+				3AAAB2E4231C14FC009C3FCF /* LoginAndSignUp.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -227,6 +236,8 @@
 		5E5F52A723125378002DC5F8 /* Akun */ = {
 			isa = PBXGroup;
 			children = (
+				3AAAB2E8231C1D81009C3FCF /* SignUpVC.swift */,
+				3AAAB2E6231C1D67009C3FCF /* LoginVC.swift */,
 				5E5F5270230FA07E002DC5F8 /* AkunViewController.swift */,
 			);
 			path = Akun;
@@ -245,6 +256,7 @@
 		88F780742317CFE50059F12A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3AAAB2EA231C1D97009C3FCF /* Extensions.swift */,
 				88F780752317CFF70059F12A /* Constants.swift */,
 				88EEF0122318176800B8C3F1 /* MethodHelper.swift */,
 			);
@@ -343,6 +355,7 @@
 				5E5F52B023126B10002DC5F8 /* ForumCollectionViewCell.xib in Resources */,
 				5E5F5245230D4C89002DC5F8 /* SF-Pro-Rounded-Medium.otf in Resources */,
 				5E5F5204230D4A2E002DC5F8 /* Berita.storyboard in Resources */,
+				3AAAB2E5231C14FC009C3FCF /* LoginAndSignUp.storyboard in Resources */,
 				5E5F5265230E7157002DC5F8 /* Peta.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +374,7 @@
 				5E5F526F230FA070002DC5F8 /* NotifactionViewController.swift in Sources */,
 				5E5F52B2231276B3002DC5F8 /* ForumModel.swift in Sources */,
 				5E5F52A323118404002DC5F8 /* BeritaModel.swift in Sources */,
+				3AAAB2E9231C1D81009C3FCF /* SignUpVC.swift in Sources */,
 				88F780762317CFF70059F12A /* Constants.swift in Sources */,
 				5E5F51ED230D24E2002DC5F8 /* AppDelegate.swift in Sources */,
 				5E5F5263230D5D60002DC5F8 /* BeritaViewController.swift in Sources */,
@@ -368,6 +382,8 @@
 				5E5F52AC231264CE002DC5F8 /* DalemKategoriViewController.swift in Sources */,
 				5E5F52B423129D82002DC5F8 /* RulesTableViewController.swift in Sources */,
 				5F185B9423151BBD00E73125 /* CameraViewController.swift in Sources */,
+				3AAAB2EB231C1D97009C3FCF /* Extensions.swift in Sources */,
+				3AAAB2E7231C1D67009C3FCF /* LoginVC.swift in Sources */,
 				88EEF0132318176800B8C3F1 /* MethodHelper.swift in Sources */,
 				5E5F5271230FA07E002DC5F8 /* AkunViewController.swift in Sources */,
 				5E5F529F23117DC4002DC5F8 /* BeritaCollectionViewCell.swift in Sources */,

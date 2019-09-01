@@ -17,6 +17,8 @@ class AkunViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let login = LoginVC()
+        navigationController?.pushViewController(login, animated: true)
     }
     
 
