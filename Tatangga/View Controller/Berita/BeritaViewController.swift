@@ -16,6 +16,7 @@ class BeritaViewController: UIViewController {
     @IBOutlet weak var beritaCollection: UICollectionView!
     @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!
     
+    let refreshControl = UIRefreshControl()
     var userData: CKRecord!
     var userPostData = [CKRecord]()
     var postRecordData = [CKRecord]()
@@ -40,6 +41,16 @@ class BeritaViewController: UIViewController {
         beritaCollection.register(nibCell, forCellWithReuseIdentifier: beritaCollectionViewCell)
         beritaCollection.dataSource = self
         beritaNavbar()
+        refreshControl.layer.zPosition = -1
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull down to refresh")
+        refreshControl.addTarget(self, action: #selector(pullToRefresh), for: UIControl.Event.valueChanged)
+        beritaCollection?.refreshControl = refreshControl
+    }
+    
+    @objc func pullToRefresh() {
+        getData()
+        beritaCollection.reloadData()
+        refreshControl.endRefreshing()
     }
     
     func getData() {
