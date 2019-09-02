@@ -62,7 +62,7 @@ class AkunViewController: UIViewController  {
 //        navigationController?.pushViewController(login, animated: true)
         // Do any additional setup after loading the view.
         navigationItem.title = "Akun"
-       // configureLogoutButton()
+        configureLogoutButton()
         
         view.addSubview(profilePhoto)
         profilePhoto.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 112, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 140, height: 140)
@@ -123,13 +123,13 @@ class AkunViewController: UIViewController  {
     @objc func handleLogout(){
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Keluar", style: .destructive, handler: { (_) in
-            
+//
             do {
-                //try Auth.auth().signOut()
-//                let loginVC = LoginVC()
-//                let navController = UINavigationController(rootViewController: loginVC)
-//                self.present(navController, animated: true, completion: nil)
-                
+//                //try Auth.auth().signOut()
+////                let loginVC = LoginVC()
+////                let navController = UINavigationController(rootViewController: loginVC)
+////                self.present(navController, animated: true, completion: nil)
+//
                 let loginVC = LoginVC()
                 self.navigationController?.pushViewController(loginVC, animated: true)
             } catch {
@@ -142,8 +142,6 @@ class AkunViewController: UIViewController  {
     
     func configureLogoutButton() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Keluar", style: .plain, target: self, action: #selector(handleLogout))
-        let edit = LoginVC()
-        navigationController?.pushViewController(edit, animated: true)
     }
     func authentication() {
         for index in 1...userRecord.count {
