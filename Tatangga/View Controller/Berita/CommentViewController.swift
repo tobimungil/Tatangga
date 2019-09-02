@@ -8,11 +8,14 @@
 
 import UIKit
 
-class CommentViewController: UIViewController {
+class CommentViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    let commentCollectionViewCell = "CommentCollectionViewCell"
+    
+    @IBOutlet weak var commentCollection: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setView()
         // Do any additional setup after loading the view.
     }
     
@@ -24,8 +27,19 @@ class CommentViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
-    
+    func setView(){
+        let nibCell = UINib(nibName: commentCollectionViewCell, bundle: nil)
+        commentCollection.register(nibCell, forCellWithReuseIdentifier: commentCollectionViewCell)
+    }
 
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: commentCollectionViewCell, for: indexPath) as! CommentCollectionViewCell
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
     /*
     // MARK: - Navigation
 
