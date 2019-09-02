@@ -63,7 +63,7 @@
         <!--Popup View Controller-->
         <scene sceneID="8nx-uV-eJC">
             <objects>
-                <viewController id="r9U-uH-Fa3" customClass="PopupViewController" customModule="Tatangga" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="popupVC" id="r9U-uH-Fa3" customClass="PopupViewController" customModule="Tatangga" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="veN-mZ-x6h">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,7 +178,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.49502354452054792" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tlH-Ze-Icz" firstAttribute="leading" secondItem="afk-AV-2i1" secondAttribute="leading" constant="26" id="KLD-o7-3dY"/>
                             <constraint firstItem="afk-AV-2i1" firstAttribute="bottom" secondItem="tlH-Ze-Icz" secondAttribute="bottom" constant="223" id="Noa-b0-W97"/>

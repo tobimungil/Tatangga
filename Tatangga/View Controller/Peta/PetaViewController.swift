@@ -294,7 +294,10 @@ extension PetaViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView)
     {
-        performSegue(withIdentifier: "mapPopUp", sender: nil)
+        let nav = self.storyboard?.instantiateViewController(withIdentifier: "popupVC")
+        nav!.modalTransitionStyle = .crossDissolve
+        nav!.modalPresentationStyle = .overCurrentContext
+        self.present(nav!, animated: true, completion: nil)
         //Segue
         //        if let annotationTitle = view.annotation?.title
         //        {
@@ -307,13 +310,7 @@ extension PetaViewController: MKMapViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "mapPopUp"{
-            let nav = segue.destination as! UINavigationController
-            nav.modalTransitionStyle = .crossDissolve
-            nav.modalPresentationStyle = .overCurrentContext
-            let popupView = nav.topViewController as! PopupViewController
-            
-        }
+        
     }
     
 }
