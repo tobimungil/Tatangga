@@ -73,15 +73,6 @@ class LoginVC: UIViewController {
         
         return button
     }()
-    let backButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("<Back", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-        button.layer.cornerRadius = 5
-        button.layer.borderColor = UIColor.black.cgColor
-        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
-        return button
-    }()
     
     let aksesSemuaFiturLabel: UILabel = {
         let label = UILabel()
@@ -118,8 +109,7 @@ class LoginVC: UIViewController {
         view.addSubview(passwordTextField)
         passwordTextField.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 464, paddingLeft: 32, paddingBottom: 0, paddingRight: 32, width: 350, height: 45)
         
-        view.addSubview(backButton)
-        backButton.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 44, paddingLeft: 28, paddingBottom: 0, paddingRight: 340, width: 100, height: 27)
+       
         
     }
     @objc func handleShowSignUp(){
@@ -150,7 +140,7 @@ class LoginVC: UIViewController {
 //            mainTabVC.configureViewControllers()
 //            self.dismiss(animated: true, completion: nil)
 //        }
-        let masuk = BeritaViewController()
+        let masuk = AkunViewController()
         navigationController?.pushViewController(masuk, animated: true)
     }
     

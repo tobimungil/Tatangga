@@ -11,6 +11,8 @@
 		3AAAB2E7231C1D67009C3FCF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAB2E6231C1D67009C3FCF /* LoginVC.swift */; };
 		3AAAB2E9231C1D81009C3FCF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAB2E8231C1D81009C3FCF /* SignUpVC.swift */; };
 		3AAAB2EB231C1D97009C3FCF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAB2EA231C1D97009C3FCF /* Extensions.swift */; };
+		3AAAB2F3231CD3B0009C3FCF /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAB2F2231CD3B0009C3FCF /* EditProfileController.swift */; };
+		3AAAB2F5231CDD46009C3FCF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAB2F4231CDD46009C3FCF /* User.swift */; };
 		5E5F51ED230D24E2002DC5F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F51EC230D24E2002DC5F8 /* AppDelegate.swift */; };
 		5E5F51F2230D24E2002DC5F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F51F0230D24E2002DC5F8 /* Main.storyboard */; };
 		5E5F51F5230D24E2002DC5F8 /* Tatangga.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F51F3230D24E2002DC5F8 /* Tatangga.xcdatamodeld */; };
@@ -55,6 +57,8 @@
 		3AAAB2E6231C1D67009C3FCF /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		3AAAB2E8231C1D81009C3FCF /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		3AAAB2EA231C1D97009C3FCF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3AAAB2F2231CD3B0009C3FCF /* EditProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileController.swift; sourceTree = "<group>"; };
+		3AAAB2F4231CDD46009C3FCF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5E5F51E9230D24E2002DC5F8 /* Tatangga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tatangga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5F51EC230D24E2002DC5F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E5F51F1230D24E2002DC5F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 			children = (
 				5E5F52A223118404002DC5F8 /* BeritaModel.swift */,
 				5E5F52B1231276B3002DC5F8 /* ForumModel.swift */,
+				3AAAB2F4231CDD46009C3FCF /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				3AAAB2E8231C1D81009C3FCF /* SignUpVC.swift */,
 				3AAAB2E6231C1D67009C3FCF /* LoginVC.swift */,
 				5E5F5270230FA07E002DC5F8 /* AkunViewController.swift */,
+				3AAAB2F2231CD3B0009C3FCF /* EditProfileController.swift */,
 			);
 			path = Akun;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 			files = (
 				5E5F5273230FA08C002DC5F8 /* SubmitViewController.swift in Sources */,
 				5E5F526D230FA065002DC5F8 /* PetaViewController.swift in Sources */,
+				3AAAB2F3231CD3B0009C3FCF /* EditProfileController.swift in Sources */,
 				5E5F51F5230D24E2002DC5F8 /* Tatangga.xcdatamodeld in Sources */,
 				5F185B9623151E8400E73125 /* PreviewController.swift in Sources */,
 				5E5F526F230FA070002DC5F8 /* NotifactionViewController.swift in Sources */,
@@ -376,6 +383,7 @@
 				5E5F52A323118404002DC5F8 /* BeritaModel.swift in Sources */,
 				3AAAB2E9231C1D81009C3FCF /* SignUpVC.swift in Sources */,
 				88F780762317CFF70059F12A /* Constants.swift in Sources */,
+				3AAAB2F5231CDD46009C3FCF /* User.swift in Sources */,
 				5E5F51ED230D24E2002DC5F8 /* AppDelegate.swift in Sources */,
 				5E5F5263230D5D60002DC5F8 /* BeritaViewController.swift in Sources */,
 				5E5F52AF23126B10002DC5F8 /* ForumCollectionViewCell.swift in Sources */,
