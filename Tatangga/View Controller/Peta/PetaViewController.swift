@@ -50,13 +50,12 @@ class PetaViewController: UIViewController {
     }()
     // MARK: - Init
     
-    var initLocations = [
-        ["title": "New York, NY", "subtitle": "infrastruktur", "latitude": 40.713054, "longitude": -74.007228],
-        ["title": "Los Angeles, CA", "subtitle": "keamanan",  "latitude": 34.052238, "longitude": -118.243344],
-        ["title": "Chicago, IL", "subtitle": "keamanan",      "latitude": 41.883229, "longitude": -87.632398],
-        ["title": "Somewhere", "subtitle": "keamanan",  "latitude": 6.1754, "longitude": 106.8272]
-        
-    ]
+//    var initLocations = [
+////        ["title": "New York, NY", "subtitle": "infrastruktur", "latitude": 40.713054, "longitude": -74.007228],
+////        ["title": "Los Angeles, CA", "subtitle": "keamanan",  "latitude": 34.052238, "longitude": -118.243344],
+////        ["title": "Chicago, IL", "subtitle": "keamanan",      "latitude": 41.883229, "longitude": -87.632398],
+////        ["title": "Somewhere", "subtitle": "keamanan",  "latitude": 6.1754, "longitude": 106.8272]
+//    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +63,7 @@ class PetaViewController: UIViewController {
         configureLocationManager()
         configureMapView()
         enableLocationServices()
-        createInitAnnotation(locations: initLocations)
+//        createInitAnnotation(locations: initLocations)
     }
     
     func getData() {
@@ -81,17 +80,18 @@ class PetaViewController: UIViewController {
                         guard let records = records else { return }
                         for record in records {
                             self.postRecordData.append(record)
-                            let user = record.object(forKey: "User") as! CKRecord.Reference
-                            self.key = user.recordID.recordName
-                            OperationQueue.main.addOperation {
-                                self.getDataUser(self.key!)
-                                print(self.key)
-                            }
+//                            print(record)
+                            self.getLocationData()
+//                            let user = record.object(forKey: "User") as! CKRecord.Reference
+//                            self.key = user.recordID.recordName
+//                            OperationQueue.main.addOperation {
+//                                self.getDataUser(self.key!)
+//                                print(self.key)
+//                            }
                         }
                     }
                 }
             }
-            
             
             // CHECK GROUP USER
             
@@ -122,6 +122,19 @@ class PetaViewController: UIViewController {
         }
     }
     
+    func getLocationData() {
+        for index in 0...postRecordData.count - 1 {
+//            print("Ini index \(index)")
+//            print("Ini Count : \(postRecordData.count)")
+            let data = postRecordData[index]
+            let initLocations = [
+                ["title": data[RemotePost.titlePost]! as! String, "subtitle": data[RemotePost.category]! as! String, "latitude": data[RemotePost.latitude]! as! Double, "longitude": data[RemotePost.longitude]! as! Double],
+            ]
+//            print(data[RemotePost.latitude]!)
+            createInitAnnotation(locations: initLocations)
+        }
+    }
+    
     func getDataUser(_ recordName: String) {
         let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName))
         let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: predicateLogin)
@@ -140,7 +153,7 @@ class PetaViewController: UIViewController {
                         // For Post use self.postRecordData["key"] = object to String
                         // For UserPost use self.userRecordData
                     }
-                    print(record)
+//                    print(record)
                 }
             }
             //            }
@@ -152,16 +165,16 @@ class PetaViewController: UIViewController {
         annotation.title = "ketertiban"
         annotation.subtitle = "ketertiban"
         annotation.coordinate = CLLocationCoordinate2D(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
-        initLocations.append(["title": annotation.title!, "subtitle": annotation.subtitle!, "latitude": annotation.coordinate.latitude, "longitude": annotation.coordinate.longitude])
+//        initLocations.append(["title": annotation.title!, "subtitle": annotation.subtitle!, "latitude": annotation.coordinate.latitude, "longitude": annotation.coordinate.longitude])
         mapView.addAnnotation(annotation)
     }
-    
+
     func createAnnotation(annotationName: String) {
         let annotation = MKPointAnnotation()
         annotation.title = "personal"
         annotation.subtitle = "personal"
         annotation.coordinate = CLLocationCoordinate2D(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
-        initLocations.append(["title": annotation.title!, "subtitle": annotation.subtitle!, "latitude": annotation.coordinate.latitude, "longitude": annotation.coordinate.longitude])
+//        initLocations.append(["title": annotation.title!, "subtitle": annotation.subtitle!, "latitude": annotation.coordinate.latitude, "longitude": annotation.coordinate.longitude])
         mapView.addAnnotation(annotation)
         //        dump(initLocations)
     }
@@ -181,13 +194,13 @@ class PetaViewController: UIViewController {
     
     @objc func handleCenterLocation() {
         centerMapOnUserLocation()
-        createAnnotation()
+//        createAnnotation()
         //        centerMapButton.alpha = 0
         centerPinButton.alpha = 0
     }
     
     @objc func handleAnnotationButton() {
-        createAnnotation(annotationName: "profile")
+//        createAnnotation(annotationName: "profile")
         centerMapOnUserLocation()
         //        centerMapButton.alpha = 0
         centerPinButton.alpha = 0
