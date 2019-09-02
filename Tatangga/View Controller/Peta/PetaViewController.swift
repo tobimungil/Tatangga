@@ -282,7 +282,8 @@ extension PetaViewController: MKMapViewDelegate {
 //                annotationView.image = UIImage(named: annotationCategory ?? "sampahBuble")
 //            }
 //            let subtitle = annotation.subtitle!
-            if let imgTitle = UIImage(named: "\(annotation.subtitle)Buble") {
+//            print("Ini Annotation \(annotation.subtitle!)")
+            if let imgTitle = UIImage(named: "\(annotation.subtitle!)Buble") {
                 annotationView.image = imgTitle
             } else {
                 annotationView.image = UIImage(named: "Lain-lainBuble")

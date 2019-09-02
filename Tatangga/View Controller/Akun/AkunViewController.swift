@@ -11,7 +11,9 @@ import CloudKit
 
 class AkunViewController: UIViewController  {
 
-     var userRecord = [CKRecord]()
+    var userRecord = [CKRecord]()
+    
+    let islogin = false
     
     let profilePhoto: UIButton = {
         let button = UIButton(type: .system)
@@ -58,8 +60,12 @@ class AkunViewController: UIViewController  {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let login = LoginVC()
-//        navigationController?.pushViewController(login, animated: true)
+        if islogin {
+            
+        } else {
+            let login = LoginVC()
+            navigationController?.pushViewController(login, animated: true)
+        }
         // Do any additional setup after loading the view.
         navigationItem.title = "Akun"
         configureLogoutButton()
