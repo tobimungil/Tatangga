@@ -81,7 +81,11 @@ class PetaViewController: UIViewController {
                         for record in records {
                             self.postRecordData.append(record)
 //                            print(record)
+                            
                             self.getLocationData()
+                            print(record)
+//                            DispatchQueue.main.async {
+//                            }
 //                            let user = record.object(forKey: "User") as! CKRecord.Reference
 //                            self.key = user.recordID.recordName
 //                            OperationQueue.main.addOperation {
@@ -123,10 +127,9 @@ class PetaViewController: UIViewController {
     }
     
     func getLocationData() {
-        for index in 0...postRecordData.count - 1 {
+        for data in postRecordData {
 //            print("Ini index \(index)")
 //            print("Ini Count : \(postRecordData.count)")
-            let data = postRecordData[index]
             let initLocations = [
                 ["title": data[RemotePost.titlePost]! as! String, "subtitle": data[RemotePost.category]! as! String, "latitude": data[RemotePost.latitude]! as! Double, "longitude": data[RemotePost.longitude]! as! Double],
             ]
@@ -185,7 +188,11 @@ class PetaViewController: UIViewController {
             annotation.title = location["title"] as? String
             annotation.subtitle = location["subtitle"] as? String
             annotation.coordinate = CLLocationCoordinate2D(latitude: location["latitude"] as! Double, longitude: location["longitude"] as! Double)
-            mapView.addAnnotation(annotation)
+//            DispatchQueue.main.async {
+//            }
+            DispatchQueue.main.async {
+                self.mapView.addAnnotation(annotation)
+            }
         }
     }
     
@@ -270,9 +277,15 @@ extension PetaViewController: MKMapViewDelegate {
         } else {
             let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
             annotationView.canShowCallout = true
-            if var annotationCategory = annotation.subtitle {
-                annotationCategory?.append(contentsOf: "Buble")
-                annotationView.image = UIImage(named: annotationCategory ?? "")
+//            if var annotationCategory = annotation.subtitle {
+//                annotationCategory?.append(contentsOf: "Buble")
+//                annotationView.image = UIImage(named: annotationCategory ?? "sampahBuble")
+//            }
+//            let subtitle = annotation.subtitle!
+            if let imgTitle = UIImage(named: "\(annotation.subtitle)Buble") {
+                annotationView.image = imgTitle
+            } else {
+                annotationView.image = UIImage(named: "Lain-lainBuble")
             }
             return annotationView
         }
