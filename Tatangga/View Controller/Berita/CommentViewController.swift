@@ -38,7 +38,7 @@ class CommentViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 9
     }
     /*
     // MARK: - Navigation
