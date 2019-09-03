@@ -60,6 +60,14 @@
             </objects>
             <point key="canvasLocation" x="-1507" y="-64"/>
         </scene>
+        <!--Onboarding-->
+        <scene sceneID="ZuT-Nd-wdP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Onboarding" id="Jga-6O-AEZ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxX-O8-wBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2051" y="-974"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Ds3-AB-AAT">
             <objects>
