@@ -91,6 +91,11 @@ class AkunViewController: UIViewController  {
         segmentedControl.centerXAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+        getUserData()
+    }
+    
     // Use for getDataUser and Check Group
     func getUserData() {
         let recordName = UserDefaults.standard.string(forKey: "recordNameUser")

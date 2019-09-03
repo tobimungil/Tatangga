@@ -81,7 +81,7 @@ class LoginVC: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 12)
         return label
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -90,6 +90,10 @@ class LoginVC: UIViewController {
         
         // hide nav bar
         navigationController?.navigationBar.isHidden = true
+        // disable specific tabbar = akun tabbar
+        if tabBarController?.selectedIndex == 5 {
+            tabBarController?.tabBar.isUserInteractionEnabled
+        }
         
         //configureViewComponents()
         
@@ -176,7 +180,7 @@ class LoginVC: UIViewController {
                     let masuk = AkunViewController()
                     if self.navigationController != masuk {
                         DispatchQueue.main.async {
-                            self.navigationController?.pushViewController(masuk, animated: true)
+                            self.navigationController?.popViewController(animated: true)
                         }
                     }
                 } else {

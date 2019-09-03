@@ -26,6 +26,8 @@ class CameraViewController: UIViewController
         
         // NOTED
         navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.backgroundColor = .black
+        tabBarController?.tabBar.isHidden = true
         
         setupCaptureSession()
         setupDevice()
@@ -39,6 +41,7 @@ class CameraViewController: UIViewController
     {
         let settings = AVCapturePhotoSettings()
         photoOutput?.capturePhoto(with: settings, delegate: self as! AVCapturePhotoCaptureDelegate)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)

@@ -15,16 +15,23 @@ class BeritaViewController: UIViewController {
 
     @IBOutlet weak var beritaCollection: UICollectionView!
     @IBOutlet weak var indicatorLoading: UIActivityIndicatorView!
+    @IBOutlet weak var btnGrouJoin: UIButton!
+    @IBOutlet weak var lblGroup: UILabel!
     
     let refreshControl = UIRefreshControl()
     var userData: CKRecord!
     var userPostData = [CKRecord]()
     var postRecordData = [CKRecord]()
-    let recordName = UserDefaults.standard.string(forKey: "recordNameUser")
-    let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
+
     var key: String?
     
     //  Casue Account Authentication not ready yet => isLogin Manually
+    
+    override func viewDidAppear(_ animated: Bool) {
+        btnGrouJoin.isHidden = true
+        lblGroup.isHidden = true
+        getData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,9 +63,48 @@ class BeritaViewController: UIViewController {
     func getData() {
         indicatorLoading.isHidden = false
         indicatorLoading.startAnimating()
+        beritaCollection.isHidden = true
+        
+        // CHECK GROUP USER
+        let recordName = UserDefaults.standard.string(forKey: "recordNameUser")
+        let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
+        guard recordName != nil else { return }
+        let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName!))
+        let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: predicateLogin)
+        if islogin {
+            if (recordName != nil) {
+                CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
+                    record, error in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    } else {
+                        guard let record = record else { return }
+                        let data = record[0]
+                        self.userData = record[0]
+                        let dataGroup = data["Group"]
+                        if dataGroup != nil {
+                            UserDefaults.standard.set(true, forKey: "groupAvailable")
+                            self.getDataPost()
+                        } else {
+                            UserDefaults.standard.set(false, forKey: "groupAvailable")
+                            DispatchQueue.main.async {
+                                self.beritaCollection.isHidden = true
+                                self.btnGrouJoin.isHidden = false
+                                self.lblGroup.isHidden = false
+                                self.indicatorLoading.isHidden = true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func getDataPost() {
         // GET POST DATA
         let predicate = NSPredicate(value: true)
         let queryPost = CKQuery(recordType: RemoteRecords.post, predicate: predicate)
+        let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
         if islogin {
             CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryPost, inZoneWith: nil) {
                 records, error in
@@ -78,42 +124,16 @@ class BeritaViewController: UIViewController {
                 }
             }
         } else {
+            postRecordData.removeAll()
+            beritaCollection.isHidden = false
             beritaCollection.reloadData()
-        }
-        
-        
-        // CHECK GROUP USER
-        
-        guard recordName != nil else { return }
-        let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName!))
-        let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: predicateLogin)
-        print(islogin)
-        if islogin {
-            if (recordName != nil) {
-                CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
-                    record, error in
-                    if error != nil {
-                        print(error!.localizedDescription)
-                    } else {
-                        guard let record = record else { return }
-                        let data = record[0]
-                        self.userData = record[0]
-                        let dataGroup = data["Group"]
-                        if dataGroup != nil {
-//                            print(data["Group"])
-                        } else {
-                            print("Not OK")
-                        }
-                    }
-                }
-            }
         }
     }
     
     func getDataUser(_ recordName: String) {
         let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName))
         let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: predicateLogin)
-        print(islogin)
+        let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
         if islogin {
 //            if (recordName != nil) {
                 CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
@@ -124,6 +144,7 @@ class BeritaViewController: UIViewController {
                         guard let record = record else { return }
                         self.userPostData.append(record.first!)
                         DispatchQueue.main.async {
+                            self.beritaCollection.isHidden = false
                             self.beritaCollection.reloadData()
                         }
                         print(record)
@@ -167,6 +188,7 @@ extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var itemCount: Int?
+        let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
         if islogin {
             itemCount = self.postRecordData.count
         } else {
@@ -178,7 +200,12 @@ extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSo
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         self.indicatorLoading.isHidden = true
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: beritaCollectionViewCell, for: indexPath) as! BeritaCollectionViewCell
+        let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
         if islogin {
+//            if guard let postRecordData = postRecordData {
+//                
+//            }
+            print(postRecordData)
             let dataPost = postRecordData[indexPath.row]
             if userPostData.count > 0 && indexPath.row < userPostData.count {
                 let dataUserPost = userPostData[indexPath.row]

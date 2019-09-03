@@ -118,7 +118,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="beritaCollection" destination="vxl-XD-NXT" id="CUF-ks-g8B"/>
+                        <outlet property="btnGrouJoin" destination="zEF-IQ-Uns" id="kam-WF-MRd"/>
                         <outlet property="indicatorLoading" destination="8RF-vt-Ts9" id="VvY-Yh-eaC"/>
+                        <outlet property="lblGroup" destination="E4f-pt-0u2" id="IzZ-bg-Gjl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXP-65-GZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
