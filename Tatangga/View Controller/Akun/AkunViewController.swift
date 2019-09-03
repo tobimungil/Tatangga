@@ -17,6 +17,10 @@ class AkunViewController: UIViewController  {
     let profilePhoto: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "camera").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.layer.cornerRadius = button.frame.width / 2
+        button.layer.masksToBounds = true
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 2
         return button
     }()
     let userNameText: UILabel = {
