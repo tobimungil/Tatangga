@@ -170,12 +170,17 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     @objc func handleSignUp(){
-//        // properties
-//        guard let email = emailTextField.text else { return }
-//        guard let password = passwordTextField.text else { return }
-//        guard let fullName = fullNameTextField.text else { return }
-//        guard let username = userNameTextField.text?.lowercased() else { return }
-//
+        // properties
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let fullName = fullNameTextField.text else { return }
+        guard let username = userNameTextField.text?.lowercased() else { return }
+
+        let recordUser = CKRecord(recordType: RemoteRecords.user)
+        recordUser[RemoteUser.email] = email
+        recordUser[RemoteUser.fullName] = fullName
+        recordUser[RemoteUser.password] = password
+//        recordUser[RemoteUser.status] =
 //        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
 //
 //            // handle error
@@ -237,8 +242,8 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
 //                })
 //            })
 //        }
-        let masuk = BeritaViewController()
-        navigationController?.pushViewController(masuk, animated: true)
+//        let masuk = BeritaViewController()
+//        navigationController?.pushViewController(masuk, animated: true)
     }
     
 
