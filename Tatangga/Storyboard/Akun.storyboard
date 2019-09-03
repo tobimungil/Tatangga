@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Akun-->
         <scene sceneID="1yt-KP-iLq">
             <objects>
                 <navigationController id="Os8-GO-rmH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="akun-disabled" selectedImage="akun-enabled" id="YJB-TD-Bj8">
+                    <tabBarItem key="tabBarItem" title="Akun" image="akun-disabled" selectedImage="akun-enabled" id="YJB-TD-Bj8">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -48,7 +48,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="akun-disabled" width="48" height="48"/>
-        <image name="akun-enabled" width="48" height="48"/>
+        <image name="akun-disabled" width="26" height="26"/>
+        <image name="akun-enabled" width="26" height="26"/>
     </resources>
 </document>

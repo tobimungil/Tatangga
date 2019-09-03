@@ -18,11 +18,11 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Lapor-->
         <scene sceneID="IqT-Px-gKX">
             <objects>
                 <navigationController id="vtJ-KR-qvS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="add-button" selectedImage="add-button" id="1Ad-WF-EGh">
+                    <tabBarItem key="tabBarItem" title="Lapor" image="add-button" selectedImage="add-button" id="1Ad-WF-EGh">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -248,7 +248,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add-button" width="48" height="48"/>
+        <image name="add-button" width="26" height="26"/>
         <image name="camera" width="132" height="132"/>
     </resources>
 </document>

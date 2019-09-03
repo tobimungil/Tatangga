@@ -21,11 +21,11 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Peta-->
         <scene sceneID="RYY-Sy-CYE">
             <objects>
                 <navigationController id="sAh-up-Umw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="peta-disabled" selectedImage="peta-enabled" id="maR-WH-ATB">
+                    <tabBarItem key="tabBarItem" title="Peta" image="peta-disabled" selectedImage="peta-enabled" id="maR-WH-ATB">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -170,7 +170,7 @@
         <image name="dummy-avatar" width="50" height="50"/>
         <image name="dummy-berita" width="415" height="250"/>
         <image name="fail" width="32" height="32"/>
-        <image name="peta-disabled" width="48" height="48"/>
-        <image name="peta-enabled" width="48" height="48"/>
+        <image name="peta-disabled" width="26" height="26"/>
+        <image name="peta-enabled" width="26" height="26"/>
     </resources>
 </document>

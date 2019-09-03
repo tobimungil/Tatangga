@@ -44,4 +44,15 @@ class DalemKategoriViewController: UIViewController, UICollectionViewDelegate, U
         cell.layer.borderWidth = 0.5
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showComment", sender: nil)
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "showComment" {
+//            let nav = segue.destination as! UINavigationController
+//            let commentView = nav.topViewController as! ForumViewController
+//        }
+//    }
 }
