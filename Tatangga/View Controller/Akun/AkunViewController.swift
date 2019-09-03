@@ -168,6 +168,11 @@ class AkunViewController: UIViewController  {
 //                //try Auth.auth().signOut()
                 UserDefaults.standard.set(false, forKey: "isLogin")
                 let loginVC = LoginVC()
+//                guard let navigationController = self.navigationController else { return }
+//                var controllers = navigationController.viewControllers
+//                print(controllers.count)
+//                controllers.remove(at: controllers.count - 1)
+//                self.navigationController?.viewControllers = controllers
                 self.navigationController?.pushViewController(loginVC, animated: true)
             } catch {
                 print("Failed to sign out")

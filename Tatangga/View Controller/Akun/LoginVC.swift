@@ -110,7 +110,11 @@ class LoginVC: UIViewController {
         
         view.addSubview(passwordTextField)
         passwordTextField.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 464, paddingLeft: 32, paddingBottom: 0, paddingRight: 32, width: 350, height: 45)
-        
+        if (navigationController?.viewControllers.count)! > 1 {
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        } else {
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        }
        
         
     }
@@ -209,8 +213,6 @@ class LoginVC: UIViewController {
         stackView.distribution  = .fillEqually
 
         view.addSubview(stackView)
-
-
     }
 
 

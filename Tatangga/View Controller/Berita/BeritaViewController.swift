@@ -77,6 +77,8 @@ class BeritaViewController: UIViewController {
                     }
                 }
             }
+        } else {
+            beritaCollection.reloadData()
         }
         
         
