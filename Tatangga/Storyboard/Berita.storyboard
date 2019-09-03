@@ -21,11 +21,11 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Berita-->
         <scene sceneID="vrF-WH-PCC">
             <objects>
                 <navigationController id="3Hf-hf-5mX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="berita-disabled" selectedImage="berita-enabled" id="KIu-oT-bGu">
+                    <tabBarItem key="tabBarItem" title="Berita" image="berita-disabled" selectedImage="berita-enabled" id="KIu-oT-bGu">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -345,8 +345,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="berita-disabled" width="48" height="48"/>
-        <image name="berita-enabled" width="48" height="48"/>
+        <image name="berita-disabled" width="26" height="26"/>
+        <image name="berita-enabled" width="26" height="26"/>
         <image name="dalamproses" width="126" height="20"/>
         <image name="dummy-avatar" width="50" height="50"/>
         <image name="thumbs-down" width="32" height="32"/>

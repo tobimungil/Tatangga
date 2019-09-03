@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3AAAB2E5231C14FC009C3FCF /* LoginAndSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AAAB2E4231C14FC009C3FCF /* LoginAndSignUp.storyboard */; };
 		3AAAB2E7231C1D67009C3FCF /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAB2E6231C1D67009C3FCF /* LoginVC.swift */; };
 		3AAAB2E9231C1D81009C3FCF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAB2E8231C1D81009C3FCF /* SignUpVC.swift */; };
 		3AAAB2EB231C1D97009C3FCF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAB2EA231C1D97009C3FCF /* Extensions.swift */; };
@@ -64,7 +63,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3AAAB2E4231C14FC009C3FCF /* LoginAndSignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginAndSignUp.storyboard; sourceTree = "<group>"; };
 		3AAAB2E6231C1D67009C3FCF /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		3AAAB2E8231C1D81009C3FCF /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		3AAAB2EA231C1D97009C3FCF /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -202,7 +200,6 @@
 				5E5F5268230E7176002DC5F8 /* Akun.storyboard */,
 				5E5F51F8230D24E4002DC5F8 /* LaunchScreen.storyboard */,
 				5E5F526A230E87D0002DC5F8 /* Submit.storyboard */,
-				3AAAB2E4231C14FC009C3FCF /* LoginAndSignUp.storyboard */,
 				5EEBC22B231E628C0044DE36 /* Onboarding.storyboard */,
 			);
 			path = Storyboard;
@@ -413,7 +410,6 @@
 				5E5F52B023126B10002DC5F8 /* ForumCollectionViewCell.xib in Resources */,
 				5E5F5245230D4C89002DC5F8 /* SF-Pro-Rounded-Medium.otf in Resources */,
 				5E5F5204230D4A2E002DC5F8 /* Berita.storyboard in Resources */,
-				3AAAB2E5231C14FC009C3FCF /* LoginAndSignUp.storyboard in Resources */,
 				5E5F5265230E7157002DC5F8 /* Peta.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

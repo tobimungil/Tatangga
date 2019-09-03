@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Forum-->
         <scene sceneID="eCa-xr-5jH">
             <objects>
                 <navigationController id="CdO-uh-z9w" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="forum-disabled" selectedImage="forum-enabled" id="B5M-ip-ZnY">
+                    <tabBarItem key="tabBarItem" title="Forum" image="forum-disabled" selectedImage="forum-enabled" id="B5M-ip-ZnY">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -400,8 +400,8 @@
     <resources>
         <image name="Peraturan" width="374" height="105"/>
         <image name="dummy-berita" width="415" height="250"/>
-        <image name="forum-disabled" width="48" height="48"/>
-        <image name="forum-enabled" width="48" height="48"/>
+        <image name="forum-disabled" width="26" height="26"/>
+        <image name="forum-enabled" width="26" height="26"/>
         <image name="infrastruktur" width="110" height="110"/>
         <image name="keamanan" width="110" height="110"/>
         <image name="ketertiban" width="110" height="110"/>
