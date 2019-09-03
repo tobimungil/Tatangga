@@ -21,12 +21,10 @@ class BeritaViewController: UIViewController {
     var userPostData = [CKRecord]()
     var postRecordData = [CKRecord]()
     let recordName = UserDefaults.standard.string(forKey: "recordNameUser")
+    let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
     var key: String?
     
     //  Casue Account Authentication not ready yet => isLogin Manually
-    
-//    let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
-    let islogin = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,15 +146,12 @@ class BeritaViewController: UIViewController {
         data[RemotePost.thumbsUp] = thumbs as Double
         CKContainer.init(identifier: RemoteURL.url).publicCloudDatabase.save(data) {
         record, error in
-                        if error != nil {
-                            print(error!.localizedDescription)
-                        } else {
-                            print("Like berhasil update")
-                        }
-                    }
-                
-            
-        
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                print("Like berhasil update")
+            }
+        }
     }
 
 }
