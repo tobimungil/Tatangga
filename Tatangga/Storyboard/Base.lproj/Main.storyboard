@@ -40,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="-2083" y="-64"/>
         </scene>
-        <!--Notification-->
+        <!--Forum-->
         <scene sceneID="CNB-Tl-R5W">
             <objects>
-                <viewControllerPlaceholder storyboardName="Notification" id="KG9-Yn-kgB" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Forum" id="KG9-Yn-kgB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Notification" id="HUs-EH-QnQ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rzo-qy-wfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -115,7 +115,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Mm-XW-qoS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2051" y="-532"/>
+            <point key="canvasLocation" x="-1994" y="-518"/>
         </scene>
         <!--Berita View Controller-->
         <scene sceneID="NyJ-SP-ZRH">
