@@ -67,6 +67,9 @@
                                 <rect key="frame" x="19" y="427" width="110" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="keamanan"/>
+                                <connections>
+                                    <segue destination="I4p-5q-Egh" kind="show" id="3Wg-Zq-byS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrZ-4I-HFV">
                                 <rect key="frame" x="151" y="428" width="110" height="110"/>
@@ -132,6 +135,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back"/>
                                             </button>
+                                            <connections>
+                                                <segue destination="fO0-TN-k1W" kind="presentation" id="Fxd-06-qJV"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -327,6 +333,51 @@
             </objects>
             <point key="canvasLocation" x="1360.8695652173915" y="-7.3660714285714279"/>
         </scene>
+        <!--Forum-->
+        <scene sceneID="Yld-Bx-VRE">
+            <objects>
+                <viewController title="Forum" id="I4p-5q-Egh" customClass="DalemKategoriViewController" customModule="Tatangga" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IAA-kn-Dug">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YRY-km-sZE">
+                                <rect key="frame" x="0.0" y="87" width="414" height="723"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jw0-Bj-U0Y">
+                                    <size key="itemSize" width="414" height="192"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Dka-5d-VvC" customClass="ForumCollectionViewCell" customModule="Tatangga" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="192"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="192"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="I4p-5q-Egh" id="c1A-B6-3SU"/>
+                                    <outlet property="delegate" destination="I4p-5q-Egh" id="6cg-Dd-RNn"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Lug-Oc-eJC"/>
+                    </view>
+                    <connections>
+                        <outlet property="forumCollection" destination="YRY-km-sZE" id="h4n-ki-XHB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pIj-4e-vj2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2139.130434782609" y="-7.3660714285714279"/>
+        </scene>
     </scenes>
     <resources>
         <image name="back" width="24" height="24"/>
@@ -341,4 +392,7 @@
         <image name="rules" width="374" height="105"/>
         <image name="sampah" width="110" height="110"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fxd-06-qJV"/>
+    </inferredMetricsTieBreakers>
 </document>
