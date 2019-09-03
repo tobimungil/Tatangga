@@ -89,7 +89,10 @@
                             <constraint firstAttribute="width" constant="19" id="Tf6-Ib-AhX"/>
                             <constraint firstAttribute="height" constant="23" id="bWm-da-0fn"/>
                         </constraints>
-                        <state key="normal" title="Button" image="thumbs-up"/>
+                        <state key="normal" title="Button" image="fail"/>
+                        <connections>
+                            <action selector="btnLike:" destination="gTV-IL-0wX" eventType="touchUpInside" id="mxW-cX-Z00"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nc9-dc-j28">
                         <rect key="frame" x="286" y="338.5" width="51" height="20"/>
@@ -217,7 +220,7 @@
     <resources>
         <image name="dummy-avatar" width="50" height="50"/>
         <image name="dummy-berita" width="415" height="250"/>
+        <image name="fail" width="32" height="32"/>
         <image name="send" width="30" height="30"/>
-        <image name="thumbs-up" width="32" height="32"/>
     </resources>
 </document>

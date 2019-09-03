@@ -164,6 +164,7 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 record[RemotePost.statusReport] = "Open" // Default
                 record[RemotePost.latitude] = self.latitude
                 record[RemotePost.longitude] = self.longitude
+                record[RemotePost.thumbsUp] = 0
                 
                 CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.save(record) {
                     record, error in

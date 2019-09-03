@@ -11,6 +11,8 @@ import CloudKit
 
 class LoginVC: UIViewController {
     
+    var userRecord = [CKRecord]()
+    
     let masukText: UILabel = {
         let label = UILabel()
         label.text = "Masuk untuk mengakses semua fitur"
@@ -118,6 +120,19 @@ class LoginVC: UIViewController {
     }
     
     @objc func handleLogin(){
+        let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: NSPredicate(value: true))
+        CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
+            records, error in
+            guard let records = records else { return }
+            for record in records {
+                self.userRecord.append(record)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.authentication(record)
+                }
+            }
+        }
+        
+        
 //        // properties
 //        guard
 //            let email = emailTextField.text,
@@ -140,9 +155,34 @@ class LoginVC: UIViewController {
 //            mainTabVC.configureViewControllers()
 //            self.dismiss(animated: true, completion: nil)
 //        }
-        let masuk = AkunViewController()
-        navigationController?.pushViewController(masuk, animated: true)
     }
+    
+    // Cek apakah ada data yang sama antara password dan email inputan dari user
+    
+    func authentication(_ record: CKRecord) {
+//        for index in 1...userRecord.count {
+//            let user = userRecord[index - 1]
+            let email = record[RemoteUser.email] as! String
+            let password = record[RemoteUser.password] as! String
+            OperationQueue.main.addOperation {
+                if (email == self.emailTextField.text && password == self.passwordTextField.text) {
+                    print("Berhasil Login")
+                    UserDefaults.standard.set(true, forKey: "isLogin")
+                    UserDefaults.standard.set(String(record.recordID.recordName), forKey: "recordNameUser")
+                    let masuk = AkunViewController()
+                    if self.navigationController != masuk {
+                        DispatchQueue.main.async {
+                            self.navigationController?.pushViewController(masuk, animated: true)
+                        }
+                    }
+                } else {
+                    print("WKWKWKW LO BGST")
+                }
+            }
+            print(index)
+//        }
+    }
+
     
     @objc func formValidation(){
         
