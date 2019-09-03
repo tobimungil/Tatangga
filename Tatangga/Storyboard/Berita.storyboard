@@ -49,8 +49,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vxl-XD-NXT">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vxl-XD-NXT">
+                                <rect key="frame" x="0.0" y="88" width="414" height="318"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cii-Fd-aVX">
                                     <size key="itemSize" width="400" height="604"/>
@@ -76,11 +76,27 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="8RF-vt-Ts9">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anda belum bergabung digroup manapun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4f-pt-0u2">
+                                <rect key="frame" x="48" y="437.5" width="318" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zEF-IQ-Uns">
+                                <rect key="frame" x="142" y="466" width="130" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Gabung Sekarang?"/>
+                                <connections>
+                                    <segue destination="DSI-CT-XUO" kind="show" id="wDc-e0-I42"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vxl-XD-NXT" firstAttribute="bottom" secondItem="2vX-Q3-wKg" secondAttribute="bottom" id="0vE-ST-MJA"/>
+                            <constraint firstItem="E4f-pt-0u2" firstAttribute="centerX" secondItem="0lg-eF-lf1" secondAttribute="centerX" id="1ne-SE-dER"/>
                             <constraint firstItem="vxl-XD-NXT" firstAttribute="trailing" secondItem="2vX-Q3-wKg" secondAttribute="trailing" id="OAj-Pl-jab"/>
+                            <constraint firstItem="E4f-pt-0u2" firstAttribute="centerY" secondItem="0lg-eF-lf1" secondAttribute="centerY" id="OtQ-UY-L66"/>
                             <constraint firstItem="vxl-XD-NXT" firstAttribute="leading" secondItem="2vX-Q3-wKg" secondAttribute="leading" id="QrS-q8-xqw"/>
                             <constraint firstItem="vxl-XD-NXT" firstAttribute="top" secondItem="2vX-Q3-wKg" secondAttribute="top" id="glC-q9-BDP"/>
                             <constraint firstItem="8RF-vt-Ts9" firstAttribute="centerY" secondItem="0lg-eF-lf1" secondAttribute="centerY" id="gzK-1D-E5T"/>
@@ -108,6 +124,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXP-65-GZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-226.08695652173915" y="73.660714285714278"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4nr-5X-zKA">
+            <objects>
+                <viewController id="DSI-CT-XUO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8xa-68-YKW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vqP-GK-5qg">
+                                <rect key="frame" x="115" y="433" width="185" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9T-Bo-45J">
+                                <rect key="frame" x="170" y="509" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jika anda belum punya group, minta administrator anda untuk menerima unique ID Group" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iym-E9-AxX">
+                                <rect key="frame" x="54" y="355" width="307" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="qzj-BM-c9t"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BbZ-jS-eC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900.00000000000011" y="446.65178571428567"/>
         </scene>
         <!--Comment View Controller-->
         <scene sceneID="fce-cV-1hw">
@@ -289,7 +341,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXT-cu-6WN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="692.75362318840587" y="71.651785714285708"/>
+            <point key="canvasLocation" x="901" y="-375"/>
         </scene>
     </scenes>
     <resources>
