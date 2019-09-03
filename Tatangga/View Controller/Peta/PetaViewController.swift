@@ -277,17 +277,17 @@ extension PetaViewController: MKMapViewDelegate {
         } else {
             let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
             annotationView.canShowCallout = true
-//            if var annotationCategory = annotation.subtitle {
-//                annotationCategory?.append(contentsOf: "Buble")
-//                annotationView.image = UIImage(named: annotationCategory ?? "sampahBuble")
-//            }
+            if var annotationCategory = annotation.subtitle {
+                annotationCategory?.append(contentsOf: "Buble")
+                annotationView.image = UIImage(named: annotationCategory ?? "Lain-lainBuble")
+            }
 //            let subtitle = annotation.subtitle!
 //            print("Ini Annotation \(annotation.subtitle!)")
-            if let imgTitle = UIImage(named: "\(annotation.subtitle!)Buble") {
-                annotationView.image = imgTitle
-            } else {
-                annotationView.image = UIImage(named: "Lain-lainBuble")
-            }
+//            if let imgTitle = UIImage(named: "\(annotation.subtitle!)Buble") {
+//                annotationView.image = imgTitle
+//            } else {
+//                annotationView.image = UIImage(named: "Lain-lainBuble")
+//            }
             return annotationView
         }
     }
