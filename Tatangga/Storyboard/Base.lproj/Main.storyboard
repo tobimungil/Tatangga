@@ -40,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="-2083" y="-64"/>
         </scene>
-        <!--Forum-->
+        <!--Notification-->
         <scene sceneID="CNB-Tl-R5W">
             <objects>
-                <viewControllerPlaceholder storyboardName="Forum" id="KG9-Yn-kgB" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Notification" id="KG9-Yn-kgB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Notification" id="HUs-EH-QnQ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rzo-qy-wfC" userLabel="First Responder" sceneMemberID="firstResponder"/>
