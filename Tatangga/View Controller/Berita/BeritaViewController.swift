@@ -40,6 +40,7 @@ class BeritaViewController: UIViewController {
         let nibCell = UINib(nibName: beritaCollectionViewCell, bundle: nil)
         beritaCollection.register(nibCell, forCellWithReuseIdentifier: beritaCollectionViewCell)
         beritaCollection.dataSource = self
+        beritaCollection.prefetchDataSource = self
         beritaNavbar()
         refreshControl.layer.zPosition = -1
         refreshControl.attributedTitle = NSAttributedString(string: "Pull down to refresh")
@@ -48,13 +49,13 @@ class BeritaViewController: UIViewController {
     }
     
     @objc func pullToRefresh() {
+        self.postRecordData.removeAll()
         getData()
         beritaCollection.reloadData()
         refreshControl.endRefreshing()
     }
     
     func getData() {
-        
         indicatorLoading.isHidden = false
         indicatorLoading.startAnimating()
         // GET POST DATA
@@ -140,13 +141,46 @@ class BeritaViewController: UIViewController {
         beritaLabel.sizeToFit()
         let leftItem = UIBarButtonItem(customView: beritaLabel)
         self.navigationItem.leftBarButtonItem = leftItem
-        
+    }
+    
+    func updateLike(_ recordName: String, thumbsUp: Int) {
+        var userThumbsUp = [CKRecord]()
+        let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName))
+        let queryUser = CKQuery(recordType: RemoteRecords.post, predicate: predicateLogin)
+        CKContainer.init(identifier: RemoteURL.url).publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
+            records, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                if let records = records {
+//                    print(records)
+                    let record = records.first
+                    print(record!)
+                    var thumbs = Double(thumbsUp)
+                    thumbs += 1
+                    record?[RemotePost.thumbsUp] = thumbs as Double
+                    CKContainer.init(identifier: RemoteRecords.post).publicCloudDatabase.save(record!) {
+                        record, error in
+                        if error != nil {
+                            print(error!.localizedDescription)
+                        } else {
+                            print("Like berhasil update")
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }
 
 //Code buat Collection View
-extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+    }
+    
+    
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var itemCount: Int?
         if islogin {
@@ -170,7 +204,11 @@ extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.lblPostStatusUser.text = dataPost[RemotePost.statusReport]
             cell.lblPostTitle.text = dataPost[RemotePost.titlePost]
             cell.lblPostDescription.text = dataPost[RemotePost.descriptionPost]
-            
+            if dataPost[RemotePost.thumbsUp]! == 0 && dataPost[RemotePost.thumbsUp]! == 1 {
+                 cell.lblThumbsUpCount.text = "\(dataPost[RemotePost.thumbsUp]!) like"
+            } else {
+                cell.lblThumbsUpCount.text = "\(dataPost[RemotePost.thumbsUp]!) likes"
+            }
             
             if let asset = dataPost[RemotePost.photoPost] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!) {
                 cell.imgPost.image = UIImage(data: data)
@@ -180,11 +218,15 @@ extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.layer.borderColor = UIColor.black.cgColor
             cell.layer.borderWidth = 0.5
         }
-        
         cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.borderWidth = 1
-        
+        cell.actionClick = {
+            let dataPost = self.postRecordData[indexPath.row]
+            var thumbsUp: Int = dataPost[RemotePost.thumbsUp]! as Int
+            thumbsUp += 1
+            cell.lblThumbsUpCount.text = "\(thumbsUp) likes"
+            self.updateLike(dataPost.recordID.recordName, thumbsUp: dataPost[RemotePost.thumbsUp]! as Int)
+        }
         return cell
     }
-    
 }

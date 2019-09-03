@@ -180,6 +180,19 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         recordUser[RemoteUser.email] = email
         recordUser[RemoteUser.fullName] = fullName
         recordUser[RemoteUser.password] = password
+        recordUser[RemoteUser.username] = username
+        
+        CKContainer.init(identifier: RemoteURL.url).publicCloudDatabase.save(recordUser) {
+            records, error in
+            if (error != nil) {
+                print(error!.localizedDescription)
+            } else {
+                let login = LoginVC()
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
 //        recordUser[RemoteUser.status] =
 //        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
 //

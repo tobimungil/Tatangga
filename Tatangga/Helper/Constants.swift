@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum RemoteURL {
+    static let url = "iCloud.com.team8.Tatangga"
+}
+
 enum RemoteRecords {
     static let post = "Post"
     static let user = "User"
@@ -28,7 +32,7 @@ enum RemotePost {
 enum RemoteUser {
     static let fullName = "fullName"
     static let email = "email"
-    static let nickName = "nickName"
+    static let username = "username"
     static let password = "password"
     static let photoUser = "photoUser"
     static let status = "status"

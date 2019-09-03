@@ -187,6 +187,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="afk-AV-2i1"/>
                     </view>
+                    <connections>
+                        <outlet property="imgDetailPost" destination="rr8-PE-RKS" id="OWT-g0-C9T"/>
+                        <outlet property="lblDescriptionDetailPost" destination="pOk-lk-1aH" id="pmK-JM-p3T"/>
+                        <outlet property="lblTitleDetailPost" destination="rJB-Su-pin" id="TTE-1v-93M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6v5-TF-8rd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

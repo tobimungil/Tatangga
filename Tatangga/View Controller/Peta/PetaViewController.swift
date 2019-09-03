@@ -83,7 +83,7 @@ class PetaViewController: UIViewController {
 //                            print(record)
                             
                             self.getLocationData()
-                            print(record)
+//                            print(record)
 //                            DispatchQueue.main.async {
 //                            }
 //                            let user = record.object(forKey: "User") as! CKRecord.Reference
@@ -292,12 +292,17 @@ extension PetaViewController: MKMapViewDelegate {
         }
     }
     
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView)
     {
-        let nav = self.storyboard?.instantiateViewController(withIdentifier: "popupVC")
-        nav!.modalTransitionStyle = .crossDissolve
-        nav!.modalPresentationStyle = .overCurrentContext
-        self.present(nav!, animated: true, completion: nil)
+        let nav = self.storyboard?.instantiateViewController(withIdentifier: "popupVC") as! PopupViewController
+        nav.modalTransitionStyle = .crossDissolve
+        nav.modalPresentationStyle = .overCurrentContext
+//        for data in postRecordData {
+        nav.latitude = view.annotation?.coordinate.latitude
+//        }
+        
+        self.present(nav, animated: true, completion: nil)
         //Segue
         //        if let annotationTitle = view.annotation?.title
         //        {
@@ -310,7 +315,11 @@ extension PetaViewController: MKMapViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+//        if segue.identifier == "setPhoto" {
+//            let formView = nav.topViewController as! SubmitViewController
+//            formView.photoPreview = self.image
+//            formView.imageEncoded64 = encoded64Photo
+//        }
     }
     
 }

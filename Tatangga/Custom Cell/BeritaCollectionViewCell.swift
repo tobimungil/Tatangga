@@ -18,4 +18,10 @@ class BeritaCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblPostStatusReport: UILabel!
     @IBOutlet weak var lblPostTitle: UILabel!
     @IBOutlet weak var lblPostDescription: UILabel!
+    
+    var actionClick: (() -> Void)? = nil
+    
+    @IBAction func btnLike(_ sender: UIButton) {
+        actionClick?()
+    }
 }
