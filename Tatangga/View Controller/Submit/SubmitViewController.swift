@@ -54,6 +54,10 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     func setLocation() {
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -155,7 +159,6 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 try? imageData.write(to: URL(fileURLWithPath: path), options: [.atomic])
                 self.imageURL = URL(fileURLWithPath: path)
                 let file :CKAsset? = CKAsset(fileURL: URL(fileURLWithPath: path))
-                
                 record[RemotePost.titlePost] = self.judulTxt.text! as NSString
                 record[RemotePost.descriptionPost] = self.descTxt.text! as NSString
                 record[RemotePost.photoPost] = file

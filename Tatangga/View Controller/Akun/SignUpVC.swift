@@ -12,6 +12,7 @@ import CloudKit
 class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var imageSelected = false
+    var imgURL: URL?
     
     let plusPhotoBtn: UIButton = {
         let button = UIButton(type: .system)
@@ -141,6 +142,10 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             return
         }
         
+        if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL {
+            imgURL = imageURL
+        }
+        
         // set imageSelected to true
         imageSelected = true
         
@@ -177,17 +182,21 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         guard let username = userNameTextField.text?.lowercased() else { return }
 
         let recordUser = CKRecord(recordType: RemoteRecords.user)
+        if let imgURL = imgURL {
+            let assetImg: CKAsset = CKAsset(fileURL: imgURL)
+            recordUser[RemoteUser.photoUser] = assetImg
+        }
         recordUser[RemoteUser.email] = email
         recordUser[RemoteUser.fullName] = fullName
         recordUser[RemoteUser.password] = password
         recordUser[RemoteUser.username] = username
+
         
         CKContainer.init(identifier: RemoteURL.url).publicCloudDatabase.save(recordUser) {
             records, error in
             if (error != nil) {
                 print(error!.localizedDescription)
             } else {
-                let login = LoginVC()
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
                 }

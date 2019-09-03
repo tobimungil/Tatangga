@@ -96,7 +96,7 @@ class EditProfileController: UIViewController {
         loadUserData()
     }
     
-    // MARK: - Handlers
+    // MARK: - Handlers Image Gallery
     
     @objc func handleChangeProfilePhoto() {
         let imagePickerController = UIImagePickerController()
@@ -206,7 +206,7 @@ class EditProfileController: UIViewController {
 //
 //        Storage.storage().reference(forURL: user.profileImageUrl).delete(completion: nil)
 //
-//        let filename = NSUUID().uuidString
+        let filename = NSUUID().uuidString
 //
 //        guard let updatedProfileImage = profileImageView.image else { return }
 //
@@ -230,8 +230,11 @@ class EditProfileController: UIViewController {
 //        }
     }
 
+// Extenstion for ImagePicker
 
 extension EditProfileController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    // Function handler after get image
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 // Local variable inserted by Swift 4.2 migrator.
