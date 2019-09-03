@@ -216,7 +216,7 @@ extension UIViewController: UITextViewDelegate {
 extension SubmitViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var locValue: CLLocationCoordinate2D = manager.location!.coordinate
-        print("lat = \(locValue.latitude) , long = \(locValue.longitude) ")
+//        print("lat = \(locValue.latitude) , long = \(locValue.longitude) ")
         latitude = locValue.latitude
         longitude = locValue.longitude
     }

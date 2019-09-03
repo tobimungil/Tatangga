@@ -21,12 +21,10 @@ class BeritaViewController: UIViewController {
     var userPostData = [CKRecord]()
     var postRecordData = [CKRecord]()
     let recordName = UserDefaults.standard.string(forKey: "recordNameUser")
+    let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
     var key: String?
     
     //  Casue Account Authentication not ready yet => isLogin Manually
-    
-//    let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
-    let islogin = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +77,8 @@ class BeritaViewController: UIViewController {
                     }
                 }
             }
+        } else {
+            beritaCollection.reloadData()
         }
         
         
@@ -143,31 +143,15 @@ class BeritaViewController: UIViewController {
         self.navigationItem.leftBarButtonItem = leftItem
     }
     
-    func updateLike(_ recordName: String, thumbsUp: Int) {
-        var userThumbsUp = [CKRecord]()
-        let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName))
-        let queryUser = CKQuery(recordType: RemoteRecords.post, predicate: predicateLogin)
-        CKContainer.init(identifier: RemoteURL.url).publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
-            records, error in
+    func updateLike(_ data: CKRecord, thumbsUp: Int) {
+        let thumbs = Double(thumbsUp)
+        data[RemotePost.thumbsUp] = thumbs as Double
+        CKContainer.init(identifier: RemoteURL.url).publicCloudDatabase.save(data) {
+        record, error in
             if error != nil {
                 print(error!.localizedDescription)
             } else {
-                if let records = records {
-//                    print(records)
-                    let record = records.first
-                    print(record!)
-                    var thumbs = Double(thumbsUp)
-                    thumbs += 1
-                    record?[RemotePost.thumbsUp] = thumbs as Double
-                    CKContainer.init(identifier: RemoteRecords.post).publicCloudDatabase.save(record!) {
-                        record, error in
-                        if error != nil {
-                            print(error!.localizedDescription)
-                        } else {
-                            print("Like berhasil update")
-                        }
-                    }
-                }
+                print("Like berhasil update")
             }
         }
     }
@@ -225,7 +209,7 @@ extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSo
             var thumbsUp: Int = dataPost[RemotePost.thumbsUp]! as Int
             thumbsUp += 1
             cell.lblThumbsUpCount.text = "\(thumbsUp) likes"
-            self.updateLike(dataPost.recordID.recordName, thumbsUp: dataPost[RemotePost.thumbsUp]! as Int)
+            self.updateLike(dataPost, thumbsUp: thumbsUp as Int)
         }
         return cell
     }

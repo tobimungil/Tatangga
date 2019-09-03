@@ -21,6 +21,11 @@ class PopupViewController: UIViewController {
         getDataNewsDetail()
     }
     
+    
+    @IBAction func dismissPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func getDataNewsDetail() {
         print(latitude)
         let postPredicate = NSPredicate(format: "latitude == (\(latitude!))")

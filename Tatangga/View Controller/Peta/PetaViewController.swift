@@ -26,28 +26,28 @@ class PetaViewController: UIViewController {
     let recordName = UserDefaults.standard.string(forKey: "recordNameUser")
     var key: String?
     
-    let centerMapButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "add-button").withRenderingMode(.alwaysOriginal), for: .normal)
-        button.addTarget(self, action: #selector(handleCenterLocation), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    let centerMapButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setImage(#imageLiteral(resourceName: "add-button").withRenderingMode(.alwaysOriginal), for: .normal)
+//        button.addTarget(self, action: #selector(handleCenterLocation), for: .touchUpInside)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
     
-    let addAnnotationButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "add-button").withRenderingMode(.alwaysOriginal), for: .normal)
-        button.addTarget(self, action: #selector(handleAnnotationButton), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    let addAnnotationButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setImage(#imageLiteral(resourceName: "add-button").withRenderingMode(.alwaysOriginal), for: .normal)
+//        button.addTarget(self, action: #selector(handleAnnotationButton), for: .touchUpInside)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
     
-    let centerPinButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "blue").withRenderingMode(.alwaysOriginal), for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+//    let centerPinButton: UIButton = {
+//        let button = UIButton(type: .system)
+//        button.setImage(#imageLiteral(resourceName: "blue").withRenderingMode(.alwaysOriginal), for: .normal)
+//        button.translatesAutoresizingMaskIntoConstraints = false
+//        return button
+//    }()
     // MARK: - Init
     
 //    var initLocations = [
@@ -163,24 +163,24 @@ class PetaViewController: UIViewController {
         }
     }
     
-    func createAnnotation() {
-        let annotation = MKPointAnnotation()
-        annotation.title = "ketertiban"
-        annotation.subtitle = "ketertiban"
-        annotation.coordinate = CLLocationCoordinate2D(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
-//        initLocations.append(["title": annotation.title!, "subtitle": annotation.subtitle!, "latitude": annotation.coordinate.latitude, "longitude": annotation.coordinate.longitude])
-        mapView.addAnnotation(annotation)
-    }
-
-    func createAnnotation(annotationName: String) {
-        let annotation = MKPointAnnotation()
-        annotation.title = "personal"
-        annotation.subtitle = "personal"
-        annotation.coordinate = CLLocationCoordinate2D(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
-//        initLocations.append(["title": annotation.title!, "subtitle": annotation.subtitle!, "latitude": annotation.coordinate.latitude, "longitude": annotation.coordinate.longitude])
-        mapView.addAnnotation(annotation)
-        //        dump(initLocations)
-    }
+//    func createAnnotation() {
+//        let annotation = MKPointAnnotation()
+//        annotation.title = "ketertiban"
+//        annotation.subtitle = "ketertiban"
+//        annotation.coordinate = CLLocationCoordinate2D(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+////        initLocations.append(["title": annotation.title!, "subtitle": annotation.subtitle!, "latitude": annotation.coordinate.latitude, "longitude": annotation.coordinate.longitude])
+//        mapView.addAnnotation(annotation)
+//    }
+//
+//    func createAnnotation(annotationName: String) {
+//        let annotation = MKPointAnnotation()
+//        annotation.title = "personal"
+//        annotation.subtitle = "personal"
+//        annotation.coordinate = CLLocationCoordinate2D(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
+////        initLocations.append(["title": annotation.title!, "subtitle": annotation.subtitle!, "latitude": annotation.coordinate.latitude, "longitude": annotation.coordinate.longitude])
+//        mapView.addAnnotation(annotation)
+//        //        dump(initLocations)
+//    }
     
     func createInitAnnotation(locations: [[String: Any]]) {
         for location in locations {
@@ -199,19 +199,19 @@ class PetaViewController: UIViewController {
     
     // MARK: - Selectors
     
-    @objc func handleCenterLocation() {
-        centerMapOnUserLocation()
-//        createAnnotation()
-        //        centerMapButton.alpha = 0
-        centerPinButton.alpha = 0
-    }
+//    @objc func handleCenterLocation() {
+//        centerMapOnUserLocation()
+////        createAnnotation()
+//        //        centerMapButton.alpha = 0
+//        centerPinButton.alpha = 0
+//    }
     
-    @objc func handleAnnotationButton() {
-//        createAnnotation(annotationName: "profile")
-        centerMapOnUserLocation()
-        //        centerMapButton.alpha = 0
-        centerPinButton.alpha = 0
-    }
+//    @objc func handleAnnotationButton() {
+////        createAnnotation(annotationName: "profile")
+//        centerMapOnUserLocation()
+//        //        centerMapButton.alpha = 0
+//        centerPinButton.alpha = 0
+//    }
     
     // MARK: - Helper Functions
     
@@ -229,26 +229,26 @@ class PetaViewController: UIViewController {
         view.addSubview(mapView)
         mapView.frame = view.frame
         
-        view.addSubview(centerMapButton)
-        centerMapButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
-        centerMapButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        centerMapButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        centerMapButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        centerMapButton.layer.cornerRadius = 50 / 2
-        centerMapButton.alpha = 0
-        
-        view.addSubview(addAnnotationButton)
-        addAnnotationButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
-        addAnnotationButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        addAnnotationButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        addAnnotationButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        addAnnotationButton.alpha = 1
-        
-        view.addSubview(centerPinButton)
-        centerPinButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        centerPinButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        centerPinButton.alpha = 0
-        centerPinButton.isHidden = true
+//        view.addSubview(centerMapButton)
+//        centerMapButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+//        centerMapButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+//        centerMapButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//        centerMapButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+//        centerMapButton.layer.cornerRadius = 50 / 2
+//        centerMapButton.alpha = 0
+//
+//        view.addSubview(addAnnotationButton)
+//        addAnnotationButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -150).isActive = true
+//        addAnnotationButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+//        addAnnotationButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+//        addAnnotationButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+//        addAnnotationButton.alpha = 1
+//
+//        view.addSubview(centerPinButton)
+//        centerPinButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        centerPinButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+//        centerPinButton.alpha = 0
+//        centerPinButton.isHidden = true
     }
     
     func centerMapOnUserLocation() {
@@ -263,13 +263,13 @@ class PetaViewController: UIViewController {
 
 extension PetaViewController: MKMapViewDelegate {
     
-    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-        UIView.animate(withDuration: 0.5) {
-            self.centerMapButton.alpha = 1
-            self.centerPinButton.alpha = 1
-            self.centerPinButton.isHidden = false
-        }
-    }
+//    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+//        UIView.animate(withDuration: 0.5) {
+//            self.centerMapButton.alpha = 1
+//            self.centerPinButton.alpha = 1
+//            self.centerPinButton.isHidden = false
+//        }
+//    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
@@ -277,17 +277,17 @@ extension PetaViewController: MKMapViewDelegate {
         } else {
             let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationView") ?? MKAnnotationView()
             annotationView.canShowCallout = true
-//            if var annotationCategory = annotation.subtitle {
-//                annotationCategory?.append(contentsOf: "Buble")
-//                annotationView.image = UIImage(named: annotationCategory ?? "sampahBuble")
-//            }
+            if var annotationCategory = annotation.subtitle {
+                annotationCategory?.append(contentsOf: "Buble")
+                annotationView.image = UIImage(named: annotationCategory ?? "Lain-lainBuble")
+            }
 //            let subtitle = annotation.subtitle!
 //            print("Ini Annotation \(annotation.subtitle!)")
-            if let imgTitle = UIImage(named: "\(annotation.subtitle!)Buble") {
-                annotationView.image = imgTitle
-            } else {
-                annotationView.image = UIImage(named: "Lain-lainBuble")
-            }
+//            if let imgTitle = UIImage(named: "\(annotation.subtitle!)Buble") {
+//                annotationView.image = imgTitle
+//            } else {
+//                annotationView.image = UIImage(named: "Lain-lainBuble")
+//            }
             return annotationView
         }
     }

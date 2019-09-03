@@ -54,11 +54,13 @@
 		5E5F52B023126B10002DC5F8 /* ForumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F52AE23126B10002DC5F8 /* ForumCollectionViewCell.xib */; };
 		5E5F52B2231276B3002DC5F8 /* ForumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F52B1231276B3002DC5F8 /* ForumModel.swift */; };
 		5EEBC22A231D44FC0044DE36 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBC229231D44FC0044DE36 /* PopupViewController.swift */; };
+		5EEBC22C231E628C0044DE36 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBC22B231E628C0044DE36 /* Onboarding.storyboard */; };
 		5F185B9423151BBD00E73125 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F185B9323151BBD00E73125 /* CameraViewController.swift */; };
 		5F185B9623151E8400E73125 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F185B9523151E8400E73125 /* PreviewController.swift */; };
 		88EEF0132318176800B8C3F1 /* MethodHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EEF0122318176800B8C3F1 /* MethodHelper.swift */; };
 		88F780762317CFF70059F12A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F780752317CFF70059F12A /* Constants.swift */; };
 		88F7807A2317D2030059F12A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F780792317D2030059F12A /* CloudKit.framework */; };
+		8BCCA563231E7A8E00886260 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA562231E7A8E00886260 /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,12 +113,14 @@
 		5E5F52AE23126B10002DC5F8 /* ForumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForumCollectionViewCell.xib; sourceTree = "<group>"; };
 		5E5F52B1231276B3002DC5F8 /* ForumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumModel.swift; sourceTree = "<group>"; };
 		5EEBC229231D44FC0044DE36 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		5EEBC22B231E628C0044DE36 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		5F185B9323151BBD00E73125 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		5F185B9523151E8400E73125 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		88EEF0122318176800B8C3F1 /* MethodHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodHelper.swift; sourceTree = "<group>"; };
 		88F780752317CFF70059F12A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88F780772317D19C0059F12A /* Tatangga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tatangga.entitlements; sourceTree = "<group>"; };
 		88F780792317D2030059F12A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		8BCCA562231E7A8E00886260 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				3AAAB2FE231EAEF2009C3FCF /* Notification */,
+				8BCCA561231E7A7D00886260 /* Onboarding */,
 				5E5F52A42312533B002DC5F8 /* Berita */,
 				5E5F52A523125350002DC5F8 /* Peta */,
 				5E5F52A823125386002DC5F8 /* Submit */,
@@ -198,6 +203,7 @@
 				5E5F51F8230D24E4002DC5F8 /* LaunchScreen.storyboard */,
 				5E5F526A230E87D0002DC5F8 /* Submit.storyboard */,
 				3AAAB2E4231C14FC009C3FCF /* LoginAndSignUp.storyboard */,
+				5EEBC22B231E628C0044DE36 /* Onboarding.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -312,6 +318,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8BCCA561231E7A7D00886260 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				8BCCA562231E7A8E00886260 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -390,6 +404,7 @@
 				5E5F5269230E7176002DC5F8 /* Akun.storyboard in Resources */,
 				5E5F523F230D4C89002DC5F8 /* SF-Pro-Rounded-Ultralight.otf in Resources */,
 				5E5F51F7230D24E4002DC5F8 /* Assets.xcassets in Resources */,
+				5EEBC22C231E628C0044DE36 /* Onboarding.storyboard in Resources */,
 				5E5F5234230D4C89002DC5F8 /* SF-Pro-Rounded-Bold.otf in Resources */,
 				5E4AA3C5231D0C5700AD6637 /* CommentCollectionViewCell.xib in Resources */,
 				5E5F52A023117DC4002DC5F8 /* BeritaCollectionViewCell.xib in Resources */,
@@ -426,6 +441,7 @@
 				3AAAB302231EB087009C3FCF /* NotificationCollectionViewCell.swift in Sources */,
 				3AAAB304231ED577009C3FCF /* NotificationTableViewController.swift in Sources */,
 				3AAAB2F5231CDD46009C3FCF /* User.swift in Sources */,
+				8BCCA563231E7A8E00886260 /* OnboardingViewController.swift in Sources */,
 				5E5F51ED230D24E2002DC5F8 /* AppDelegate.swift in Sources */,
 				3AAAB2FD231E7DF0009C3FCF /* RulesTableViewController.swift in Sources */,
 				5E5F5263230D5D60002DC5F8 /* BeritaViewController.swift in Sources */,
