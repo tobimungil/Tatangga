@@ -128,6 +128,11 @@ class AkunViewController: UIViewController  {
     }
     
     func setDataUser() {
+        if let asset = self.userData[RemoteUser.photoUser] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!) {
+            let decodedImage = UIImage(data: data as Data)
+            let originalImage = decodedImage!.withRenderingMode(.alwaysOriginal)
+            profilePhoto.setImage(originalImage, for: .normal)
+        }
         userNameText.text = self.userData[RemoteUser.username]! as String
         statusText.text = self.userData[RemoteUser.status]! as String
     }
