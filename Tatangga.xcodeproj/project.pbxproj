@@ -55,6 +55,7 @@
 		88EEF0132318176800B8C3F1 /* MethodHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EEF0122318176800B8C3F1 /* MethodHelper.swift */; };
 		88F780762317CFF70059F12A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F780752317CFF70059F12A /* Constants.swift */; };
 		88F7807A2317D2030059F12A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F780792317D2030059F12A /* CloudKit.framework */; };
+		8BCCA563231E7A8E00886260 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA562231E7A8E00886260 /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		88F780752317CFF70059F12A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88F780772317D19C0059F12A /* Tatangga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tatangga.entitlements; sourceTree = "<group>"; };
 		88F780792317D2030059F12A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		8BCCA562231E7A8E00886260 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +163,7 @@
 		5E5F5201230D3A00002DC5F8 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5EEBC22D231E62B90044DE36 /* Onboarding */,
+				8BCCA561231E7A7D00886260 /* Onboarding */,
 				5E5F52A42312533B002DC5F8 /* Berita */,
 				5E5F52A523125350002DC5F8 /* Peta */,
 				5E5F52A823125386002DC5F8 /* Submit */,
@@ -275,13 +277,6 @@
 			path = Submit;
 			sourceTree = "<group>";
 		};
-		5EEBC22D231E62B90044DE36 /* Onboarding */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Onboarding;
-			sourceTree = "<group>";
-		};
 		88F780742317CFE50059F12A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +293,14 @@
 				88F780792317D2030059F12A /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8BCCA561231E7A7D00886260 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				8BCCA562231E7A8E00886260 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -411,6 +414,7 @@
 				3AAAB2E9231C1D81009C3FCF /* SignUpVC.swift in Sources */,
 				88F780762317CFF70059F12A /* Constants.swift in Sources */,
 				3AAAB2F5231CDD46009C3FCF /* User.swift in Sources */,
+				8BCCA563231E7A8E00886260 /* OnboardingViewController.swift in Sources */,
 				5E5F51ED230D24E2002DC5F8 /* AppDelegate.swift in Sources */,
 				5E5F5263230D5D60002DC5F8 /* BeritaViewController.swift in Sources */,
 				5E5F52AF23126B10002DC5F8 /* ForumCollectionViewCell.swift in Sources */,
