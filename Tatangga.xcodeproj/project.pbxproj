@@ -33,7 +33,7 @@
 		5E5F525C230D4C89002DC5F8 /* SF-Pro-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F522F230D4C87002DC5F8 /* SF-Pro-Rounded-Regular.otf */; };
 		5E5F5263230D5D60002DC5F8 /* BeritaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F5262230D5D60002DC5F8 /* BeritaViewController.swift */; };
 		5E5F5265230E7157002DC5F8 /* Peta.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F5264230E7157002DC5F8 /* Peta.storyboard */; };
-		5E5F5267230E7166002DC5F8 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F5266230E7166002DC5F8 /* Notification.storyboard */; };
+		5E5F5267230E7166002DC5F8 /* Forum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F5266230E7166002DC5F8 /* Forum.storyboard */; };
 		5E5F5269230E7176002DC5F8 /* Akun.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F5268230E7176002DC5F8 /* Akun.storyboard */; };
 		5E5F526B230E87D0002DC5F8 /* Submit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F526A230E87D0002DC5F8 /* Submit.storyboard */; };
 		5E5F526D230FA065002DC5F8 /* PetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F526C230FA065002DC5F8 /* PetaViewController.swift */; };
@@ -85,7 +85,7 @@
 		5E5F522F230D4C87002DC5F8 /* SF-Pro-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Regular.otf"; sourceTree = "<group>"; };
 		5E5F5262230D5D60002DC5F8 /* BeritaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeritaViewController.swift; sourceTree = "<group>"; };
 		5E5F5264230E7157002DC5F8 /* Peta.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Peta.storyboard; sourceTree = "<group>"; };
-		5E5F5266230E7166002DC5F8 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
+		5E5F5266230E7166002DC5F8 /* Forum.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Forum.storyboard; sourceTree = "<group>"; };
 		5E5F5268230E7176002DC5F8 /* Akun.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Akun.storyboard; sourceTree = "<group>"; };
 		5E5F526A230E87D0002DC5F8 /* Submit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Submit.storyboard; sourceTree = "<group>"; };
 		5E5F526C230FA065002DC5F8 /* PetaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetaViewController.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 				5E5F51F0230D24E2002DC5F8 /* Main.storyboard */,
 				5E5F5203230D4A2E002DC5F8 /* Berita.storyboard */,
 				5E5F5264230E7157002DC5F8 /* Peta.storyboard */,
-				5E5F5266230E7166002DC5F8 /* Notification.storyboard */,
+				5E5F5266230E7166002DC5F8 /* Forum.storyboard */,
 				5E5F5268230E7176002DC5F8 /* Akun.storyboard */,
 				5E5F51F8230D24E4002DC5F8 /* LaunchScreen.storyboard */,
 				5E5F526A230E87D0002DC5F8 /* Submit.storyboard */,
@@ -360,7 +360,7 @@
 				5E5F526B230E87D0002DC5F8 /* Submit.storyboard in Resources */,
 				5E5F5247230D4C89002DC5F8 /* SF-Pro-Rounded-Thin.otf in Resources */,
 				5E5F5250230D4C89002DC5F8 /* SF-Pro-Rounded-Black.otf in Resources */,
-				5E5F5267230E7166002DC5F8 /* Notification.storyboard in Resources */,
+				5E5F5267230E7166002DC5F8 /* Forum.storyboard in Resources */,
 				5E5F525C230D4C89002DC5F8 /* SF-Pro-Rounded-Regular.otf in Resources */,
 				5E5F51FA230D24E4002DC5F8 /* LaunchScreen.storyboard in Resources */,
 				5E5F5269230E7176002DC5F8 /* Akun.storyboard in Resources */,
