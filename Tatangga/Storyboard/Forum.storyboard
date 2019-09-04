@@ -400,8 +400,8 @@
     <resources>
         <image name="Peraturan" width="374" height="105"/>
         <image name="dummy-berita" width="415" height="250"/>
-        <image name="forum-disabled" width="26" height="26"/>
-        <image name="forum-enabled" width="26" height="26"/>
+        <image name="forum-disabled" width="20" height="20"/>
+        <image name="forum-enabled" width="20" height="20"/>
         <image name="infrastruktur" width="110" height="110"/>
         <image name="keamanan" width="110" height="110"/>
         <image name="ketertiban" width="110" height="110"/>

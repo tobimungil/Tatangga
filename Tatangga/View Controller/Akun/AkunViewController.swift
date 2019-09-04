@@ -57,7 +57,7 @@ class AkunViewController: UIViewController  {
         segmentedControl.addTarget(self, action: #selector(AkunViewController.indexChanged(_:)), for: .valueChanged)
         segmentedControl.layer.cornerRadius = 5.0
         segmentedControl.backgroundColor = .clear
-        segmentedControl.tintColor = .blue
+        segmentedControl.tintColor = .black
         return segmentedControl
     }()
    
