@@ -9,8 +9,7 @@
 import UIKit
 import CloudKit
 
-class AkunViewController: UIViewController  {
-
+class AkunViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var userRecord = [CKRecord]()
     var userData: CKRecord!
     
@@ -56,7 +55,18 @@ class AkunViewController: UIViewController  {
         segmentedControl.tintColor = .blue
         return segmentedControl
     }()
-   
+    
+    //MARK: My table
+    var myTableView: UITableView = {
+        let tableView = UITableView()
+        return tableView
+    }()
+    var animalArray: [String] = ["Dog","Cat","Fish"]
+    var cellID = "cellID"
+    var groupNameList = ["RT 05, Puri Indah", "RW 07, Puri Indah"]
+    var arrayOfGroup = [GroupList(groupName: "RT 05, Puri Indah", groupMember: "15 Anggota"), GroupList(groupName: "RW 07, Puri Indah", groupMember: "89 Orang")]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
@@ -89,11 +99,42 @@ class AkunViewController: UIViewController  {
         view.addSubview(segmentedControl)
         segmentedControl.anchor(top: ubahProfile.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 5, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 416, height: 35)
         segmentedControl.centerXAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        //MARK: table view
+        view.backgroundColor = UIColor.white
+        myTableView.frame = view.frame
+        myTableView.register(GroupListCell.self, forCellReuseIdentifier: cellID)
+        myTableView.delegate = self
+        myTableView.dataSource = self
+        view.addSubview(myTableView)
+        myTableView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.topAnchor, right: view.rightAnchor, paddingTop: 415, paddingLeft: 0, paddingBottom: 786, paddingRight: 0, width: 410, height: 383)
+        myTableView.isHidden = true
+    
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //return animalArray.count
+        //return arrayOfGroup.count
+        return groupNameList.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: GroupListCell = GroupListCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellID, group: arrayOfGroup[indexPath.row])
+//       cell.textLabel?.text = arrayOfGroup[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-        getUserData()
+        let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
+        if islogin {
+            getUserData()
+        }
     }
     
     // Use for getDataUser and Check Group
@@ -146,10 +187,13 @@ class AkunViewController: UIViewController  {
         switch sender.selectedSegmentIndex{
         case 0:
             print("Laporan saya");
+            myTableView.isHidden = true
         case 1:
             print("Grup Saya")
+            myTableView.isHidden = false
         case 2:
             print("Alamat Saya")
+            myTableView.isHidden = true
         default:
             break
         }
@@ -163,6 +207,12 @@ class AkunViewController: UIViewController  {
         self.navigationController?.pushViewController(cancel, animated: true)
           _ = navigationController?.popViewController(animated: true)
     }
+    
+//    @objc func handleGroupDetail()
+//    {
+//        let groupDetail = ContactListCell()
+//        self.navigationController?.pushViewController(groupDetail, animated: true)
+//    }
     
     @objc func handleDone() {
         
