@@ -92,7 +92,7 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="On board 2" translatesAutoresizingMaskIntoConstraints="NO" id="l4R-6l-SJY">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="on board 2" translatesAutoresizingMaskIntoConstraints="NO" id="l4R-6l-SJY">
                                 <rect key="frame" x="52" y="198" width="310" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -139,7 +139,7 @@
                                 <rect key="frame" x="171" y="752" width="74" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="On board 3" translatesAutoresizingMaskIntoConstraints="NO" id="ZZA-y3-dh3">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="on board 3" translatesAutoresizingMaskIntoConstraints="NO" id="ZZA-y3-dh3">
                                 <rect key="frame" x="82" y="193" width="251" height="226"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -178,7 +178,7 @@
         <image name="On Board Left" width="75" height="20"/>
         <image name="On Board Right" width="76" height="20"/>
         <image name="On board 1" width="250" height="208"/>
-        <image name="On board 2" width="310" height="250"/>
-        <image name="On board 3" width="251" height="226"/>
+        <image name="on board 2" width="310" height="250"/>
+        <image name="on board 3" width="251" height="226"/>
     </resources>
 </document>
