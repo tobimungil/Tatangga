@@ -127,7 +127,8 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
         groupTable.isHidden = true
         
         laporanTable.frame = view.frame
-        laporanTable.register(GroupListCell.self, forCellReuseIdentifier: cellID)
+        laporanTable.register(LaporanSayaCell.self, forCellReuseIdentifier: cellID)
+        laporanTable.rowHeight = 125
 //        laporanTable.delegate = LaporanSayaDataSource()
 //        laporanTable.dataSource = LaporanSayaDataSource()
         view.addSubview(laporanTable)

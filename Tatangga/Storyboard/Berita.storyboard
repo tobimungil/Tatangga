@@ -127,10 +127,10 @@
             </objects>
             <point key="canvasLocation" x="-226.08695652173915" y="73.660714285714278"/>
         </scene>
-        <!--View Controller-->
+        <!--Join Group View Controller-->
         <scene sceneID="4nr-5X-zKA">
             <objects>
-                <viewController id="DSI-CT-XUO" sceneMemberID="viewController">
+                <viewController id="DSI-CT-XUO" customClass="JoinGroupViewController" customModule="Tatangga" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8xa-68-YKW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,6 +146,9 @@
                                 <rect key="frame" x="170" y="509" width="75" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="btnSubmitGroup:" destination="DSI-CT-XUO" eventType="touchUpInside" id="MLS-4X-30X"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jika anda belum punya group, minta administrator anda untuk menerima unique ID Group" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iym-E9-AxX">
                                 <rect key="frame" x="54" y="355" width="307" height="55"/>
@@ -158,6 +161,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qzj-BM-c9t"/>
                     </view>
+                    <connections>
+                        <outlet property="tfUniqueID" destination="vqP-GK-5qg" id="Tis-jU-vXG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BbZ-jS-eC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
