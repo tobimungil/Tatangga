@@ -241,6 +241,10 @@ extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.lblThumbsUpCount.text = "\(thumbsUp) likes"
             self.updateLike(dataPost, thumbsUp: thumbsUp as Int)
         }
+        
+        cell.diskusiClick = {
+            self.performSegue(withIdentifier: "diskusiClicked", sender: nil)
+        }
         return cell
     }
 }
