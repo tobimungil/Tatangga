@@ -148,12 +148,11 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
           _ = navigationController?.popViewController(animated: true)
     }
     
-    @objc func handleGroupDetail()
-    {
-        let groupDetail = ContactListCell()
-        self.navigationController?.pushViewController(groupDetail, animated: true)
-          _ = navigationController?.popViewController(animated: true)
-    }
+//    @objc func handleGroupDetail()
+//    {
+//        let groupDetail = ContactListCell()
+//        self.navigationController?.pushViewController(groupDetail, animated: true)
+//    }
     
     @objc func handleDone() {
         

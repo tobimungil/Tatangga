@@ -50,6 +50,7 @@
 		5E5F52B423129D82002DC5F8 /* RulesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F52B323129D82002DC5F8 /* RulesTableViewController.swift */; };
 		5F0ED5DF231FBFDE00244786 /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0ED5DE231FBFDE00244786 /* ContactList.swift */; };
 		5F0ED5E1231FC02100244786 /* ContactListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0ED5E0231FC02100244786 /* ContactListCell.swift */; };
+		5F0ED5E3231FC5D000244786 /* ContactListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0ED5E2231FC5D000244786 /* ContactListController.swift */; };
 		5F185B9423151BBD00E73125 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F185B9323151BBD00E73125 /* CameraViewController.swift */; };
 		5F185B9623151E8400E73125 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F185B9523151E8400E73125 /* PreviewController.swift */; };
 		5FD5D88F231F1E5000D36B77 /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5D88E231F1E5000D36B77 /* GroupList.swift */; };
@@ -105,6 +106,7 @@
 		5E5F52B323129D82002DC5F8 /* RulesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTableViewController.swift; sourceTree = "<group>"; };
 		5F0ED5DE231FBFDE00244786 /* ContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
 		5F0ED5E0231FC02100244786 /* ContactListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListCell.swift; sourceTree = "<group>"; };
+		5F0ED5E2231FC5D000244786 /* ContactListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListController.swift; sourceTree = "<group>"; };
 		5F185B9323151BBD00E73125 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		5F185B9523151E8400E73125 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		5FD5D88E231F1E5000D36B77 /* GroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupList.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				3AAAB2F2231CD3B0009C3FCF /* EditProfileController.swift */,
 				5FD5D88D231F1E2900D36B77 /* Models */,
 				5FD5D890231F1E5F00D36B77 /* Customs */,
+				5F0ED5E2231FC5D000244786 /* ContactListController.swift */,
 			);
 			path = Akun;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				5E4AA3C4231D0C5700AD6637 /* CommentCollectionViewCell.swift in Sources */,
 				5F185B9623151E8400E73125 /* PreviewController.swift in Sources */,
 				5E5F526F230FA070002DC5F8 /* NotifactionViewController.swift in Sources */,
+				5F0ED5E3231FC5D000244786 /* ContactListController.swift in Sources */,
 				5E5F52B2231276B3002DC5F8 /* ForumModel.swift in Sources */,
 				5E5F52A323118404002DC5F8 /* BeritaModel.swift in Sources */,
 				3AAAB2E9231C1D81009C3FCF /* SignUpVC.swift in Sources */,
@@ -587,7 +591,7 @@
 				CODE_SIGN_ENTITLEMENTS = Tatangga/Tatangga.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2X895YB378;
+				DEVELOPMENT_TEAM = 9RKKB6DTX4;
 				INFOPLIST_FILE = Tatangga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -608,7 +612,7 @@
 				CODE_SIGN_ENTITLEMENTS = Tatangga/Tatangga.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2X895YB378;
+				DEVELOPMENT_TEAM = 9RKKB6DTX4;
 				INFOPLIST_FILE = Tatangga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
