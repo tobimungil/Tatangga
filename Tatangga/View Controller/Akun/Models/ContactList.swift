@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContactListCell
+class ContactList
 {
     var contactName: String!
     var contactProfile: UIImage!
