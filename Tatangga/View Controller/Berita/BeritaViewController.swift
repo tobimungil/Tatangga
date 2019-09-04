@@ -211,6 +211,9 @@ extension BeritaViewController: UICollectionViewDelegate, UICollectionViewDataSo
                 let dataUserPost = userPostData[indexPath.row]
                 cell.lblPostTitleUser.text = dataUserPost[RemoteUser.fullName]
                 cell.lblPostStatusUser.text = dataUserPost[RemoteUser.status]
+                if let asset = userData[RemoteUser.photoUser] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!) {
+                    cell.imgPostProfile.image = UIImage(data: data)
+                }
             }
             cell.lblPostStatusUser.text = dataPost[RemotePost.statusReport]
             cell.lblPostTitle.text = dataPost[RemotePost.titlePost]
