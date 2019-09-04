@@ -30,12 +30,13 @@ class NotificationCollectionViewCell: UITableViewCell {
         label.numberOfLines = 2
         return label
     }()
+    //MARK: Copy nih jir
     let lihatButton: UIButton = {
        let button = UIButton()
         button.setTitle("Lihat", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .clear
-       // button.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+        button.addTarget(self, action: #selector(handleIseng), for: .touchUpInside)
         button.layer.cornerRadius = 5
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1
@@ -53,6 +54,7 @@ class NotificationCollectionViewCell: UITableViewCell {
         lihatButton.anchor(top: nil, left: nil, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 12, width: 90, height: 30)
         lihatButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         lihatButton.layer.cornerRadius = 3
+        
         addSubview(notificationLabel)
         notificationLabel.anchor(top: nil, left: profileImageView.rightAnchor, bottom: nil, right: lihatButton.leftAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 8, width: 0, height: 0)
          notificationLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
@@ -60,5 +62,8 @@ class NotificationCollectionViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    @objc func handleIseng(){
+        print("yey")
     }
 }

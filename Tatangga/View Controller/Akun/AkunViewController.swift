@@ -56,7 +56,7 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
         segmentedControl.addTarget(self, action: #selector(AkunViewController.indexChanged(_:)), for: .valueChanged)
         segmentedControl.layer.cornerRadius = 5.0
         segmentedControl.backgroundColor = .clear
-        segmentedControl.tintColor = .blue
+        segmentedControl.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return segmentedControl
     }()
     
@@ -72,6 +72,10 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
     }()
     
     var animalArray: [String] = ["Dog","Cat","Fish"]
+    var myTableView: UITableView = {
+        let tableView = UITableView()
+        return tableView
+    }()
     var cellID = "cellID"
     var groupNameList = ["RT 05, Puri Indah", "RW 07, Puri Indah"]
     var arrayOfGroup = [GroupList(groupName: "RT 05, Puri Indah", groupMember: "15 Anggota"), GroupList(groupName: "RW 07, Puri Indah", groupMember: "89 Orang")]
@@ -138,8 +142,14 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let childCell = GroupListCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellID, group: arrayOfGroup[indexPath.row]) as GroupListCell
-            return childCell
+        let cell: GroupListCell = GroupListCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellID, group: arrayOfGroup[indexPath.row])
+        
+        cell.btnDetail = {
+            var contactListController = ContactListTableViewController()
+            self.navigationController?.pushViewController(contactListController, animated: true)
+        }
+//       cell.textLabel?.text = arrayOfGroup[indexPath.row]
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
