@@ -11,9 +11,15 @@ import CloudKit
 
 class AkunViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var userRecord = [CKRecord]()
+    var userData: CKRecord!
+    
     let profilePhoto: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "camera").withRenderingMode(.alwaysOriginal), for: .normal)
+        button.layer.cornerRadius = button.frame.width / 2
+        button.layer.masksToBounds = true
+        button.layer.borderColor = UIColor.black.cgColor
+        button.layer.borderWidth = 2
         return button
     }()
     let userNameText: UILabel = {
@@ -67,11 +73,16 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let login = LoginVC()
-//        navigationController?.pushViewController(login, animated: true)
+        let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
+        if islogin {
+            getUserData()
+        } else {
+            let login = LoginVC()
+            navigationController?.pushViewController(login, animated: true)
+        }
         // Do any additional setup after loading the view.
         navigationItem.title = "Akun"
-       // configureLogoutButton()
+        configureLogoutButton()
         
         view.addSubview(profilePhoto)
         profilePhoto.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 112, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 140, height: 140)
@@ -122,6 +133,46 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 100
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = false
+        getUserData()
+    }
+    
+    // Use for getDataUser and Check Group
+    func getUserData() {
+        let recordName = UserDefaults.standard.string(forKey: "recordNameUser")
+        let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName!))
+        let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: predicateLogin)
+            if (recordName != nil) {
+                CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
+                    record, error in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    } else {
+                        guard let record = record else { return }
+                        let data = record[0]
+                        self.userData = record[0]
+                        print(self.userData)
+                        print(self.userData[RemoteUser.username])
+                        let dataGroup = data["Group"]
+                        if dataGroup != nil {
+                            print("Punya Group dia")
+                        } else {
+                            print("Gak Punya Group")
+                        }
+                        
+                        DispatchQueue.main.async {
+                            self.setDataUser()
+                        }
+                    }
+                }
+            }
+    }
+    
+    func setDataUser() {
+        userNameText.text = self.userData[RemoteUser.username]! as String
+        statusText.text = self.userData[RemoteUser.status]! as String
+    }
     
     @objc func indexChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex{
@@ -169,14 +220,15 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
     @objc func handleLogout(){
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Keluar", style: .destructive, handler: { (_) in
-            
             do {
-                //try Auth.auth().signOut()
-//                let loginVC = LoginVC()
-//                let navController = UINavigationController(rootViewController: loginVC)
-//                self.present(navController, animated: true, completion: nil)
-                
+//                //try Auth.auth().signOut()
+                UserDefaults.standard.set(false, forKey: "isLogin")
                 let loginVC = LoginVC()
+//                guard let navigationController = self.navigationController else { return }
+//                var controllers = navigationController.viewControllers
+//                print(controllers.count)
+//                controllers.remove(at: controllers.count - 1)
+//                self.navigationController?.viewControllers = controllers
                 self.navigationController?.pushViewController(loginVC, animated: true)
             } catch {
                 print("Failed to sign out")
@@ -188,40 +240,5 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func configureLogoutButton() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Keluar", style: .plain, target: self, action: #selector(handleLogout))
-        let edit = LoginVC()
-        navigationController?.pushViewController(edit, animated: true)
     }
-    func authentication() {
-        for index in 1...userRecord.count {
-            let user = userRecord[index - 1]
-            let email = user[RemoteUser.email] as! String
-            let password = user[RemoteUser.password] as! String
-            OperationQueue.main.addOperation {
-                //                if (email == self.edtEmail.text && password == self.edtPassword.text) {
-                // When Data Email & Password Input == Database data
-                // Success
-                //                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                //                    let viewCon = storyBoard.instantiateViewController(withIdentifier: "mainTabBar")
-                //                    self.present(viewCon, animated: true, completion: nil)
-                //                    UserDefaults.standard.set(true, forKey: "isLogin")
-                //                    UserDefaults.standard.set(String(user.recordID.recordName), forKey: "recordNameUser")
-                //                    let archivedData = NSMutableData()
-                //                    do {
-                //                        let archiver = try NSKeyedArchiver.archivedData(withRootObject: user, requiringSecureCoding: true)
-                //                        let userDefaults = UserDefaults.standard
-                //                        userDefaults.set(archiver, forKey: "use rRecord")
-                //                        userDefaults.synchronize()
-                //                    } catch {
-                //                        print(error)
-                //                    }
-                //                } else {
-                // Error Login
-                //                }
-            }
-        }
-       let login = LoginVC()
-       navigationController?.pushViewController(login, animated: true)
-
-    }
-    
 }

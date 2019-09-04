@@ -18,11 +18,11 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Lapor-->
         <scene sceneID="IqT-Px-gKX">
             <objects>
                 <navigationController id="vtJ-KR-qvS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="add-button" selectedImage="add-button" id="1Ad-WF-EGh">
+                    <tabBarItem key="tabBarItem" title="Lapor" image="add-button-disabled" selectedImage="add-button" id="1Ad-WF-EGh">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -58,7 +58,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="camera"/>
                                 <connections>
-                                    <segue destination="CKn-b9-wpt" kind="show" id="r4i-Mg-5Se"/>
+                                    <segue destination="CKn-b9-wpt" kind="show" id="vaB-Jw-QgU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Foto akan membuat laporanmu menjadi lebih jelas (opsional)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJh-2a-Te6">
@@ -157,7 +157,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9Z-eo-WD3">
-                                <rect key="frame" x="177" y="740" width="60" height="60"/>
+                                <rect key="frame" x="177" y="781" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -248,7 +248,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add-button" width="48" height="48"/>
+        <image name="add-button" width="20" height="20"/>
+        <image name="add-button-disabled" width="20" height="20"/>
         <image name="camera" width="132" height="132"/>
     </resources>
 </document>

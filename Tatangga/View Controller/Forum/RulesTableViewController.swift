@@ -2,7 +2,7 @@
 //  RulesTableViewController.swift
 //  Tatangga
 //
-//  Created by Mirza Fachreza 2 on 25/08/19.
+//  Created by Adrian Suryo Abiyoga on 03/09/19.
 //  Copyright © 2019 Mirza Fachreza. All rights reserved.
 //
 
@@ -13,18 +13,23 @@ class RulesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 12
+//    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 7
+        return 6
     }
 
     /*

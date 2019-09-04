@@ -11,6 +11,8 @@ import CloudKit
 
 class LoginVC: UIViewController {
     
+    var userRecord = [CKRecord]()
+    
     let masukText: UILabel = {
         let label = UILabel()
         label.text = "Masuk untuk mengakses semua fitur"
@@ -79,7 +81,7 @@ class LoginVC: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 12)
         return label
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,6 +90,10 @@ class LoginVC: UIViewController {
         
         // hide nav bar
         navigationController?.navigationBar.isHidden = true
+        // disable specific tabbar = akun tabbar
+        if tabBarController?.selectedIndex == 5 {
+            tabBarController?.tabBar.isUserInteractionEnabled
+        }
         
         //configureViewComponents()
         
@@ -108,7 +114,11 @@ class LoginVC: UIViewController {
         
         view.addSubview(passwordTextField)
         passwordTextField.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 464, paddingLeft: 32, paddingBottom: 0, paddingRight: 32, width: 350, height: 45)
-        
+        if (navigationController?.viewControllers.count)! > 1 {
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        } else {
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+        }
        
         
     }
@@ -118,6 +128,19 @@ class LoginVC: UIViewController {
     }
     
     @objc func handleLogin(){
+        let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: NSPredicate(value: true))
+        CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
+            records, error in
+            guard let records = records else { return }
+            for record in records {
+                self.userRecord.append(record)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.authentication(record)
+                }
+            }
+        }
+        
+        
 //        // properties
 //        guard
 //            let email = emailTextField.text,
@@ -140,9 +163,34 @@ class LoginVC: UIViewController {
 //            mainTabVC.configureViewControllers()
 //            self.dismiss(animated: true, completion: nil)
 //        }
-        let masuk = AkunViewController()
-        navigationController?.pushViewController(masuk, animated: true)
     }
+    
+    // Cek apakah ada data yang sama antara password dan email inputan dari user
+    
+    func authentication(_ record: CKRecord) {
+//        for index in 1...userRecord.count {
+//            let user = userRecord[index - 1]
+            let email = record[RemoteUser.email] as! String
+            let password = record[RemoteUser.password] as! String
+            OperationQueue.main.addOperation {
+                if (email == self.emailTextField.text && password == self.passwordTextField.text) {
+                    print("Berhasil Login")
+                    UserDefaults.standard.set(true, forKey: "isLogin")
+                    UserDefaults.standard.set(String(record.recordID.recordName), forKey: "recordNameUser")
+                    let masuk = AkunViewController()
+                    if self.navigationController != masuk {
+                        DispatchQueue.main.async {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                } else {
+                    print("WKWKWKW LO BGST")
+                }
+            }
+            print(index)
+//        }
+    }
+
     
     @objc func formValidation(){
         
@@ -169,8 +217,6 @@ class LoginVC: UIViewController {
         stackView.distribution  = .fillEqually
 
         view.addSubview(stackView)
-
-
     }
 
 

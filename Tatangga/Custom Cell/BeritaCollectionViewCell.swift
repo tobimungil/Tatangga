@@ -15,7 +15,18 @@ class BeritaCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblPostStatusUser: UILabel!
     @IBOutlet weak var lblDatePost: UILabel!
     @IBOutlet weak var lblThumbsUpCount: UILabel!
-    @IBOutlet weak var lblPostStatusReport: UILabel!
+    @IBOutlet weak var imgStatusReport: UIImageView!
     @IBOutlet weak var lblPostTitle: UILabel!
     @IBOutlet weak var lblPostDescription: UILabel!
+    
+    var actionClick: (() -> Void)? = nil
+    var diskusiClick: (() -> Void)? = nil
+    
+    @IBAction func btnLike(_ sender: UIButton) {
+        actionClick?()
+    }
+    
+    @IBAction func btnDiskusi(_ sender: UIButton) {
+        diskusiClick?()
+    }
 }

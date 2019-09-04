@@ -9,12 +9,23 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Rounded-Light.otf">
+            <string>SFProRounded-Light</string>
+        </array>
+        <array key="SF-Pro-Rounded-Medium.otf">
+            <string>SFProRounded-Medium</string>
+        </array>
+        <array key="SF-Pro-Rounded-Regular.otf">
+            <string>SFProRounded-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Peta-->
         <scene sceneID="RYY-Sy-CYE">
             <objects>
                 <navigationController id="sAh-up-Umw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="peta-disabled" selectedImage="peta-enabled" id="maR-WH-ATB">
+                    <tabBarItem key="tabBarItem" title="Peta" image="peta-disabled" selectedImage="peta-enabled" id="maR-WH-ATB">
                         <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -41,14 +52,125 @@
                         <viewLayoutGuide key="safeArea" id="veb-08-wUa"/>
                     </view>
                     <navigationItem key="navigationItem" id="FVu-Pk-XTH"/>
+                    <connections>
+                        <segue destination="r9U-uH-Fa3" kind="presentation" identifier="mapPopUp" id="rtG-rm-Hy8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EWE-fs-UZn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="447" y="-10"/>
         </scene>
+        <!--Popup View Controller-->
+        <scene sceneID="8nx-uV-eJC">
+            <objects>
+                <viewController storyboardIdentifier="popupVC" id="r9U-uH-Fa3" customClass="PopupViewController" customModule="Tatangga" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="veN-mZ-x6h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlH-Ze-Icz">
+                                <rect key="frame" x="26" y="227" width="363" height="412"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dummy-avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Z8p-2L-HWv">
+                                        <rect key="frame" x="20" y="20" width="45" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIf-rD-s0l">
+                                        <rect key="frame" x="75" y="22" width="168" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8N-a3-gUz">
+                                        <rect key="frame" x="75" y="45" width="95" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFProRounded-Light" family="SF Pro Rounded" pointSize="14"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 Jan 2019" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fs7-gf-jjy">
+                                        <rect key="frame" x="260" y="34" width="83" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFProRounded-Light" family="SF Pro Rounded" pointSize="12"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dummy-berita" translatesAutoresizingMaskIntoConstraints="NO" id="rr8-PE-RKS">
+                                        <rect key="frame" x="20" y="73" width="323" height="220"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Judul" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rJB-Su-pin">
+                                        <rect key="frame" x="19" y="305" width="270" height="19.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" fixedFrame="YES" text="Deskripsi" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOk-lk-1aH">
+                                        <rect key="frame" x="20" y="329" width="322" height="17"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="SFProRounded-Regular" family="SF Pro Rounded" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vm-yT-1P2">
+                                        <rect key="frame" x="19" y="372" width="141" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="SFProRounded-Medium" family="SF Pro Rounded" pointSize="15"/>
+                                        <state key="normal" title="Diskusikan">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fail" translatesAutoresizingMaskIntoConstraints="NO" id="ec2-VF-uNz">
+                                        <rect key="frame" x="313" y="368" width="32" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxB-nZ-dlb">
+                                <rect key="frame" x="185" y="711" width="46" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.97245341539999997" green="0.97261589770000001" blue="0.9724320769" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="28"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="23"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dismissPressed:" destination="r9U-uH-Fa3" eventType="touchUpInside" id="Je0-dz-Oe2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.49502354452054792" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="afk-AV-2i1" firstAttribute="bottom" secondItem="tlH-Ze-Icz" secondAttribute="bottom" constant="223" id="5Sw-OW-ZgA"/>
+                            <constraint firstItem="tlH-Ze-Icz" firstAttribute="leading" secondItem="afk-AV-2i1" secondAttribute="leading" constant="26" id="Lq4-2G-8iB"/>
+                            <constraint firstItem="tlH-Ze-Icz" firstAttribute="top" secondItem="afk-AV-2i1" secondAttribute="top" constant="183" id="a7p-Qu-kK6"/>
+                            <constraint firstItem="afk-AV-2i1" firstAttribute="trailing" secondItem="tlH-Ze-Icz" secondAttribute="trailing" constant="25" id="m9W-gK-zRN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="afk-AV-2i1"/>
+                    </view>
+                    <connections>
+                        <outlet property="imgDetailPost" destination="rr8-PE-RKS" id="OWT-g0-C9T"/>
+                        <outlet property="lblDescriptionDetailPost" destination="pOk-lk-1aH" id="pmK-JM-p3T"/>
+                        <outlet property="lblTitleDetailPost" destination="rJB-Su-pin" id="TTE-1v-93M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6v5-TF-8rd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1462.3188405797102" y="-7.3660714285714279"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="peta-disabled" width="48" height="48"/>
-        <image name="peta-enabled" width="48" height="48"/>
+        <image name="dummy-avatar" width="50" height="50"/>
+        <image name="dummy-berita" width="415" height="250"/>
+        <image name="fail" width="32" height="32"/>
+        <image name="peta-disabled" width="26" height="26"/>
+        <image name="peta-enabled" width="26" height="26"/>
     </resources>
 </document>

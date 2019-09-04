@@ -54,6 +54,10 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     func setLocation() {
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -155,7 +159,6 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 try? imageData.write(to: URL(fileURLWithPath: path), options: [.atomic])
                 self.imageURL = URL(fileURLWithPath: path)
                 let file :CKAsset? = CKAsset(fileURL: URL(fileURLWithPath: path))
-                
                 record[RemotePost.titlePost] = self.judulTxt.text! as NSString
                 record[RemotePost.descriptionPost] = self.descTxt.text! as NSString
                 record[RemotePost.photoPost] = file
@@ -164,6 +167,7 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
                 record[RemotePost.statusReport] = "Open" // Default
                 record[RemotePost.latitude] = self.latitude
                 record[RemotePost.longitude] = self.longitude
+                record[RemotePost.thumbsUp] = 0
                 
                 CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.save(record) {
                     record, error in
@@ -215,7 +219,7 @@ extension UIViewController: UITextViewDelegate {
 extension SubmitViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var locValue: CLLocationCoordinate2D = manager.location!.coordinate
-        print("lat = \(locValue.latitude) , long = \(locValue.longitude) ")
+//        print("lat = \(locValue.latitude) , long = \(locValue.longitude) ")
         latitude = locValue.latitude
         longitude = locValue.longitude
     }
