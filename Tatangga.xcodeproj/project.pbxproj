@@ -60,6 +60,7 @@
 		88F780762317CFF70059F12A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F780752317CFF70059F12A /* Constants.swift */; };
 		88F7807A2317D2030059F12A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F780792317D2030059F12A /* CloudKit.framework */; };
 		8BCCA563231E7A8E00886260 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA562231E7A8E00886260 /* OnboardingViewController.swift */; };
+		8BCCA585231FC44F00886260 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCCA584231FC44F00886260 /* FilterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		88F780772317D19C0059F12A /* Tatangga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tatangga.entitlements; sourceTree = "<group>"; };
 		88F780792317D2030059F12A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		8BCCA562231E7A8E00886260 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		8BCCA584231FC44F00886260 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 			children = (
 				5E5F5262230D5D60002DC5F8 /* BeritaViewController.swift */,
 				5E4AA3BC231CFB9100AD6637 /* CommentViewController.swift */,
+				8BCCA584231FC44F00886260 /* FilterViewController.swift */,
 			);
 			path = Berita;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				5E5F52AF23126B10002DC5F8 /* ForumCollectionViewCell.swift in Sources */,
 				5E5F52AC231264CE002DC5F8 /* DalemKategoriViewController.swift in Sources */,
 				5F185B9423151BBD00E73125 /* CameraViewController.swift in Sources */,
+				8BCCA585231FC44F00886260 /* FilterViewController.swift in Sources */,
 				3AAAB2EB231C1D97009C3FCF /* Extensions.swift in Sources */,
 				3AAAB2E7231C1D67009C3FCF /* LoginVC.swift in Sources */,
 				88EEF0132318176800B8C3F1 /* MethodHelper.swift in Sources */,
