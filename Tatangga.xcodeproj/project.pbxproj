@@ -62,6 +62,8 @@
 		5F185B9623151E8400E73125 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F185B9523151E8400E73125 /* PreviewController.swift */; };
 		5FD5D88F231F1E5000D36B77 /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5D88E231F1E5000D36B77 /* GroupList.swift */; };
 		5FD5D892231F1E7200D36B77 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5D891231F1E7200D36B77 /* GroupListCell.swift */; };
+		883E595E231FB069006AC617 /* LaporanSayaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E595D231FB069006AC617 /* LaporanSayaVC.swift */; };
+		883E5960231FB374006AC617 /* LaporanSayaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883E595F231FB374006AC617 /* LaporanSayaCell.swift */; };
 		88EEF0132318176800B8C3F1 /* MethodHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EEF0122318176800B8C3F1 /* MethodHelper.swift */; };
 		88F780762317CFF70059F12A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F780752317CFF70059F12A /* Constants.swift */; };
 		88F7807A2317D2030059F12A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F780792317D2030059F12A /* CloudKit.framework */; };
@@ -127,6 +129,8 @@
 		5F185B9523151E8400E73125 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		5FD5D88E231F1E5000D36B77 /* GroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupList.swift; sourceTree = "<group>"; };
 		5FD5D891231F1E7200D36B77 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
+		883E595D231FB069006AC617 /* LaporanSayaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaporanSayaVC.swift; sourceTree = "<group>"; };
+		883E595F231FB374006AC617 /* LaporanSayaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaporanSayaCell.swift; sourceTree = "<group>"; };
 		88EEF0122318176800B8C3F1 /* MethodHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodHelper.swift; sourceTree = "<group>"; };
 		88F780752317CFF70059F12A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88F780772317D19C0059F12A /* Tatangga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tatangga.entitlements; sourceTree = "<group>"; };
@@ -247,6 +251,7 @@
 				3AAAB2F6231E6D20009C3FCF /* ForumBaruCollectionViewCell.swift */,
 				3AAAB2F7231E6D20009C3FCF /* ForumBaruCollectionViewCell.xib */,
 				3AAAB301231EB087009C3FCF /* NotificationCollectionViewCell.swift */,
+				883E595F231FB374006AC617 /* LaporanSayaCell.swift */,
 			);
 			path = "Custom Cell";
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 				5FD5D88D231F1E2900D36B77 /* Models */,
 				5FD5D890231F1E5F00D36B77 /* Customs */,
 				5F0ED5E2231FC5D000244786 /* ContactListController.swift */,
+				883E595D231FB069006AC617 /* LaporanSayaVC.swift */,
 			);
 			path = Akun;
 			sourceTree = "<group>";
@@ -471,6 +477,7 @@
 				3AAAB2F8231E6D20009C3FCF /* ForumBaruCollectionViewCell.swift in Sources */,
 				5E5F52B2231276B3002DC5F8 /* ForumModel.swift in Sources */,
 				5E5F52A323118404002DC5F8 /* BeritaModel.swift in Sources */,
+				883E5960231FB374006AC617 /* LaporanSayaCell.swift in Sources */,
 				3AAAB2E9231C1D81009C3FCF /* SignUpVC.swift in Sources */,
 				88F780762317CFF70059F12A /* Constants.swift in Sources */,
 				3AAAB302231EB087009C3FCF /* NotificationCollectionViewCell.swift in Sources */,
@@ -487,6 +494,7 @@
 				8BCCA585231FC44F00886260 /* FilterViewController.swift in Sources */,
 				3AAAB2EB231C1D97009C3FCF /* Extensions.swift in Sources */,
 				3AAAB2E7231C1D67009C3FCF /* LoginVC.swift in Sources */,
+				883E595E231FB069006AC617 /* LaporanSayaVC.swift in Sources */,
 				88EEF0132318176800B8C3F1 /* MethodHelper.swift in Sources */,
 				3AAAB300231EAF26009C3FCF /* ForumMainViewController.swift in Sources */,
 				5E5F5271230FA07E002DC5F8 /* AkunViewController.swift in Sources */,
