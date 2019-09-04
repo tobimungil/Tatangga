@@ -25,7 +25,7 @@ extension LaporanSayaDataSource: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = LaporanSayaCell()
-        if (data.count > 0) && (indexPath.row > 0) {
+//        if (data.count > 0) && (indexPath.row > 0) {
             let dataPost = data[indexPath.row]
             print(dataPost[RemotePost.titlePost])
             cell = LaporanSayaCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellLaporanID)
@@ -33,13 +33,14 @@ extension LaporanSayaDataSource: UITableViewDataSource {
             if let asset = dataPost[RemotePost.photoPost] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!) {
                 cell.reportImg.image = UIImage(data: data)
             }
-        }
+//        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 125
     }
+    
 }
 
 extension LaporanSayaDataSource: UITableViewDelegate {
