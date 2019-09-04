@@ -106,7 +106,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wa3-cZ-R3v">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" id="4KV-Yr-bob"/>
+                            <barButtonItem title="Item" image="notification" id="4KV-Yr-bob"/>
                             <barButtonItem title="Item" image="without notif" id="g8q-UN-qjd">
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -495,7 +495,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXT-cu-6WN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901" y="-375"/>
+            <point key="canvasLocation" x="900.00000000000011" y="-375"/>
         </scene>
     </scenes>
     <resources>
@@ -504,6 +504,7 @@
         <image name="berita-enabled" width="20" height="20"/>
         <image name="dalamproses" width="126" height="20"/>
         <image name="dummy-avatar" width="50" height="50"/>
+        <image name="notification" width="24" height="29"/>
         <image name="option-semua-centang" width="114" height="41"/>
         <image name="option-unread" width="159" height="41"/>
         <image name="thumbs-down" width="32" height="32"/>
