@@ -12,6 +12,35 @@ class CommentViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     let commentCollectionViewCell = "CommentCollectionViewCell"
     
+    
+    static var commentTxt: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Tulis Komentar..."
+        tf.font = UIFont.systemFont(ofSize: 15)
+        return tf
+    }()
+    
+    static var commentView:  UIView = {
+        let commentView = UIView()
+        commentView.backgroundColor = .white
+        commentView.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+
+        commentView.addSubview(commentTxt)
+        commentTxt.anchor(top: commentView.topAnchor, left: commentView.leftAnchor, bottom: nil, right: commentView.rightAnchor, paddingTop: 35, paddingLeft: 30, paddingBottom: 0, paddingRight: 30, width: 0, height: 0)
+        
+        commentView.addSubview(sendBtn)
+        sendBtn.anchor(top: commentView.topAnchor, left: nil, bottom: nil, right: commentView.rightAnchor, paddingTop: 35, paddingLeft: 0, paddingBottom: 0, paddingRight: 30, width: 25, height: 25)
+        return commentView
+    }()
+    
+    static var sendBtn: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setImage(#imageLiteral(resourceName: "send"), for: .normal)
+        return btn
+    }()
+    
+    
+    
     @IBOutlet weak var commentCollection: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +50,22 @@ class CommentViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
+    override var inputAccessoryView: UIView?{
+        get{
+            return CommentViewController.commentView
+        }
+    }
+    
+    override var canBecomeFirstResponder: Bool{
+        return true
     }
     
     func setView(){

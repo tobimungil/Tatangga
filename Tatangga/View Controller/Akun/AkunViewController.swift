@@ -120,6 +120,11 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GroupListCell = GroupListCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellID, group: arrayOfGroup[indexPath.row])
+        
+        cell.btnDetail = {
+            var contactListController = ContactListTableViewController()
+            self.navigationController?.pushViewController(contactListController, animated: true)
+        }
 //       cell.textLabel?.text = arrayOfGroup[indexPath.row]
         return cell
     }
