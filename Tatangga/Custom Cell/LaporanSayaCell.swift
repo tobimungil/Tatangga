@@ -43,9 +43,8 @@ class LaporanSayaCell: UITableViewCell {
         return img
     }()
     
-    init(style: UITableViewCell.CellStyle, reuseIdentifier: String?, data: CKRecord) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.data = data
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -53,13 +52,13 @@ class LaporanSayaCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        reportImg.frame = CGRect(x: 5, y: 0, width: self.contentView.frame.height, height: self.contentView.frame.height)
-        reportImg.image = data[RemotePost.photoPost] as? UIImage
-        reportImg.contentMode = .scaleAspectFill
-        commentImg.image = data[RemotePost.photoPost] as? UIImage
-        seeReportImg.image = data[RemotePost.photoPost] as? UIImage
-        
-        
+//        reportImg.frame = CGRect(x: 5, y: 0, width: self.contentView.frame.height, height: self.contentView.frame.height)
+//        reportImg.image = data[RemotePost.photoPost] as? UIImage
+//        reportImg.contentMode = .scaleAspectFill
+//        commentImg.image = data[RemotePost.photoPost] as? UIImage
+//        seeReportImg.image = data[RemotePost.photoPost] as? UIImage
+//        
+//        
     }
 }
 

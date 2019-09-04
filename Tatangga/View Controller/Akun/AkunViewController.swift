@@ -9,9 +9,13 @@
 import UIKit
 import CloudKit
 
-class AkunViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class AkunViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var userRecord = [CKRecord]()
     var userData: CKRecord!
+    var requestCode: Int?
+    
+    let cellLaporanID = "cellLaporanID"
+    var dataPost = [CKRecord]()
     
     let profilePhoto: UIButton = {
         let button = UIButton(type: .system)
@@ -57,18 +61,26 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
     }()
     
     //MARK: My table
-    var myTableView: UITableView = {
+    var groupTable: UITableView = {
         let tableView = UITableView()
         return tableView
     }()
+    
+    var laporanTable: UITableView = {
+        let tableView = UITableView()
+        return tableView
+    }()
+    
     var animalArray: [String] = ["Dog","Cat","Fish"]
     var cellID = "cellID"
     var groupNameList = ["RT 05, Puri Indah", "RW 07, Puri Indah"]
     var arrayOfGroup = [GroupList(groupName: "RT 05, Puri Indah", groupMember: "15 Anggota"), GroupList(groupName: "RW 07, Puri Indah", groupMember: "89 Orang")]
     
+    var laporanDataSource: UITableViewDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestCode = 0
         let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
         if islogin {
             getUserData()
@@ -102,15 +114,21 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //MARK: table view
         view.backgroundColor = UIColor.white
-        myTableView.frame = view.frame
-        myTableView.register(GroupListCell.self, forCellReuseIdentifier: cellID)
-        myTableView.delegate = self
-        myTableView.dataSource = self
-        view.addSubview(myTableView)
-        myTableView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.topAnchor, right: view.rightAnchor, paddingTop: 415, paddingLeft: 0, paddingBottom: 786, paddingRight: 0, width: 410, height: 383)
-        myTableView.isHidden = true
-    
+        groupTable.frame = view.frame
+        groupTable.register(GroupListCell.self, forCellReuseIdentifier: cellID)
+        groupTable.delegate = self
+        groupTable.dataSource = self
+        view.addSubview(groupTable)
+        groupTable.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.topAnchor, right: view.rightAnchor, paddingTop: 415, paddingLeft: 0, paddingBottom: 786, paddingRight: 0, width: 410, height: 383)
+        groupTable.isHidden = true
         
+        laporanTable.frame = view.frame
+        laporanTable.register(GroupListCell.self, forCellReuseIdentifier: cellID)
+//        laporanTable.delegate = LaporanSayaDataSource()
+//        laporanTable.dataSource = LaporanSayaDataSource()
+        view.addSubview(laporanTable)
+        laporanTable.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.topAnchor, right: view.rightAnchor, paddingTop: 415, paddingLeft: 0, paddingBottom: 786, paddingRight: 0, width: 410, height: 383)
+//        laporanTable.isHidden = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,9 +138,8 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: GroupListCell = GroupListCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellID, group: arrayOfGroup[indexPath.row])
-//       cell.textLabel?.text = arrayOfGroup[indexPath.row]
-        return cell
+            let childCell = GroupListCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellID, group: arrayOfGroup[indexPath.row]) as GroupListCell
+            return childCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -134,6 +151,7 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
         let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
         if islogin {
             getUserData()
+            getDataPost()
         }
     }
     
@@ -183,17 +201,46 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
         statusText.text = self.userData[RemoteUser.status]! as String
     }
     
+    func getDataPost() {
+        let recordID = CKRecord.ID(recordName: UserDefaults.standard.string(forKey: "recordNameUser")!)
+        let userReference = CKRecord.Reference(recordID: recordID, action: .none)
+        let groupPredicate = NSPredicate(format: "User = %@", userReference)
+        let query = CKQuery(recordType: RemoteRecords.post, predicate: groupPredicate)
+        CKContainer.init(identifier: RemoteURL.url).publicCloudDatabase.perform(query, inZoneWith: nil) {
+            records, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                self.dataPost = records!
+                DispatchQueue.main.async {
+                    let dataSource = LaporanSayaDataSource(data: self.dataPost)
+                    self.laporanTable.isHidden = false
+                    self.laporanTable.dataSource = dataSource
+                    self.laporanDataSource = dataSource
+                    self.laporanTable.reloadData()
+                }
+            }
+        }
+    }
+    
     @objc func indexChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex{
+        switch sender.selectedSegmentIndex {
         case 0:
-            print("Laporan saya");
-            myTableView.isHidden = true
+            requestCode = 0
+            if dataPost.count > 0 {
+//                laporanDataSource.data = dataPost
+                laporanTable.reloadData()
+            }
+            groupTable.isHidden = true
+            laporanTable.isHidden = false
         case 1:
-            print("Grup Saya")
-            myTableView.isHidden = false
+            requestCode = 1
+            groupTable.reloadData()
+            groupTable.isHidden = false
+            laporanTable.isHidden = true
         case 2:
-            print("Alamat Saya")
-            myTableView.isHidden = true
+            requestCode = 2
+            groupTable.reloadData()
         default:
             break
         }
