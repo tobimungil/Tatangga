@@ -53,6 +53,7 @@ class NotificationCollectionViewCell: UITableViewCell {
         lihatButton.anchor(top: nil, left: nil, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 12, width: 90, height: 30)
         lihatButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         lihatButton.layer.cornerRadius = 3
+        
         addSubview(notificationLabel)
         notificationLabel.anchor(top: nil, left: profileImageView.rightAnchor, bottom: nil, right: lihatButton.leftAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 8, width: 0, height: 0)
          notificationLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
