@@ -135,7 +135,10 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = false
-        getUserData()
+        let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
+        if islogin {
+            getUserData()
+        }
     }
     
     // Use for getDataUser and Check Group
