@@ -53,10 +53,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FZ-76-vyF">
-                                <rect key="frame" x="141" y="128" width="132" height="132"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FZ-76-vyF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="202"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="camera"/>
+                                <state key="normal" image="camera-noCircle"/>
                                 <connections>
                                     <segue destination="CKn-b9-wpt" kind="show" id="vaB-Jw-QgU"/>
                                 </connections>
@@ -138,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vc2-cf-hVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-167" y="-164"/>
+            <point key="canvasLocation" x="-168.11594202898553" y="-164.0625"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="hcr-Tc-gZn">
@@ -250,6 +250,6 @@
     <resources>
         <image name="add-button" width="20" height="20"/>
         <image name="add-button-disabled" width="20" height="20"/>
-        <image name="camera" width="132" height="132"/>
+        <image name="camera-noCircle" width="55" height="39"/>
     </resources>
 </document>

@@ -52,7 +52,7 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
         segmentedControl.addTarget(self, action: #selector(AkunViewController.indexChanged(_:)), for: .valueChanged)
         segmentedControl.layer.cornerRadius = 5.0
         segmentedControl.backgroundColor = .clear
-        segmentedControl.tintColor = .blue
+        segmentedControl.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         return segmentedControl
     }()
     
@@ -121,6 +121,11 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: GroupListCell = GroupListCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellID, group: arrayOfGroup[indexPath.row])
+        
+        cell.btnDetail = {
+            var contactListController = ContactListTableViewController()
+            self.navigationController?.pushViewController(contactListController, animated: true)
+        }
 //       cell.textLabel?.text = arrayOfGroup[indexPath.row]
         return cell
     }
