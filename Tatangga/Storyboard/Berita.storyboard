@@ -106,11 +106,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="wa3-cZ-R3v">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" id="4KV-Yr-bob">
-                                <connections>
-                                    <segue destination="7ue-1s-XOV" kind="show" id="UI6-HZ-zfd"/>
-                                </connections>
-                            </barButtonItem>
+                            <barButtonItem title="Item" id="4KV-Yr-bob"/>
                             <barButtonItem title="Item" image="without notif" id="g8q-UN-qjd">
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </barButtonItem>
@@ -121,6 +117,7 @@
                         <outlet property="btnGrouJoin" destination="zEF-IQ-Uns" id="kam-WF-MRd"/>
                         <outlet property="indicatorLoading" destination="8RF-vt-Ts9" id="VvY-Yh-eaC"/>
                         <outlet property="lblGroup" destination="E4f-pt-0u2" id="IzZ-bg-Gjl"/>
+                        <segue destination="7ue-1s-XOV" kind="show" identifier="diskusiClicked" id="nRv-jT-7gb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hXP-65-GZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
