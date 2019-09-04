@@ -61,7 +61,6 @@ class AkunViewController: UIViewController, UITableViewDelegate, UITableViewData
         let tableView = UITableView()
         return tableView
     }()
-    var animalArray: [String] = ["Dog","Cat","Fish"]
     var cellID = "cellID"
     var groupNameList = ["RT 05, Puri Indah", "RW 07, Puri Indah"]
     var arrayOfGroup = [GroupList(groupName: "RT 05, Puri Indah", groupMember: "15 Anggota"), GroupList(groupName: "RW 07, Puri Indah", groupMember: "89 Orang")]
