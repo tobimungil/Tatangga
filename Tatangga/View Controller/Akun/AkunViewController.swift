@@ -17,10 +17,6 @@ class AkunViewController: UIViewController  {
     let profilePhoto: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "camera").withRenderingMode(.alwaysOriginal), for: .normal)
-        button.layer.cornerRadius = button.frame.width / 2
-        button.layer.masksToBounds = true
-        button.layer.borderColor = UIColor.black.cgColor
-        button.layer.borderWidth = 2
         return button
     }()
     let userNameText: UILabel = {
@@ -135,6 +131,11 @@ class AkunViewController: UIViewController  {
         if let asset = self.userData[RemoteUser.photoUser] as? CKAsset, let data = try? Data(contentsOf: asset.fileURL!) {
             let decodedImage = UIImage(data: data as Data)
             let originalImage = decodedImage!.withRenderingMode(.alwaysOriginal)
+            
+            profilePhoto.layer.cornerRadius = profilePhoto.frame.width / 2
+            profilePhoto.layer.masksToBounds = true
+            profilePhoto.layer.borderColor = UIColor.black.cgColor
+            profilePhoto.layer.borderWidth = 1
             profilePhoto.setImage(originalImage, for: .normal)
         }
         userNameText.text = self.userData[RemoteUser.username]! as String
