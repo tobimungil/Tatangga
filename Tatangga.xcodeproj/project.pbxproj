@@ -48,8 +48,12 @@
 		5E5F52B023126B10002DC5F8 /* ForumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E5F52AE23126B10002DC5F8 /* ForumCollectionViewCell.xib */; };
 		5E5F52B2231276B3002DC5F8 /* ForumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F52B1231276B3002DC5F8 /* ForumModel.swift */; };
 		5E5F52B423129D82002DC5F8 /* RulesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F52B323129D82002DC5F8 /* RulesTableViewController.swift */; };
+		5F0ED5DF231FBFDE00244786 /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0ED5DE231FBFDE00244786 /* ContactList.swift */; };
+		5F0ED5E1231FC02100244786 /* ContactListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0ED5E0231FC02100244786 /* ContactListCell.swift */; };
 		5F185B9423151BBD00E73125 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F185B9323151BBD00E73125 /* CameraViewController.swift */; };
 		5F185B9623151E8400E73125 /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F185B9523151E8400E73125 /* PreviewController.swift */; };
+		5FD5D88F231F1E5000D36B77 /* GroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5D88E231F1E5000D36B77 /* GroupList.swift */; };
+		5FD5D892231F1E7200D36B77 /* GroupListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD5D891231F1E7200D36B77 /* GroupListCell.swift */; };
 		88EEF0132318176800B8C3F1 /* MethodHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EEF0122318176800B8C3F1 /* MethodHelper.swift */; };
 		88F780762317CFF70059F12A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F780752317CFF70059F12A /* Constants.swift */; };
 		88F7807A2317D2030059F12A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88F780792317D2030059F12A /* CloudKit.framework */; };
@@ -99,8 +103,12 @@
 		5E5F52AE23126B10002DC5F8 /* ForumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForumCollectionViewCell.xib; sourceTree = "<group>"; };
 		5E5F52B1231276B3002DC5F8 /* ForumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumModel.swift; sourceTree = "<group>"; };
 		5E5F52B323129D82002DC5F8 /* RulesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulesTableViewController.swift; sourceTree = "<group>"; };
+		5F0ED5DE231FBFDE00244786 /* ContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
+		5F0ED5E0231FC02100244786 /* ContactListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListCell.swift; sourceTree = "<group>"; };
 		5F185B9323151BBD00E73125 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		5F185B9523151E8400E73125 /* PreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
+		5FD5D88E231F1E5000D36B77 /* GroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupList.swift; sourceTree = "<group>"; };
+		5FD5D891231F1E7200D36B77 /* GroupListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupListCell.swift; sourceTree = "<group>"; };
 		88EEF0122318176800B8C3F1 /* MethodHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MethodHelper.swift; sourceTree = "<group>"; };
 		88F780752317CFF70059F12A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		88F780772317D19C0059F12A /* Tatangga.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tatangga.entitlements; sourceTree = "<group>"; };
@@ -254,6 +262,8 @@
 				3AAAB2E6231C1D67009C3FCF /* LoginVC.swift */,
 				5E5F5270230FA07E002DC5F8 /* AkunViewController.swift */,
 				3AAAB2F2231CD3B0009C3FCF /* EditProfileController.swift */,
+				5FD5D88D231F1E2900D36B77 /* Models */,
+				5FD5D890231F1E5F00D36B77 /* Customs */,
 			);
 			path = Akun;
 			sourceTree = "<group>";
@@ -266,6 +276,24 @@
 				5F185B9523151E8400E73125 /* PreviewController.swift */,
 			);
 			path = Submit;
+			sourceTree = "<group>";
+		};
+		5FD5D88D231F1E2900D36B77 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5FD5D88E231F1E5000D36B77 /* GroupList.swift */,
+				5F0ED5DE231FBFDE00244786 /* ContactList.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5FD5D890231F1E5F00D36B77 /* Customs */ = {
+			isa = PBXGroup;
+			children = (
+				5FD5D891231F1E7200D36B77 /* GroupListCell.swift */,
+				5F0ED5E0231FC02100244786 /* ContactListCell.swift */,
+			);
+			path = Customs;
 			sourceTree = "<group>";
 		};
 		88F780742317CFE50059F12A /* Helper */ = {
@@ -384,6 +412,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E5F5273230FA08C002DC5F8 /* SubmitViewController.swift in Sources */,
+				5FD5D892231F1E7200D36B77 /* GroupListCell.swift in Sources */,
 				5E5F526D230FA065002DC5F8 /* PetaViewController.swift in Sources */,
 				3AAAB2F3231CD3B0009C3FCF /* EditProfileController.swift in Sources */,
 				5E5F51F5230D24E2002DC5F8 /* Tatangga.xcdatamodeld in Sources */,
@@ -398,6 +427,7 @@
 				5E5F51ED230D24E2002DC5F8 /* AppDelegate.swift in Sources */,
 				5E5F5263230D5D60002DC5F8 /* BeritaViewController.swift in Sources */,
 				5E5F52AF23126B10002DC5F8 /* ForumCollectionViewCell.swift in Sources */,
+				5FD5D88F231F1E5000D36B77 /* GroupList.swift in Sources */,
 				5E5F52AC231264CE002DC5F8 /* DalemKategoriViewController.swift in Sources */,
 				5E5F52B423129D82002DC5F8 /* RulesTableViewController.swift in Sources */,
 				5F185B9423151BBD00E73125 /* CameraViewController.swift in Sources */,
@@ -405,6 +435,8 @@
 				3AAAB2E7231C1D67009C3FCF /* LoginVC.swift in Sources */,
 				88EEF0132318176800B8C3F1 /* MethodHelper.swift in Sources */,
 				5E5F5271230FA07E002DC5F8 /* AkunViewController.swift in Sources */,
+				5F0ED5E1231FC02100244786 /* ContactListCell.swift in Sources */,
+				5F0ED5DF231FBFDE00244786 /* ContactList.swift in Sources */,
 				5E5F529F23117DC4002DC5F8 /* BeritaCollectionViewCell.swift in Sources */,
 				5E4AA3BD231CFB9100AD6637 /* CommentViewController.swift in Sources */,
 			);
@@ -555,7 +587,7 @@
 				CODE_SIGN_ENTITLEMENTS = Tatangga/Tatangga.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9RKKB6DTX4;
+				DEVELOPMENT_TEAM = 2X895YB378;
 				INFOPLIST_FILE = Tatangga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -576,7 +608,7 @@
 				CODE_SIGN_ENTITLEMENTS = Tatangga/Tatangga.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9RKKB6DTX4;
+				DEVELOPMENT_TEAM = 2X895YB378;
 				INFOPLIST_FILE = Tatangga/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
