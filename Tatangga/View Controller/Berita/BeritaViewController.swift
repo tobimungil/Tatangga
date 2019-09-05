@@ -68,10 +68,11 @@ class BeritaViewController: UIViewController {
         // CHECK GROUP USER
         let recordName = UserDefaults.standard.string(forKey: "recordNameUser")
         let islogin: Bool = UserDefaults.standard.bool(forKey: "isLogin")
-        guard recordName != nil else { return }
-        let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName!))
-        let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: predicateLogin)
+        
         if islogin {
+            guard recordName != nil else { return }
+            let predicateLogin = NSPredicate(format: "recordID = %@", CKRecord.ID(recordName: recordName!))
+            let queryUser = CKQuery(recordType: RemoteRecords.user, predicate: predicateLogin)
             if (recordName != nil) {
                 CKContainer.init(identifier: "iCloud.com.team8.Tatangga").publicCloudDatabase.perform(queryUser, inZoneWith: nil) {
                     record, error in
@@ -97,6 +98,10 @@ class BeritaViewController: UIViewController {
                     }
                 }
             }
+        } else {
+            beritaCollection.isHidden = false
+            indicatorLoading.isHidden = true
+            beritaCollection.reloadData()
         }
     }
     
