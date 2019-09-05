@@ -71,6 +71,8 @@ class GroupListCell: UITableViewCell
     
     @objc func handleDetail(_ sender: UIButton)
     {
-        print("Hilih")
+//        let contactVC = ContactListTableViewController()
+//        navigationController?.pushViewController(contactVC
+//        , animated: true)
     }
 }

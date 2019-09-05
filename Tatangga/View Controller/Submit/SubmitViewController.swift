@@ -38,6 +38,10 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+        
+        btnPict.layer.borderColor = UIColor.lightGray.cgColor
+        btnPict.layer.borderWidth = 0.5
         descTxt.text = "Deskripsi"
         descTxt.textColor = UIColor.lightGray
         
@@ -115,7 +119,7 @@ class SubmitViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         kategoriPicker.inputAccessoryView = toolBar
     }
     
-    @objc func dismissKeyboard(){
+    @objc override func dismissKeyboard(){
         view.endEditing(true)
     }
     
@@ -207,7 +211,9 @@ extension UIViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-}
+    
+    }
+
 
 extension UIViewController: UITextViewDelegate {
     public func textViewShouldEndEditing(_ textView: UITextView) -> Bool {

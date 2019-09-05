@@ -41,6 +41,14 @@
             </objects>
             <point key="canvasLocation" x="-591" y="-7"/>
         </scene>
+        <!--Filter-->
+        <scene sceneID="ast-97-1jR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Filter" id="wXd-qH-XcV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GkV-uQ-Sx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="427" y="-439"/>
+        </scene>
         <!--Peta View Controller-->
         <scene sceneID="AwQ-No-PBk">
             <objects>
@@ -51,7 +59,16 @@
                         <color key="backgroundColor" red="0.97245341539999997" green="0.97261589770000001" blue="0.9724320769" alpha="1" colorSpace="deviceRGB"/>
                         <viewLayoutGuide key="safeArea" id="veb-08-wUa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="FVu-Pk-XTH"/>
+                    <navigationItem key="navigationItem" id="FVu-Pk-XTH">
+                        <rightBarButtonItems>
+                            <barButtonItem image="notification" id="7dp-Ng-B5R"/>
+                            <barButtonItem image="without notif" id="blJ-Vi-Tnl">
+                                <connections>
+                                    <segue destination="wXd-qH-XcV" kind="show" id="7KT-u4-3J9"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <segue destination="r9U-uH-Fa3" kind="presentation" identifier="mapPopUp" id="rtG-rm-Hy8"/>
                     </connections>
@@ -122,6 +139,9 @@
                                         <state key="normal" title="Diskusikan">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="cIc-eP-rfh" kind="show" id="rP7-aC-31Z"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fail" translatesAutoresizingMaskIntoConstraints="NO" id="ec2-VF-uNz">
                                         <rect key="frame" x="313" y="368" width="32" height="30"/>
@@ -165,12 +185,22 @@
             </objects>
             <point key="canvasLocation" x="1462.3188405797102" y="-7.3660714285714279"/>
         </scene>
+        <!--Comment-->
+        <scene sceneID="oBt-Rc-SCT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Comment" id="cIc-eP-rfh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IPU-Va-jhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2408" y="-16"/>
+        </scene>
     </scenes>
     <resources>
         <image name="dummy-avatar" width="50" height="50"/>
         <image name="dummy-berita" width="415" height="250"/>
         <image name="fail" width="32" height="32"/>
-        <image name="peta-disabled" width="26" height="26"/>
-        <image name="peta-enabled" width="26" height="26"/>
+        <image name="notification" width="24" height="29"/>
+        <image name="peta-disabled" width="20" height="20"/>
+        <image name="peta-enabled" width="20" height="20"/>
+        <image name="without notif" width="30" height="30"/>
     </resources>
 </document>

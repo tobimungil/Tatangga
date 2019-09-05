@@ -54,6 +54,9 @@
 		5E5F52B2231276B3002DC5F8 /* ForumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F52B1231276B3002DC5F8 /* ForumModel.swift */; };
 		5EEBC22A231D44FC0044DE36 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEBC229231D44FC0044DE36 /* PopupViewController.swift */; };
 		5EEBC22C231E628C0044DE36 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBC22B231E628C0044DE36 /* Onboarding.storyboard */; };
+		5EEBC22F232016DE0044DE36 /* Filter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBC22E232016DE0044DE36 /* Filter.storyboard */; };
+		5EEBC231232018FB0044DE36 /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBC230232018FB0044DE36 /* Comment.storyboard */; };
+		5EEBC234232020A50044DE36 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EEBC233232020A50044DE36 /* Notification.storyboard */; };
 		5F0ED5DF231FBFDE00244786 /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0ED5DE231FBFDE00244786 /* ContactList.swift */; };
 		5F0ED5E5231FD84F00244786 /* ContactListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0ED5E4231FD84F00244786 /* ContactListTableViewController.swift */; };
 		5F0ED5E9231FDA5C00244786 /* ContactListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0ED5E8231FDA5C00244786 /* ContactListTableViewCell.swift */; };
@@ -122,6 +125,9 @@
 		5E5F52B1231276B3002DC5F8 /* ForumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumModel.swift; sourceTree = "<group>"; };
 		5EEBC229231D44FC0044DE36 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		5EEBC22B231E628C0044DE36 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		5EEBC22E232016DE0044DE36 /* Filter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Filter.storyboard; sourceTree = "<group>"; };
+		5EEBC230232018FB0044DE36 /* Comment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
+		5EEBC233232020A50044DE36 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 		5F0ED5DE231FBFDE00244786 /* ContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
 		5F0ED5E4231FD84F00244786 /* ContactListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewController.swift; sourceTree = "<group>"; };
 		5F0ED5E8231FDA5C00244786 /* ContactListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListTableViewCell.swift; sourceTree = "<group>"; };
@@ -199,6 +205,7 @@
 		5E5F5201230D3A00002DC5F8 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5EEBC23223201E940044DE36 /* Comment */,
 				3AAAB2FE231EAEF2009C3FCF /* Notification */,
 				8BCCA561231E7A7D00886260 /* Onboarding */,
 				5E5F52A42312533B002DC5F8 /* Berita */,
@@ -221,6 +228,9 @@
 				5E5F51F8230D24E4002DC5F8 /* LaunchScreen.storyboard */,
 				5E5F526A230E87D0002DC5F8 /* Submit.storyboard */,
 				5EEBC22B231E628C0044DE36 /* Onboarding.storyboard */,
+				5EEBC22E232016DE0044DE36 /* Filter.storyboard */,
+				5EEBC230232018FB0044DE36 /* Comment.storyboard */,
+				5EEBC233232020A50044DE36 /* Notification.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -272,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				5E5F5262230D5D60002DC5F8 /* BeritaViewController.swift */,
-				5E4AA3BC231CFB9100AD6637 /* CommentViewController.swift */,
 				8BCCA584231FC44F00886260 /* FilterViewController.swift */,
 				883E5964232072BD006AC617 /* JoinGroupViewController.swift */,
 			);
@@ -322,6 +331,14 @@
 				5F185B9523151E8400E73125 /* PreviewController.swift */,
 			);
 			path = Submit;
+			sourceTree = "<group>";
+		};
+		5EEBC23223201E940044DE36 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				5E4AA3BC231CFB9100AD6637 /* CommentViewController.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		5FD5D88D231F1E2900D36B77 /* Models */ = {
@@ -439,7 +456,9 @@
 				5E5F524E230D4C89002DC5F8 /* SF-Pro-Rounded-Semibold.otf in Resources */,
 				5E5F526B230E87D0002DC5F8 /* Submit.storyboard in Resources */,
 				5E5F5247230D4C89002DC5F8 /* SF-Pro-Rounded-Thin.otf in Resources */,
+				5EEBC231232018FB0044DE36 /* Comment.storyboard in Resources */,
 				3AAAB2F9231E6D20009C3FCF /* ForumBaruCollectionViewCell.xib in Resources */,
+				5EEBC22F232016DE0044DE36 /* Filter.storyboard in Resources */,
 				5E5F5250230D4C89002DC5F8 /* SF-Pro-Rounded-Black.otf in Resources */,
 				5E5F5267230E7166002DC5F8 /* Forum.storyboard in Resources */,
 				5E5F525C230D4C89002DC5F8 /* SF-Pro-Rounded-Regular.otf in Resources */,
@@ -457,6 +476,7 @@
 				5E5F5245230D4C89002DC5F8 /* SF-Pro-Rounded-Medium.otf in Resources */,
 				5E5F5204230D4A2E002DC5F8 /* Berita.storyboard in Resources */,
 				5E5F5265230E7157002DC5F8 /* Peta.storyboard in Resources */,
+				5EEBC234232020A50044DE36 /* Notification.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

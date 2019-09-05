@@ -44,6 +44,7 @@ class CommentViewController: UIViewController, UICollectionViewDelegate, UIColle
     @IBOutlet weak var commentCollection: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         setView()
         // Do any additional setup after loading the view.
     }
@@ -91,4 +92,16 @@ class CommentViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     */
 
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
