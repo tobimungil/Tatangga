@@ -87,6 +87,8 @@ class EditProfileController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         configureNavigationBar()
         
         configureViewComponents()
