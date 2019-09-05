@@ -46,7 +46,7 @@ class DalemKategoriViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showComment", sender: nil)
+        performSegue(withIdentifier: "cellClicked", sender: nil)
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

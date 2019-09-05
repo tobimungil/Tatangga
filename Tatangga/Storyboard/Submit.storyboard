@@ -57,6 +57,9 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="202"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="camera-noCircle"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.borderColor" value=".lightGray"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="CKn-b9-wpt" kind="show" id="vaB-Jw-QgU"/>
                                 </connections>
@@ -78,7 +81,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Ay8-yI-gfi" id="LO9-oW-7Jf"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lokasi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CxL-TG-D5m">
                                 <rect key="frame" x="42" y="483" width="331" height="30"/>
