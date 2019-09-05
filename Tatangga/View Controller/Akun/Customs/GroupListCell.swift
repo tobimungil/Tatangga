@@ -51,7 +51,7 @@ class GroupListCell: UITableViewCell
         groupMember.text = group.groupMember
         
         addSubview(detailButton)
-        detailButton.anchor(top: nil, left: groupName.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 80, height: 40)
+        detailButton.anchor(top: nil, left: groupName.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 12, width: 90, height: 30)
         detailButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         detailButton.layer.cornerRadius  = 3
         

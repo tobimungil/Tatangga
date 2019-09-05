@@ -84,6 +84,7 @@ class LoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         
         // background color
         view.backgroundColor = .white
@@ -184,7 +185,7 @@ class LoginVC: UIViewController {
                         }
                     }
                 } else {
-                    print("WKWKWKW LO BGST")
+                    print("Wrong Password")
                 }
             }
             print(index)
