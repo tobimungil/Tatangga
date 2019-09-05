@@ -55,6 +55,16 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         tf.font = UIFont.systemFont(ofSize: 14)
         return tf
     }()
+    
+    let statusTextField: UITextField = {
+        let tf = UITextField()
+        tf.placeholder = "Warga / Admin"
+        tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
+        tf.borderStyle = .roundedRect
+        tf.font = UIFont.systemFont(ofSize: 14)
+        return tf
+    }()
+    
     let alamatTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Alamat"
@@ -132,6 +142,7 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         view.addSubview(masukText)
         masukText.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 649, paddingLeft: 28, paddingBottom: 0, paddingRight: 28, width: 357, height: 27)
         
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -180,12 +191,14 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         guard let password = passwordTextField.text else { return }
         guard let fullName = fullNameTextField.text else { return }
         guard let username = userNameTextField.text?.lowercased() else { return }
+        guard let status = statusTextField.text?.lowercased() else { return }
 
         let recordUser = CKRecord(recordType: RemoteRecords.user)
         if let imgURL = imgURL {
             let assetImg: CKAsset = CKAsset(fileURL: imgURL)
             recordUser[RemoteUser.photoUser] = assetImg
         }
+        recordUser[RemoteUser.status] = status
         recordUser[RemoteUser.email] = email
         recordUser[RemoteUser.fullName] = fullName
         recordUser[RemoteUser.password] = password
@@ -272,7 +285,7 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     
     @objc func formValidation(){
-        guard emailTextField.hasText, passwordTextField.hasText , fullNameTextField.hasText, userNameTextField.hasText, alamatTextField.hasText, confirmPasswordTextField.hasText else {
+        guard emailTextField.hasText, passwordTextField.hasText , fullNameTextField.hasText, userNameTextField.hasText, statusTextField.hasText,alamatTextField.hasText, confirmPasswordTextField.hasText else {
             signUp.isEnabled = false
             signUp.backgroundColor = UIColor(red: 149/255, green: 204/255, blue: 244/255, alpha: 1)
             return
@@ -282,7 +295,7 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     }
     
     func configureViewComponents(){
-        let stackView = UIStackView(arrangedSubviews: [emailTextField,fullNameTextField,userNameTextField,alamatTextField,passwordTextField,confirmPasswordTextField])
+        let stackView = UIStackView(arrangedSubviews: [emailTextField,fullNameTextField,userNameTextField,statusTextField,alamatTextField,passwordTextField,confirmPasswordTextField])
         
         stackView.axis = .vertical
         stackView.spacing = 10
