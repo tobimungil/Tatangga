@@ -18,7 +18,6 @@ class GroupListCell: UITableViewCell
         button.setTitleColor(.black, for: .normal)
         button.backgroundColor = .clear
         button.isEnabled = true
-        button.addTarget(self, action: #selector(handleDetail(_:)), for: .touchUpInside)
         button.layer.cornerRadius = 5
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1
@@ -55,6 +54,9 @@ class GroupListCell: UITableViewCell
         detailButton.anchor(top: nil, left: groupName.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 80, height: 40)
         detailButton.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         detailButton.layer.cornerRadius  = 3
+        
+        detailButton.addTarget(self, action: #selector(handleDetail(_:)), for: .touchUpInside)
+
         
     }
     
