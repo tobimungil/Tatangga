@@ -107,6 +107,7 @@ class EditProfileController: UIViewController {
     
     @objc func handleCancel() {
         self.dismiss(animated: true, completion: nil)
+         _ = navigationController?.popViewController(animated: true)
     }
     
     @objc func handleDone() {
@@ -120,6 +121,8 @@ class EditProfileController: UIViewController {
         if imageChanged {
             updateProfileImage()
         }
+        
+         _ = navigationController?.popViewController(animated: true)
     }
     
     func loadUserData() {
