@@ -38,6 +38,14 @@
             </objects>
             <point key="canvasLocation" x="-228" y="-378"/>
         </scene>
+        <!--Notification-->
+        <scene sceneID="MOL-Gv-7QW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notification" id="Vfv-tC-t2m" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zl5-ff-9YO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="-323"/>
+        </scene>
         <!--Comment-->
         <scene sceneID="Aqs-SS-PlF">
             <objects>
@@ -111,7 +119,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="wa3-cZ-R3v">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="notification" id="4KV-Yr-bob"/>
+                            <barButtonItem title="Item" image="notification" id="4KV-Yr-bob">
+                                <connections>
+                                    <segue destination="Vfv-tC-t2m" kind="show" id="Vk2-Jd-6sP"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Item" image="without notif" id="g8q-UN-qjd">
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>

@@ -30,6 +30,14 @@
             </objects>
             <point key="canvasLocation" x="-591" y="-7"/>
         </scene>
+        <!--Notification-->
+        <scene sceneID="ljr-7X-Cga">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notification" id="J36-fC-2dq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rbb-W7-gSw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="402" y="-466"/>
+        </scene>
         <!--Forum-->
         <scene sceneID="hGc-fE-IIo">
             <objects>
@@ -102,7 +110,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Forum" id="xuY-14-a43">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="notification" id="oea-eo-hgD"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="notification" id="oea-eo-hgD">
+                            <connections>
+                                <segue destination="J36-fC-2dq" kind="show" id="6MU-9h-LgT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>

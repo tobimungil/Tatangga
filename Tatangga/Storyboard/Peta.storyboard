@@ -49,6 +49,14 @@
             </objects>
             <point key="canvasLocation" x="427" y="-439"/>
         </scene>
+        <!--Notification-->
+        <scene sceneID="Fax-HO-XZt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Notification" id="NIG-Gj-NG3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xGF-oX-VuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="933" y="-422"/>
+        </scene>
         <!--Peta View Controller-->
         <scene sceneID="AwQ-No-PBk">
             <objects>
@@ -61,7 +69,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="FVu-Pk-XTH">
                         <rightBarButtonItems>
-                            <barButtonItem image="notification" id="7dp-Ng-B5R"/>
+                            <barButtonItem image="notification" id="7dp-Ng-B5R">
+                                <connections>
+                                    <segue destination="NIG-Gj-NG3" kind="show" id="HJ8-Am-bH8"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="without notif" id="blJ-Vi-Tnl">
                                 <connections>
                                     <segue destination="wXd-qH-XcV" kind="show" id="7KT-u4-3J9"/>
